@@ -1,11 +1,8 @@
 <template>
 	<view class="doctorDetailLayout pageBg2">
 		<view class="logoBackground">
-			<view class="logo">
-				<image src="../../static/zxj/male.png" mode="aspectFill"></image>
-			</view>
 			<view class="box">
-				<view class="name">
+				<view class="name" style="font-size: 40rpx;font-weight: bold">
 					{{data.name}}
 				</view>
 				<view class="reservation">
@@ -15,7 +12,7 @@
 		</view>
 		<view class="time-of-registration">
 			<view class="time">
-				<text>就诊时间： <uni-dateformat :date="date" format="yyyy-MM-dd"></uni-dateformat></text>
+				<text>坐诊时间： <uni-dateformat :date="date" format="yyyy-MM-dd"></uni-dateformat></text>
 			</view>
 			<view class="time-detail">
 				<view class="morning" v-if="f1">
@@ -51,8 +48,12 @@
 					<wd-button size="small" type="info" @click="cardSelect">健康卡管理</wd-button>
 				</view>
 			</view>
-			<view class="logo">
+<!-- 			<view class="logo">
 				<up-avatar :text="healthcard.name" fontSize="12" randomBgColor size="50"></up-avatar>
+			</view> -->
+			<view class="image">
+				<img src="../../static/QRcard.png" style="width: 150rpx;height: 150rpx;" />
+				<!-- <up-avatar :text="cardinfo.name" fontSize="18" randomBgColor size="80"></up-avatar> -->
 			</view>
 			<view class="name">
 				{{healthcard.name}}
@@ -191,8 +192,8 @@
 	}
 	const healthcard = ref({
 		patientId: 0,
-		name: '原神',
-		id: '114514191981011451'
+		name: '',
+		id: ''
 	})
 	const Allhealthcards = ref([])
 
@@ -441,6 +442,16 @@
 				.text {
 					width: 450rpx;
 				}
+			}
+			
+			.image{
+				width: 200rpx;
+				box-sizing: border-box;
+				height: 200rpx;
+				margin: 0 50rpx;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 
 			.logo {
