@@ -1,0 +1,1 @@
+import{y as t}from"./index-CbEuBPGN.js";const n=t(),e=()=>n.statusBarHeight||15,i=()=>{if(uni.getMenuButtonBoundingClientRect){let{top:t,height:n}=uni.getMenuButtonBoundingClientRect();return n+2*(t-e())}return 40},u=()=>e()+i();export{i as a,u as b,e as g};
