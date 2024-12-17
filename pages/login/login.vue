@@ -152,8 +152,6 @@
 				margin: 20rpx 30rpx;
 			}
 		}
-		
-
 
 		.title1 {
 			display: flex;

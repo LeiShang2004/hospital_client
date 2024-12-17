@@ -2,7 +2,7 @@
 	<view class="myTabBar">
 		<wd-tabbar shape="round" active-color="#ee0a24" inactive-color="#000" fixed v-model="tabbar" @change="handleChange1">
 		  <wd-tabbar-item title="首页" icon="home" ></wd-tabbar-item>
-		  <wd-tabbar-item title="医院信息" icon="list"></wd-tabbar-item>
+		  <!-- <wd-tabbar-item title="医院信息" icon="list"></wd-tabbar-item> -->
 		  <wd-tabbar-item title="我的" icon="user"></wd-tabbar-item>
 		</wd-tabbar>
 	</view>

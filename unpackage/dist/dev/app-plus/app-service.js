@@ -270,8 +270,8 @@ if (uni.restoreGlobal) {
     "uicon-zh": "",
     "uicon-en": ""
   };
-  const defineMixin = (options2) => {
-    return options2;
+  const defineMixin = (options) => {
+    return options;
   };
   const version = "3";
   {
@@ -1754,7 +1754,7 @@ if (uni.restoreGlobal) {
       previewImage: true
     }
   };
-  const props$a = {
+  const props$9 = {
     ...ActionSheet,
     ...Album,
     ...Alert,
@@ -1844,92 +1844,92 @@ if (uni.restoreGlobal) {
     ...Transition,
     ...Upload
   };
-  const props$9 = defineMixin({
+  const props$8 = defineMixin({
     props: {
       // 图标类名
       name: {
         type: String,
-        default: () => props$a.icon.name
+        default: () => props$9.icon.name
       },
       // 图标颜色，可接受主题色
       color: {
         type: String,
-        default: () => props$a.icon.color
+        default: () => props$9.icon.color
       },
       // 字体大小，单位px
       size: {
         type: [String, Number],
-        default: () => props$a.icon.size
+        default: () => props$9.icon.size
       },
       // 是否显示粗体
       bold: {
         type: Boolean,
-        default: () => props$a.icon.bold
+        default: () => props$9.icon.bold
       },
       // 点击图标的时候传递事件出去的index（用于区分点击了哪一个）
       index: {
         type: [String, Number],
-        default: () => props$a.icon.index
+        default: () => props$9.icon.index
       },
       // 触摸图标时的类名
       hoverClass: {
         type: String,
-        default: () => props$a.icon.hoverClass
+        default: () => props$9.icon.hoverClass
       },
       // 自定义扩展前缀，方便用户扩展自己的图标库
       customPrefix: {
         type: String,
-        default: () => props$a.icon.customPrefix
+        default: () => props$9.icon.customPrefix
       },
       // 图标右边或者下面的文字
       label: {
         type: [String, Number],
-        default: () => props$a.icon.label
+        default: () => props$9.icon.label
       },
       // label的位置，只能右边或者下边
       labelPos: {
         type: String,
-        default: () => props$a.icon.labelPos
+        default: () => props$9.icon.labelPos
       },
       // label的大小
       labelSize: {
         type: [String, Number],
-        default: () => props$a.icon.labelSize
+        default: () => props$9.icon.labelSize
       },
       // label的颜色
       labelColor: {
         type: String,
-        default: () => props$a.icon.labelColor
+        default: () => props$9.icon.labelColor
       },
       // label与图标的距离
       space: {
         type: [String, Number],
-        default: () => props$a.icon.space
+        default: () => props$9.icon.space
       },
       // 图片的mode
       imgMode: {
         type: String,
-        default: () => props$a.icon.imgMode
+        default: () => props$9.icon.imgMode
       },
       // 用于显示图片小图标时，图片的宽度
       width: {
         type: [String, Number],
-        default: () => props$a.icon.width
+        default: () => props$9.icon.width
       },
       // 用于显示图片小图标时，图片的高度
       height: {
         type: [String, Number],
-        default: () => props$a.icon.height
+        default: () => props$9.icon.height
       },
       // 用于解决某些情况下，让图标垂直居中的用途
       top: {
         type: [String, Number],
-        default: () => props$a.icon.top
+        default: () => props$9.icon.top
       },
       // 是否阻止事件传播
       stop: {
         type: Boolean,
-        default: () => props$a.icon.stop
+        default: () => props$9.icon.stop
       }
     }
   });
@@ -2066,7 +2066,7 @@ if (uni.restoreGlobal) {
     }
     return false;
   }
-  function array$2(value2) {
+  function array$1(value2) {
     if (typeof Array.isArray === "function") {
       return Array.isArray(value2);
     }
@@ -2118,7 +2118,7 @@ if (uni.restoreGlobal) {
     jsonString: jsonString$1,
     landline: landline$1,
     object: object$1,
-    array: array$2,
+    array: array$1,
     code: code$1,
     func: func$1,
     promise: promise$1,
@@ -2281,7 +2281,7 @@ if (uni.restoreGlobal) {
     }
     return trim$2(string2);
   }
-  function addUnit$3(value2 = "auto", unit = "") {
+  function addUnit$2(value2 = "auto", unit = "") {
     if (!unit) {
       unit = config.unit || "px";
     }
@@ -2291,22 +2291,22 @@ if (uni.restoreGlobal) {
     value2 = String(value2);
     return number$1(value2) ? `${value2}${unit}` : value2;
   }
-  function deepClone$3(obj) {
+  function deepClone$2(obj) {
     if ([null, void 0, NaN, false].includes(obj))
       return obj;
     if (typeof obj !== "object" && typeof obj !== "function") {
       return obj;
     }
-    const o = array$2(obj) ? [] : {};
+    const o = array$1(obj) ? [] : {};
     for (const i in obj) {
       if (obj.hasOwnProperty(i)) {
-        o[i] = typeof obj[i] === "object" ? deepClone$3(obj[i]) : obj[i];
+        o[i] = typeof obj[i] === "object" ? deepClone$2(obj[i]) : obj[i];
       }
     }
     return o;
   }
   function deepMerge$2(targetOrigin = {}, source = {}) {
-    let target = deepClone$3(targetOrigin);
+    let target = deepClone$2(targetOrigin);
     if (typeof target !== "object" || typeof source !== "object")
       return false;
     for (const prop in source) {
@@ -2662,8 +2662,8 @@ if (uni.restoreGlobal) {
     guid: guid$1,
     $parent: $parent$1,
     addStyle: addStyle$1,
-    addUnit: addUnit$3,
-    deepClone: deepClone$3,
+    addUnit: addUnit$2,
+    deepClone: deepClone$2,
     deepMerge: deepMerge$2,
     shallowMerge,
     error: error$1,
@@ -2719,14 +2719,14 @@ if (uni.restoreGlobal) {
       return url2 += query;
     }
     // 对外的方法名称
-    async route(options2 = {}, params = {}) {
+    async route(options = {}, params = {}) {
       let mergeConfig2 = {};
-      if (typeof options2 === "string") {
-        mergeConfig2.url = this.mixinParam(options2, params);
+      if (typeof options === "string") {
+        mergeConfig2.url = this.mixinParam(options, params);
         mergeConfig2.type = "navigateTo";
       } else {
-        mergeConfig2 = deepMerge$2(this.config, options2);
-        mergeConfig2.url = this.mixinParam(options2.url, options2.params);
+        mergeConfig2 = deepMerge$2(this.config, options);
+        mergeConfig2.url = this.mixinParam(options.url, options.params);
       }
       if (mergeConfig2.url === page$1())
         return;
@@ -2922,13 +2922,13 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$S = {
+  const _sfc_main$Q = {
     name: "u-icon",
     data() {
       return {};
     },
     emits: ["click"],
-    mixins: [mpMixin$1, mixin$1, props$9],
+    mixins: [mpMixin$1, mixin$1, props$8],
     computed: {
       uClasses() {
         let classes2 = [];
@@ -2945,11 +2945,11 @@ if (uni.restoreGlobal) {
       iconStyle() {
         let style = {};
         style = {
-          fontSize: addUnit$3(this.size),
-          lineHeight: addUnit$3(this.size),
+          fontSize: addUnit$2(this.size),
+          lineHeight: addUnit$2(this.size),
           fontWeight: this.bold ? "bold" : "normal",
           // 某些特殊情况需要设置一个到顶部的距离，才能更好的垂直居中
-          top: addUnit$3(this.top)
+          top: addUnit$2(this.top)
         };
         if (this.color && !config.type.includes(this.color))
           style.color = this.color;
@@ -2961,8 +2961,8 @@ if (uni.restoreGlobal) {
       },
       imgStyle() {
         let style = {};
-        style.width = this.width ? addUnit$3(this.width) : addUnit$3(this.size);
-        style.height = this.height ? addUnit$3(this.height) : addUnit$3(this.size);
+        style.width = this.width ? addUnit$2(this.width) : addUnit$2(this.size);
+        style.height = this.height ? addUnit$2(this.height) : addUnit$2(this.size);
         return style;
       },
       // 通过图标名，查找对应的图标
@@ -2974,14 +2974,14 @@ if (uni.restoreGlobal) {
     },
     methods: {
       addStyle: addStyle$1,
-      addUnit: addUnit$3,
+      addUnit: addUnit$2,
       clickHandler(e) {
         this.$emit("click", this.index, e);
         this.stop && this.preventEvent(e);
       }
     }
   };
-  function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -3025,13 +3025,13 @@ if (uni.restoreGlobal) {
       /* CLASS */
     );
   }
-  const __easycom_1$a = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$R], ["__scopeId", "data-v-ac70166d"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uview-plus/components/u-icon/u-icon.vue"]]);
-  const props$8 = defineMixin({
+  const __easycom_1$a = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$P], ["__scopeId", "data-v-ac70166d"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uview-plus/components/u-icon/u-icon.vue"]]);
+  const props$7 = defineMixin({
     props: {
       // 绑定的值
       modelValue: {
         type: [String, Number],
-        default: () => props$a.input.value
+        default: () => props$9.input.value
       },
       // number-数字输入键盘，app-vue下可以输入浮点数，app-nvue和小程序平台下只能输入整数
       // idcard-身份证输入键盘，微信、支付宝、百度、QQ小程序
@@ -3039,171 +3039,171 @@ if (uni.restoreGlobal) {
       // text-文本输入键盘
       type: {
         type: String,
-        default: () => props$a.input.type
+        default: () => props$9.input.type
       },
       // 如果 textarea 是在一个 position:fixed 的区域，需要显示指定属性 fixed 为 true，
       // 兼容性：微信小程序、百度小程序、字节跳动小程序、QQ小程序
       fixed: {
         type: Boolean,
-        default: () => props$a.input.fixed
+        default: () => props$9.input.fixed
       },
       // 是否禁用输入框
       disabled: {
         type: Boolean,
-        default: () => props$a.input.disabled
+        default: () => props$9.input.disabled
       },
       // 禁用状态时的背景色
       disabledColor: {
         type: String,
-        default: () => props$a.input.disabledColor
+        default: () => props$9.input.disabledColor
       },
       // 是否显示清除控件
       clearable: {
         type: Boolean,
-        default: () => props$a.input.clearable
+        default: () => props$9.input.clearable
       },
       // 是否密码类型
       password: {
         type: Boolean,
-        default: () => props$a.input.password
+        default: () => props$9.input.password
       },
       // 最大输入长度，设置为 -1 的时候不限制最大长度
       maxlength: {
         type: [String, Number],
-        default: () => props$a.input.maxlength
+        default: () => props$9.input.maxlength
       },
       // 	输入框为空时的占位符
       placeholder: {
         type: String,
-        default: () => props$a.input.placeholder
+        default: () => props$9.input.placeholder
       },
       // 指定placeholder的样式类，注意页面或组件的style中写了scoped时，需要在类名前写/deep/
       placeholderClass: {
         type: String,
-        default: () => props$a.input.placeholderClass
+        default: () => props$9.input.placeholderClass
       },
       // 指定placeholder的样式
       placeholderStyle: {
         type: [String, Object],
-        default: () => props$a.input.placeholderStyle
+        default: () => props$9.input.placeholderStyle
       },
       // 是否显示输入字数统计，只在 type ="text"或type ="textarea"时有效
       showWordLimit: {
         type: Boolean,
-        default: () => props$a.input.showWordLimit
+        default: () => props$9.input.showWordLimit
       },
       // 设置右下角按钮的文字，有效值：send|search|next|go|done，兼容性详见uni-app文档
       // https://uniapp.dcloud.io/component/input
       // https://uniapp.dcloud.io/component/textarea
       confirmType: {
         type: String,
-        default: () => props$a.input.confirmType
+        default: () => props$9.input.confirmType
       },
       // 点击键盘右下角按钮时是否保持键盘不收起，H5无效
       confirmHold: {
         type: Boolean,
-        default: () => props$a.input.confirmHold
+        default: () => props$9.input.confirmHold
       },
       // focus时，点击页面的时候不收起键盘，微信小程序有效
       holdKeyboard: {
         type: Boolean,
-        default: () => props$a.input.holdKeyboard
+        default: () => props$9.input.holdKeyboard
       },
       // 自动获取焦点
       // 在 H5 平台能否聚焦以及软键盘是否跟随弹出，取决于当前浏览器本身的实现。nvue 页面不支持，需使用组件的 focus()、blur() 方法控制焦点
       focus: {
         type: Boolean,
-        default: () => props$a.input.focus
+        default: () => props$9.input.focus
       },
       // 键盘收起时，是否自动失去焦点，目前仅App3.0.0+有效
       autoBlur: {
         type: Boolean,
-        default: () => props$a.input.autoBlur
+        default: () => props$9.input.autoBlur
       },
       // 是否去掉 iOS 下的默认内边距，仅微信小程序，且type=textarea时有效
       disableDefaultPadding: {
         type: Boolean,
-        default: () => props$a.input.disableDefaultPadding
+        default: () => props$9.input.disableDefaultPadding
       },
       // 指定focus时光标的位置
       cursor: {
         type: [String, Number],
-        default: () => props$a.input.cursor
+        default: () => props$9.input.cursor
       },
       // 输入框聚焦时底部与键盘的距离
       cursorSpacing: {
         type: [String, Number],
-        default: () => props$a.input.cursorSpacing
+        default: () => props$9.input.cursorSpacing
       },
       // 光标起始位置，自动聚集时有效，需与selection-end搭配使用
       selectionStart: {
         type: [String, Number],
-        default: () => props$a.input.selectionStart
+        default: () => props$9.input.selectionStart
       },
       // 光标结束位置，自动聚集时有效，需与selection-start搭配使用
       selectionEnd: {
         type: [String, Number],
-        default: () => props$a.input.selectionEnd
+        default: () => props$9.input.selectionEnd
       },
       // 键盘弹起时，是否自动上推页面
       adjustPosition: {
         type: Boolean,
-        default: () => props$a.input.adjustPosition
+        default: () => props$9.input.adjustPosition
       },
       // 输入框内容对齐方式，可选值为：left|center|right
       inputAlign: {
         type: String,
-        default: () => props$a.input.inputAlign
+        default: () => props$9.input.inputAlign
       },
       // 输入框字体的大小
       fontSize: {
         type: [String, Number],
-        default: () => props$a.input.fontSize
+        default: () => props$9.input.fontSize
       },
       // 输入框字体颜色
       color: {
         type: String,
-        default: () => props$a.input.color
+        default: () => props$9.input.color
       },
       // 输入框前置图标
       prefixIcon: {
         type: String,
-        default: () => props$a.input.prefixIcon
+        default: () => props$9.input.prefixIcon
       },
       // 前置图标样式，对象或字符串
       prefixIconStyle: {
         type: [String, Object],
-        default: () => props$a.input.prefixIconStyle
+        default: () => props$9.input.prefixIconStyle
       },
       // 输入框后置图标
       suffixIcon: {
         type: String,
-        default: () => props$a.input.suffixIcon
+        default: () => props$9.input.suffixIcon
       },
       // 后置图标样式，对象或字符串
       suffixIconStyle: {
         type: [String, Object],
-        default: () => props$a.input.suffixIconStyle
+        default: () => props$9.input.suffixIconStyle
       },
       // 边框类型，surround-四周边框，bottom-底部边框，none-无边框
       border: {
         type: String,
-        default: () => props$a.input.border
+        default: () => props$9.input.border
       },
       // 是否只读，与disabled不同之处在于disabled会置灰组件，而readonly则不会
       readonly: {
         type: Boolean,
-        default: () => props$a.input.readonly
+        default: () => props$9.input.readonly
       },
       // 输入框形状，circle-圆形，square-方形
       shape: {
         type: String,
-        default: () => props$a.input.shape
+        default: () => props$9.input.shape
       },
       // 用于处理或者过滤输入框内容的方法
       formatter: {
         type: [Function, null],
-        default: () => props$a.input.formatter
+        default: () => props$9.input.formatter
       },
       // 是否忽略组件内对文本合成系统事件的处理
       ignoreCompositionEvent: {
@@ -3229,9 +3229,9 @@ if (uni.restoreGlobal) {
       }, wait);
     }
   }
-  const _sfc_main$R = {
+  const _sfc_main$P = {
     name: "u-input",
-    mixins: [mpMixin$1, mixin$1, props$8],
+    mixins: [mpMixin$1, mixin$1, props$7],
     data() {
       return {
         // 清除操作
@@ -3310,7 +3310,7 @@ if (uni.restoreGlobal) {
       inputStyle() {
         const style = {
           color: this.color,
-          fontSize: addUnit$3(this.fontSize),
+          fontSize: addUnit$2(this.fontSize),
           textAlign: this.inputAlign
         };
         return style;
@@ -3399,7 +3399,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_1$a);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -3425,7 +3425,7 @@ if (uni.restoreGlobal) {
             class: "u-input__content__field-wrapper",
             onClick: _cache[6] || (_cache[6] = (...args) => $options.clickHandler && $options.clickHandler(...args))
           }, [
-            vue.createCommentVNode(" 根据uni-app的input组件文档，H5和APP中只要声明了password参数(无论true还是false)，type均失效，此时\n					为了防止type=number时，又存在password属性，type无效，此时需要设置password为undefined\n				 "),
+            vue.createCommentVNode(" 根据uni-app的input组件文档，H5和APP中只要声明了password参数(无论true还是false)，type均失效，此时\r\n					为了防止type=number时，又存在password属性，type无效，此时需要设置password为undefined\r\n				 "),
             vue.createElementVNode("input", {
               ref: "input-native",
               class: "u-input__content__field-wrapper__field",
@@ -3487,8 +3487,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$8 = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$Q], ["__scopeId", "data-v-df79975b"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uview-plus/components/u-input/u-input.vue"]]);
-  function addUnit$2(num) {
+  const __easycom_0$8 = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$O], ["__scopeId", "data-v-df79975b"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uview-plus/components/u-input/u-input.vue"]]);
+  function addUnit$1(num) {
     return Number.isNaN(Number(num)) ? `${num}` : `${num}px`;
   }
   function isObj(value2) {
@@ -3500,7 +3500,7 @@ if (uni.restoreGlobal) {
     const type = match2 && match2.length ? match2[1].toLowerCase() : "";
     return type;
   }
-  const isDef$1 = (value2) => value2 !== void 0 && value2 !== null;
+  const isDef = (value2) => value2 !== void 0 && value2 !== null;
   function getRect$1(selector, all, scope) {
     return new Promise((resolve, reject) => {
       let query = null;
@@ -3558,7 +3558,7 @@ if (uni.restoreGlobal) {
     }
     return "";
   }
-  function deepClone$2(obj, cache = /* @__PURE__ */ new Map()) {
+  function deepClone$1(obj, cache = /* @__PURE__ */ new Map()) {
     if (obj === null || typeof obj !== "object") {
       return obj;
     }
@@ -3580,7 +3580,7 @@ if (uni.restoreGlobal) {
     cache.set(obj, copy);
     for (const key in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        copy[key] = deepClone$2(obj[key], cache);
+        copy[key] = deepClone$1(obj[key], cache);
       }
     }
     return copy;
@@ -3611,7 +3611,7 @@ if (uni.restoreGlobal) {
     return imageRegex.test(url2);
   }
   function omitBy(obj, predicate) {
-    const newObj = deepClone$2(obj);
+    const newObj = deepClone$1(obj);
     Object.keys(newObj).forEach((key) => predicate(newObj[key], key) && delete newObj[key]);
     return newObj;
   }
@@ -3677,7 +3677,7 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$Q = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$O = /* @__PURE__ */ vue.defineComponent({
     ...__default__$9,
     props: iconProps,
     emits: ["click", "touch"],
@@ -3686,7 +3686,7 @@ if (uni.restoreGlobal) {
       const props2 = __props;
       const emit = __emit;
       const isImage = vue.computed(() => {
-        return isDef$1(props2.name) && isImageUrl(props2.name);
+        return isDef(props2.name) && isImageUrl(props2.name);
       });
       const rootClass = vue.computed(() => {
         const prefix = props2.classPrefix;
@@ -3698,7 +3698,7 @@ if (uni.restoreGlobal) {
           style["color"] = props2.color;
         }
         if (props2.size) {
-          style["font-size"] = addUnit$2(props2.size);
+          style["font-size"] = addUnit$1(props2.size);
         }
         return `${objToStyle(style)}; ${props2.customStyle}`;
       });
@@ -3710,7 +3710,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -3729,248 +3729,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const wdIcon = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$P], ["__scopeId", "data-v-24906af6"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-icon/wd-icon.vue"]]);
-  function useParent(key) {
-    const parent = vue.inject(key, null);
-    if (parent) {
-      const instance2 = vue.getCurrentInstance();
-      const { link, unlink, internalChildren } = parent;
-      link(instance2);
-      vue.onUnmounted(() => unlink(instance2));
-      const index2 = vue.computed(() => internalChildren.indexOf(instance2));
-      return {
-        parent,
-        index: index2
-      };
-    }
-    return {
-      parent: null,
-      index: vue.ref(-1)
-    };
-  }
-  const CHECKBOX_GROUP_KEY = Symbol("wd-checkbox-group");
-  const checkboxProps = {
-    ...baseProps,
-    customLabelClass: makeStringProp(""),
-    customShapeClass: makeStringProp(""),
-    /**
-     * 单选框选中时的值
-     */
-    modelValue: {
-      type: [String, Number, Boolean],
-      required: true,
-      default: false
-    },
-    /**
-     * 单选框形状，可选值：circle / square / button
-     */
-    shape: {
-      type: String
-    },
-    /**
-     * 选中的颜色
-     */
-    checkedColor: String,
-    /**
-     * 禁用
-     */
-    disabled: {
-      type: [Boolean, null],
-      default: null
-    },
-    /**
-     * 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用
-     */
-    trueValue: {
-      type: [String, Number, Boolean],
-      default: true
-    },
-    /**
-     * 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用
-     */
-    falseValue: {
-      type: [String, Number, Boolean],
-      default: false
-    },
-    /**
-     * 设置大小，可选值：large
-     */
-    size: String,
-    /**
-     * 文字位置最大宽度
-     */
-    maxWidth: String
-  };
-  const __default__$8 = {
-    name: "wd-checkbox",
-    options: {
-      addGlobalClass: true,
-      virtualHost: true,
-      styleIsolation: "shared"
-    }
-  };
-  const _sfc_main$P = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$8,
-    props: checkboxProps,
-    emits: ["change", "update:modelValue"],
-    setup(__props, { expose: __expose, emit: __emit }) {
-      const props2 = __props;
-      const emit = __emit;
-      __expose({
-        toggle
-      });
-      const { parent: checkboxGroup, index: index2 } = useParent(CHECKBOX_GROUP_KEY);
-      const isChecked = vue.computed(() => {
-        if (checkboxGroup) {
-          return checkboxGroup.props.modelValue.indexOf(props2.modelValue) > -1;
-        } else {
-          return props2.modelValue === props2.trueValue;
-        }
-      });
-      const isFirst = vue.computed(() => {
-        return index2.value === 0;
-      });
-      const isLast = vue.computed(() => {
-        const children = isDef$1(checkboxGroup) ? checkboxGroup.children : [];
-        return index2.value === children.length - 1;
-      });
-      const { proxy } = vue.getCurrentInstance();
-      vue.watch(
-        () => props2.modelValue,
-        () => {
-          if (checkboxGroup) {
-            checkName();
-          }
-        }
-      );
-      vue.watch(
-        () => props2.shape,
-        (newValue) => {
-          const type = ["circle", "square", "button"];
-          if (isDef$1(newValue) && type.indexOf(newValue) === -1)
-            formatAppLog("error", "at uni_modules/wot-design-uni/components/wd-checkbox/wd-checkbox.vue:94", `shape must be one of ${type.toString()}`);
-        }
-      );
-      const innerShape = vue.computed(() => {
-        return props2.shape || getPropByPath(checkboxGroup, "props.shape") || "circle";
-      });
-      const innerCheckedColor = vue.computed(() => {
-        return props2.checkedColor || getPropByPath(checkboxGroup, "props.checkedColor");
-      });
-      const innerDisabled = vue.computed(() => {
-        if (!checkboxGroup) {
-          return props2.disabled;
-        }
-        const { max, min, modelValue, disabled } = checkboxGroup.props;
-        if (max && modelValue.length >= max && !isChecked.value || min && modelValue.length <= min && isChecked.value || props2.disabled === true || disabled && props2.disabled === null) {
-          return true;
-        }
-        return props2.disabled;
-      });
-      const innerInline = vue.computed(() => {
-        return getPropByPath(checkboxGroup, "props.inline") || false;
-      });
-      const innerCell = vue.computed(() => {
-        return getPropByPath(checkboxGroup, "props.cell") || false;
-      });
-      const innerSize = vue.computed(() => {
-        return props2.size || getPropByPath(checkboxGroup, "props.size");
-      });
-      vue.onBeforeMount(() => {
-        if (props2.modelValue === null)
-          formatAppLog("error", "at uni_modules/wot-design-uni/components/wd-checkbox/wd-checkbox.vue:137", "checkbox's value must be set");
-      });
-      function checkName() {
-        checkboxGroup && checkboxGroup.children && checkboxGroup.children.forEach((child) => {
-          if (child.$.uid !== proxy.$.uid && child.modelValue === props2.modelValue) {
-            formatAppLog("error", "at uni_modules/wot-design-uni/components/wd-checkbox/wd-checkbox.vue:150", `The checkbox's bound value: ${props2.modelValue} has been used`);
-          }
-        });
-      }
-      function toggle() {
-        if (innerDisabled.value)
-          return;
-        if (checkboxGroup) {
-          emit("change", {
-            value: !isChecked.value
-          });
-          checkboxGroup.changeSelectState(props2.modelValue);
-        } else {
-          const newVal = props2.modelValue === props2.trueValue ? props2.falseValue : props2.trueValue;
-          emit("update:modelValue", newVal);
-          emit("change", {
-            value: newVal
-          });
-        }
-      }
-      const __returned__ = { props: props2, emit, checkboxGroup, index: index2, isChecked, isFirst, isLast, proxy, innerShape, innerCheckedColor, innerDisabled, innerInline, innerCell, innerSize, checkName, toggle, wdIcon };
-      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
-      return __returned__;
-    }
-  });
-  function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock(
-      "view",
-      {
-        class: vue.normalizeClass(`wd-checkbox ${$setup.innerCell ? "is-cell-box" : ""} ${$setup.innerShape === "button" ? "is-button-box" : ""} ${$setup.isChecked ? "is-checked" : ""} ${$setup.isFirst ? "is-first-child" : ""} ${$setup.isLast ? "is-last-child" : ""} ${$setup.innerInline ? "is-inline" : ""} ${$setup.innerShape === "button" ? "is-button" : ""} ${$setup.innerDisabled ? "is-disabled" : ""} ${$setup.innerSize ? "is-" + $setup.innerSize : ""} ${_ctx.customClass}`),
-        style: vue.normalizeStyle(_ctx.customStyle),
-        onClick: $setup.toggle
-      },
-      [
-        vue.createCommentVNode("shape为button时，移除wd-checkbox__shape，只保留wd-checkbox__label"),
-        $setup.innerShape !== "button" ? (vue.openBlock(), vue.createElementBlock(
-          "view",
-          {
-            key: 0,
-            class: vue.normalizeClass(`wd-checkbox__shape ${$setup.innerShape === "square" ? "is-square" : ""} ${_ctx.customShapeClass}`),
-            style: vue.normalizeStyle($setup.isChecked && !$setup.innerDisabled && $setup.innerCheckedColor ? "color :" + $setup.innerCheckedColor : "")
-          },
-          [
-            vue.createVNode($setup["wdIcon"], {
-              "custom-class": "wd-checkbox__check",
-              name: "check-bold"
-            })
-          ],
-          6
-          /* CLASS, STYLE */
-        )) : vue.createCommentVNode("v-if", true),
-        vue.createCommentVNode("shape为button时只保留wd-checkbox__label"),
-        vue.createElementVNode(
-          "view",
-          {
-            class: vue.normalizeClass(`wd-checkbox__label ${_ctx.customLabelClass}`),
-            style: vue.normalizeStyle($setup.isChecked && $setup.innerShape === "button" && !$setup.innerDisabled && $setup.innerCheckedColor ? "color:" + $setup.innerCheckedColor : "")
-          },
-          [
-            vue.createCommentVNode("button选中时展示的icon"),
-            $setup.innerShape === "button" && $setup.isChecked ? (vue.openBlock(), vue.createBlock($setup["wdIcon"], {
-              key: 0,
-              "custom-class": "wd-checkbox__btn-check",
-              name: "check-bold"
-            })) : vue.createCommentVNode("v-if", true),
-            vue.createCommentVNode("文案"),
-            vue.createElementVNode(
-              "view",
-              {
-                class: "wd-checkbox__txt",
-                style: vue.normalizeStyle(_ctx.maxWidth ? "max-width:" + _ctx.maxWidth : "")
-              },
-              [
-                vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-              ],
-              4
-              /* STYLE */
-            )
-          ],
-          6
-          /* CLASS, STYLE */
-        )
-      ],
-      6
-      /* CLASS, STYLE */
-    );
-  }
-  const __easycom_2$4 = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$O], ["__scopeId", "data-v-66fc790e"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-checkbox/wd-checkbox.vue"]]);
+  const wdIcon = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$N], ["__scopeId", "data-v-24906af6"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-icon/wd-icon.vue"]]);
   const _b64chars = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"];
   const _mkUriSafe = (src) => src.replace(/[+/]/g, (m0) => m0 === "+" ? "-" : "_").replace(/=+\$/m, "");
   const fromUint8Array = (src, rfc4648 = false) => {
@@ -4083,7 +3842,7 @@ if (uni.restoreGlobal) {
      */
     buttonId: String
   };
-  const __default__$7 = {
+  const __default__$8 = {
     name: "wd-button",
     options: {
       addGlobalClass: true,
@@ -4091,8 +3850,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$O = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$7,
+  const _sfc_main$N = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$8,
     props: buttonProps,
     emits: [
       "click",
@@ -4187,7 +3946,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("button", {
       id: _ctx.buttonId,
       "hover-class": `${_ctx.disabled || _ctx.loading ? "" : "wd-button--active"}`,
@@ -4250,7 +4009,7 @@ if (uni.restoreGlobal) {
       ])
     ], 46, ["id", "hover-class", "hover-start-time", "hover-stay-time", "open-type", "send-message-title", "send-message-path", "send-message-img", "app-parameter", "show-message-card", "session-from", "lang", "hover-stop-propagation"]);
   }
-  const __easycom_1$9 = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$N], ["__scopeId", "data-v-d858c170"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-button/wd-button.vue"]]);
+  const __easycom_1$9 = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$M], ["__scopeId", "data-v-d858c170"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-button/wd-button.vue"]]);
   function bind(fn, thisArg) {
     return function wrap() {
       return fn.apply(thisArg, arguments);
@@ -4270,7 +4029,7 @@ if (uni.restoreGlobal) {
   const { isArray: isArray$1 } = Array;
   const isUndefined$1 = typeOfTest("undefined");
   function isBuffer(val) {
-    return val !== null && !isUndefined$1(val) && val.constructor !== null && !isUndefined$1(val.constructor) && isFunction$1(val.constructor.isBuffer) && val.constructor.isBuffer(val);
+    return val !== null && !isUndefined$1(val) && val.constructor !== null && !isUndefined$1(val.constructor) && isFunction(val.constructor.isBuffer) && val.constructor.isBuffer(val);
   }
   const isArrayBuffer = kindOfTest("ArrayBuffer");
   function isArrayBufferView(val) {
@@ -4283,9 +4042,9 @@ if (uni.restoreGlobal) {
     return result;
   }
   const isString = typeOfTest("string");
-  const isFunction$1 = typeOfTest("function");
+  const isFunction = typeOfTest("function");
   const isNumber = typeOfTest("number");
-  const isObject$5 = (thing) => thing !== null && typeof thing === "object";
+  const isObject$4 = (thing) => thing !== null && typeof thing === "object";
   const isBoolean = (thing) => thing === true || thing === false;
   const isPlainObject$1 = (val) => {
     if (kindOf(val) !== "object") {
@@ -4298,11 +4057,11 @@ if (uni.restoreGlobal) {
   const isFile = kindOfTest("File");
   const isBlob = kindOfTest("Blob");
   const isFileList = kindOfTest("FileList");
-  const isStream = (val) => isObject$5(val) && isFunction$1(val.pipe);
+  const isStream = (val) => isObject$4(val) && isFunction(val.pipe);
   const isFormData = (thing) => {
     let kind;
-    return thing && (typeof FormData === "function" && thing instanceof FormData || isFunction$1(thing.append) && ((kind = kindOf(thing)) === "formdata" || // detect form-data instance
-    kind === "object" && isFunction$1(thing.toString) && thing.toString() === "[object FormData]"));
+    return thing && (typeof FormData === "function" && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === "formdata" || // detect form-data instance
+    kind === "object" && isFunction(thing.toString) && thing.toString() === "[object FormData]"));
   };
   const isURLSearchParams$1 = kindOfTest("URLSearchParams");
   const [isReadableStream, isRequest, isResponse, isHeaders] = ["ReadableStream", "Request", "Response", "Headers"].map(kindOfTest);
@@ -4371,7 +4130,7 @@ if (uni.restoreGlobal) {
   }
   const extend$2 = (a, b, thisArg, { allOwnKeys } = {}) => {
     forEach$1(b, (val, key) => {
-      if (thisArg && isFunction$1(val)) {
+      if (thisArg && isFunction(val)) {
         a[key] = bind(val, thisArg);
       } else {
         a[key] = val;
@@ -4484,11 +4243,11 @@ if (uni.restoreGlobal) {
   };
   const freezeMethods = (obj) => {
     reduceDescriptors(obj, (descriptor, name) => {
-      if (isFunction$1(obj) && ["arguments", "caller", "callee"].indexOf(name) !== -1) {
+      if (isFunction(obj) && ["arguments", "caller", "callee"].indexOf(name) !== -1) {
         return false;
       }
       const value2 = obj[name];
-      if (!isFunction$1(value2))
+      if (!isFunction(value2))
         return;
       descriptor.enumerable = false;
       if ("writable" in descriptor) {
@@ -4512,7 +4271,7 @@ if (uni.restoreGlobal) {
     isArray$1(arrayOrString) ? define(arrayOrString) : define(String(arrayOrString).split(delimiter));
     return obj;
   };
-  const noop$1 = () => {
+  const noop = () => {
   };
   const toFiniteNumber = (value2, defaultValue) => {
     return value2 != null && Number.isFinite(value2 = +value2) ? value2 : defaultValue;
@@ -4533,12 +4292,12 @@ if (uni.restoreGlobal) {
     return str;
   };
   function isSpecCompliantForm(thing) {
-    return !!(thing && isFunction$1(thing.append) && thing[Symbol.toStringTag] === "FormData" && thing[Symbol.iterator]);
+    return !!(thing && isFunction(thing.append) && thing[Symbol.toStringTag] === "FormData" && thing[Symbol.iterator]);
   }
   const toJSONObject = (obj) => {
     const stack = new Array(10);
     const visit = (source, i) => {
-      if (isObject$5(source)) {
+      if (isObject$4(source)) {
         if (stack.indexOf(source) >= 0) {
           return;
         }
@@ -4558,7 +4317,7 @@ if (uni.restoreGlobal) {
     return visit(obj, 0);
   };
   const isAsyncFn = kindOfTest("AsyncFunction");
-  const isThenable = (thing) => thing && (isObject$5(thing) || isFunction$1(thing)) && isFunction$1(thing.then) && isFunction$1(thing.catch);
+  const isThenable = (thing) => thing && (isObject$4(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
   const _setImmediate = ((setImmediateSupported, postMessageSupported) => {
     if (setImmediateSupported) {
       return setImmediate;
@@ -4576,7 +4335,7 @@ if (uni.restoreGlobal) {
     })(`axios@${Math.random()}`, []) : (cb) => setTimeout(cb);
   })(
     typeof setImmediate === "function",
-    isFunction$1(_global.postMessage)
+    isFunction(_global.postMessage)
   );
   const asap = typeof queueMicrotask !== "undefined" ? queueMicrotask.bind(_global) : typeof process !== "undefined" && process.nextTick || _setImmediate;
   const utils$1 = {
@@ -4588,7 +4347,7 @@ if (uni.restoreGlobal) {
     isString,
     isNumber,
     isBoolean,
-    isObject: isObject$5,
+    isObject: isObject$4,
     isPlainObject: isPlainObject$1,
     isReadableStream,
     isRequest,
@@ -4599,7 +4358,7 @@ if (uni.restoreGlobal) {
     isFile,
     isBlob,
     isRegExp,
-    isFunction: isFunction$1,
+    isFunction,
     isStream,
     isURLSearchParams: isURLSearchParams$1,
     isTypedArray,
@@ -4625,7 +4384,7 @@ if (uni.restoreGlobal) {
     freezeMethods,
     toObjectSet,
     toCamelCase,
-    noop: noop$1,
+    noop,
     toFiniteNumber,
     findKey: findKey$1,
     global: _global,
@@ -4732,23 +4491,23 @@ if (uni.restoreGlobal) {
   const predicates = utils$1.toFlatObject(utils$1, {}, null, function filter(prop) {
     return /^is[A-Z]/.test(prop);
   });
-  function toFormData(obj, formData, options2) {
+  function toFormData(obj, formData, options) {
     if (!utils$1.isObject(obj)) {
       throw new TypeError("target must be an object");
     }
     formData = formData || new FormData();
-    options2 = utils$1.toFlatObject(options2, {
+    options = utils$1.toFlatObject(options, {
       metaTokens: true,
       dots: false,
       indexes: false
     }, false, function defined(option, source) {
       return !utils$1.isUndefined(source[option]);
     });
-    const metaTokens = options2.metaTokens;
-    const visitor = options2.visitor || defaultVisitor;
-    const dots = options2.dots;
-    const indexes = options2.indexes;
-    const _Blob = options2.Blob || typeof Blob !== "undefined" && Blob;
+    const metaTokens = options.metaTokens;
+    const visitor = options.visitor || defaultVisitor;
+    const dots = options.dots;
+    const indexes = options.indexes;
+    const _Blob = options.Blob || typeof Blob !== "undefined" && Blob;
     const useBlob = _Blob && utils$1.isSpecCompliantForm(formData);
     if (!utils$1.isFunction(visitor)) {
       throw new TypeError("visitor must be a function");
@@ -4838,9 +4597,9 @@ if (uni.restoreGlobal) {
       return charMap[match2];
     });
   }
-  function AxiosURLSearchParams(params, options2) {
+  function AxiosURLSearchParams(params, options) {
     this._pairs = [];
-    params && toFormData(params, this, options2);
+    params && toFormData(params, this, options);
   }
   const prototype = AxiosURLSearchParams.prototype;
   prototype.append = function append(name, value2) {
@@ -4857,22 +4616,22 @@ if (uni.restoreGlobal) {
   function encode$1(val) {
     return encodeURIComponent(val).replace(/%3A/gi, ":").replace(/%24/g, "$").replace(/%2C/gi, ",").replace(/%20/g, "+").replace(/%5B/gi, "[").replace(/%5D/gi, "]");
   }
-  function buildURL$1(url2, params, options2) {
+  function buildURL$1(url2, params, options) {
     if (!params) {
       return url2;
     }
-    const _encode = options2 && options2.encode || encode$1;
-    if (utils$1.isFunction(options2)) {
-      options2 = {
-        serialize: options2
+    const _encode = options && options.encode || encode$1;
+    if (utils$1.isFunction(options)) {
+      options = {
+        serialize: options
       };
     }
-    const serializeFn = options2 && options2.serialize;
+    const serializeFn = options && options.serialize;
     let serializedParams;
     if (serializeFn) {
-      serializedParams = serializeFn(params, options2);
+      serializedParams = serializeFn(params, options);
     } else {
-      serializedParams = utils$1.isURLSearchParams(params) ? params.toString() : new AxiosURLSearchParams(params, options2).toString(_encode);
+      serializedParams = utils$1.isURLSearchParams(params) ? params.toString() : new AxiosURLSearchParams(params, options).toString(_encode);
     }
     if (serializedParams) {
       const hashmarkIndex = url2.indexOf("#");
@@ -4895,12 +4654,12 @@ if (uni.restoreGlobal) {
      *
      * @return {Number} An ID used to remove interceptor later
      */
-    use(fulfilled, rejected, options2) {
+    use(fulfilled, rejected, options) {
       this.handlers.push({
         fulfilled,
         rejected,
-        synchronous: options2 ? options2.synchronous : false,
-        runWhen: options2 ? options2.runWhen : null
+        synchronous: options ? options.synchronous : false,
+        runWhen: options ? options.runWhen : null
       });
       return this.handlers.length - 1;
     }
@@ -4981,7 +4740,7 @@ if (uni.restoreGlobal) {
     ...utils,
     ...platform$3
   };
-  function toURLEncodedForm(data, options2) {
+  function toURLEncodedForm(data, options) {
     return toFormData(data, new platform$2.classes.URLSearchParams(), Object.assign({
       visitor: function(value2, key, path, helpers) {
         if (platform$2.isNode && utils$1.isBuffer(value2)) {
@@ -4990,7 +4749,7 @@ if (uni.restoreGlobal) {
         }
         return helpers.defaultVisitor.apply(this, arguments);
       }
-    }, options2));
+    }, options));
   }
   function parsePropPath(name) {
     return utils$1.matchAll(/\w+|\[(\w*)]/g, name).map((match2) => {
@@ -6062,9 +5821,9 @@ if (uni.restoreGlobal) {
       let response = await fetch(request);
       const isStreamResponse = supportsResponseStream && (responseType === "stream" || responseType === "response");
       if (supportsResponseStream && (onDownloadProgress || isStreamResponse && unsubscribe)) {
-        const options2 = {};
+        const options = {};
         ["status", "statusText", "headers"].forEach((prop) => {
-          options2[prop] = response[prop];
+          options[prop] = response[prop];
         });
         const responseContentLength = utils$1.toFiniteNumber(response.headers.get("content-length"));
         const [onProgress, flush] = onDownloadProgress && progressEventDecorator(
@@ -6076,7 +5835,7 @@ if (uni.restoreGlobal) {
             flush && flush();
             unsubscribe && unsubscribe();
           }),
-          options2
+          options
         );
       }
       responseType = responseType || "text";
@@ -6239,18 +5998,18 @@ if (uni.restoreGlobal) {
       return true;
     };
   };
-  function assertOptions(options2, schema, allowUnknown) {
-    if (typeof options2 !== "object") {
+  function assertOptions(options, schema, allowUnknown) {
+    if (typeof options !== "object") {
       throw new AxiosError("options must be an object", AxiosError.ERR_BAD_OPTION_VALUE);
     }
-    const keys = Object.keys(options2);
+    const keys = Object.keys(options);
     let i = keys.length;
     while (i-- > 0) {
       const opt = keys[i];
       const validator2 = schema[opt];
       if (validator2) {
-        const value2 = options2[opt];
-        const result = value2 === void 0 || validator2(value2, opt, options2);
+        const value2 = options[opt];
+        const result = value2 === void 0 || validator2(value2, opt, options);
         if (result !== true) {
           throw new AxiosError("option " + opt + " must be " + result, AxiosError.ERR_BAD_OPTION_VALUE);
         }
@@ -6838,10 +6597,10 @@ if (uni.restoreGlobal) {
       return fn(obj[key], key);
     });
   }
-  function isObject$4(obj) {
+  function isObject$3(obj) {
     return obj !== null && typeof obj === "object";
   }
-  function isPromise$1(val) {
+  function isPromise(val) {
     return val && typeof val.then === "function";
   }
   function assert(condition2, msg) {
@@ -6854,9 +6613,9 @@ if (uni.restoreGlobal) {
       return fn(arg);
     };
   }
-  function genericSubscribe(fn, subs, options2) {
+  function genericSubscribe(fn, subs, options) {
     if (subs.indexOf(fn) < 0) {
-      options2 && options2.prepend ? subs.unshift(fn) : subs.push(fn);
+      options && options.prepend ? subs.unshift(fn) : subs.push(fn);
     }
     return function() {
       var i = subs.indexOf(fn);
@@ -6963,9 +6722,9 @@ if (uni.restoreGlobal) {
       dispatch: noNamespace ? store2.dispatch : function(_type, _payload, _options) {
         var args = unifyObjectStyle(_type, _payload, _options);
         var payload = args.payload;
-        var options2 = args.options;
+        var options = args.options;
         var type = args.type;
-        if (!options2 || !options2.root) {
+        if (!options || !options.root) {
           type = namespace + type;
           if (!store2._actions[type]) {
             console.error("[vuex] unknown local action type: " + args.type + ", global type: " + type);
@@ -6977,16 +6736,16 @@ if (uni.restoreGlobal) {
       commit: noNamespace ? store2.commit : function(_type, _payload, _options) {
         var args = unifyObjectStyle(_type, _payload, _options);
         var payload = args.payload;
-        var options2 = args.options;
+        var options = args.options;
         var type = args.type;
-        if (!options2 || !options2.root) {
+        if (!options || !options.root) {
           type = namespace + type;
           if (!store2._mutations[type]) {
             console.error("[vuex] unknown local mutation type: " + args.type + ", global type: " + type);
             return;
           }
         }
-        store2.commit(type, payload, options2);
+        store2.commit(type, payload, options);
       }
     };
     Object.defineProperties(local, {
@@ -7042,7 +6801,7 @@ if (uni.restoreGlobal) {
         rootGetters: store2.getters,
         rootState: store2.state
       }, payload);
-      if (!isPromise$1(res)) {
+      if (!isPromise(res)) {
         res = Promise.resolve(res);
       }
       if (store2._devtoolHook) {
@@ -7089,16 +6848,16 @@ if (uni.restoreGlobal) {
       return state2[key];
     }, state);
   }
-  function unifyObjectStyle(type, payload, options2) {
-    if (isObject$4(type) && type.type) {
-      options2 = payload;
+  function unifyObjectStyle(type, payload, options) {
+    if (isObject$3(type) && type.type) {
+      options = payload;
       payload = type;
       type = type.type;
     }
     {
       assert(typeof type === "string", "expects string as the type, but found " + typeof type + ".");
     }
-    return { type, payload, options: options2 };
+    return { type, payload, options };
   }
   var LABEL_VUEX_BINDINGS = "vuex bindings";
   var MUTATIONS_LAYER_ID = "vuex:mutations";
@@ -7536,30 +7295,30 @@ if (uni.restoreGlobal) {
     buf += " is " + JSON.stringify(value2) + ".";
     return buf;
   }
-  function createStore(options2) {
-    return new Store(options2);
+  function createStore(options) {
+    return new Store(options);
   }
-  var Store = function Store2(options2) {
+  var Store = function Store2(options) {
     var this$1$1 = this;
-    if (options2 === void 0)
-      options2 = {};
+    if (options === void 0)
+      options = {};
     {
       assert(typeof Promise !== "undefined", "vuex requires a Promise polyfill in this browser.");
       assert(this instanceof Store2, "store must be called with the new operator.");
     }
-    var plugins = options2.plugins;
+    var plugins = options.plugins;
     if (plugins === void 0)
       plugins = [];
-    var strict = options2.strict;
+    var strict = options.strict;
     if (strict === void 0)
       strict = false;
-    var devtools = options2.devtools;
+    var devtools = options.devtools;
     this._committing = false;
     this._actions = /* @__PURE__ */ Object.create(null);
     this._actionSubscribers = [];
     this._mutations = /* @__PURE__ */ Object.create(null);
     this._wrappedGetters = /* @__PURE__ */ Object.create(null);
-    this._modules = new ModuleCollection(options2);
+    this._modules = new ModuleCollection(options);
     this._modulesNamespaceMap = /* @__PURE__ */ Object.create(null);
     this._subscribers = [];
     this._makeLocalGettersCache = /* @__PURE__ */ Object.create(null);
@@ -7572,8 +7331,8 @@ if (uni.restoreGlobal) {
     this.dispatch = function boundDispatch(type, payload) {
       return dispatch2.call(store2, type, payload);
     };
-    this.commit = function boundCommit(type, payload, options22) {
-      return commit2.call(store2, type, payload, options22);
+    this.commit = function boundCommit(type, payload, options2) {
+      return commit2.call(store2, type, payload, options2);
     };
     this.strict = strict;
     var state = this._modules.root.state;
@@ -7605,7 +7364,7 @@ if (uni.restoreGlobal) {
     var ref = unifyObjectStyle(_type, _payload, _options);
     var type = ref.type;
     var payload = ref.payload;
-    var options2 = ref.options;
+    var options = ref.options;
     var mutation = { type, payload };
     var entry = this._mutations[type];
     if (!entry) {
@@ -7622,7 +7381,7 @@ if (uni.restoreGlobal) {
     this._subscribers.slice().forEach(function(sub) {
       return sub(mutation, this$1$1.state);
     });
-    if (options2 && options2.silent) {
+    if (options && options.silent) {
       console.warn(
         "[vuex] mutation type: " + type + ". Silent option has been removed. Use the filter functionality in the vue-devtools"
       );
@@ -7688,21 +7447,21 @@ if (uni.restoreGlobal) {
       });
     });
   };
-  Store.prototype.subscribe = function subscribe(fn, options2) {
-    return genericSubscribe(fn, this._subscribers, options2);
+  Store.prototype.subscribe = function subscribe(fn, options) {
+    return genericSubscribe(fn, this._subscribers, options);
   };
-  Store.prototype.subscribeAction = function subscribeAction(fn, options2) {
+  Store.prototype.subscribeAction = function subscribeAction(fn, options) {
     var subs = typeof fn === "function" ? { before: fn } : fn;
-    return genericSubscribe(subs, this._actionSubscribers, options2);
+    return genericSubscribe(subs, this._actionSubscribers, options);
   };
-  Store.prototype.watch = function watch$1(getter, cb, options2) {
+  Store.prototype.watch = function watch$1(getter, cb, options) {
     var this$1$1 = this;
     {
       assert(typeof getter === "function", "store.watch only accepts a function.");
     }
     return vue.watch(function() {
       return getter(this$1$1.state, this$1$1.getters);
-    }, cb, Object.assign({}, options2));
+    }, cb, Object.assign({}, options));
   };
   Store.prototype.replaceState = function replaceState(state) {
     var this$1$1 = this;
@@ -7710,9 +7469,9 @@ if (uni.restoreGlobal) {
       this$1$1._state.data = state;
     });
   };
-  Store.prototype.registerModule = function registerModule(path, rawModule, options2) {
-    if (options2 === void 0)
-      options2 = {};
+  Store.prototype.registerModule = function registerModule(path, rawModule, options) {
+    if (options === void 0)
+      options = {};
     if (typeof path === "string") {
       path = [path];
     }
@@ -7721,7 +7480,7 @@ if (uni.restoreGlobal) {
       assert(path.length > 0, "cannot register the root module by using registerModule.");
     }
     this._modules.register(path, rawModule);
-    installModule(this, this.state, path, this._modules.get(path), options2.preserveState);
+    installModule(this, this.state, path, this._modules.get(path), options.preserveState);
     resetStoreState(this, this.state);
   };
   Store.prototype.unregisterModule = function unregisterModule(path) {
@@ -7876,7 +7635,7 @@ if (uni.restoreGlobal) {
     });
   }
   function isValidMap(map) {
-    return Array.isArray(map) || isObject$4(map);
+    return Array.isArray(map) || isObject$3(map);
   }
   function normalizeNamespace(fn) {
     return function(namespace, map) {
@@ -8041,12 +7800,12 @@ if (uni.restoreGlobal) {
       return atob(output);
     }
   }
-  function jwtDecode(token, options2) {
+  function jwtDecode(token, options) {
     if (typeof token !== "string") {
       throw new InvalidTokenError("Invalid token specified: must be a string");
     }
-    options2 || (options2 = {});
-    const pos = options2.header === true ? 0 : 1;
+    options || (options = {});
+    const pos = options.header === true ? 0 : 1;
     const part = token.split(".")[pos];
     if (typeof part !== "string") {
       throw new InvalidTokenError(`Invalid token specified: missing part #${pos + 1}`);
@@ -8102,7 +7861,7 @@ if (uni.restoreGlobal) {
       }
     }
   });
-  const baseURL = "http://localhost:8081";
+  const baseURL = "http://47.121.188.228:8888";
   const timeout$1 = 5e3;
   const instance = axios.create({
     baseURL,
@@ -14942,13 +14701,13 @@ if (uni.restoreGlobal) {
   })(cryptoJs);
   var cryptoJsExports = cryptoJs.exports;
   const CryptoJS = /* @__PURE__ */ getDefaultExportFromCjs(cryptoJsExports);
-  const _sfc_main$N = {
+  const _sfc_main$M = {
     __name: "login",
     setup(__props, { expose: __expose }) {
       __expose();
       vue.onMounted(() => {
       });
-      const value2 = vue.ref(false);
+      const value2 = vue.ref(true);
       const phone = vue.ref("");
       const username = vue.ref("");
       const password = vue.ref("");
@@ -15008,10 +14767,9 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_up_input = resolveEasycom(vue.resolveDynamicComponent("up-input"), __easycom_0$8);
     const _component_up_icon = resolveEasycom(vue.resolveDynamicComponent("up-icon"), __easycom_1$a);
-    const _component_wd_checkbox = resolveEasycom(vue.resolveDynamicComponent("wd-checkbox"), __easycom_2$4);
     const _component_wd_button = resolveEasycom(vue.resolveDynamicComponent("wd-button"), __easycom_1$9);
     return vue.openBlock(), vue.createElementBlock("view", { class: "loginLayout pageBg2" }, [
       vue.createElementVNode("view", { class: "title" }, " 登录 "),
@@ -15057,28 +14815,7 @@ if (uni.restoreGlobal) {
           }, 8, ["modelValue", "password"])
         ])
       ]),
-      vue.createElementVNode("view", { class: "negotiate" }, [
-        vue.createElementVNode("view", { class: "choice" }, [
-          vue.createVNode(_component_wd_checkbox, {
-            class: "line",
-            modelValue: $setup.value,
-            "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.value = $event),
-            onChange: $setup.handleChange,
-            shape: "square"
-          }, {
-            default: vue.withCtx(() => [
-              vue.createTextVNode(" 本人已阅读并同意 ")
-            ]),
-            _: 1
-            /* STABLE */
-          }, 8, ["modelValue"]),
-          vue.createElementVNode("view", { class: "a" }, " 吧唧吧唧隐私政策 ")
-        ]),
-        vue.createElementVNode("view", {
-          class: "rig",
-          onClick: $setup.navToRig
-        })
-      ]),
+      vue.createCommentVNode(' 		<view class="negotiate">\r\n			<view class="choice">\r\n				<wd-checkbox class="line" v-model="value" @change="handleChange" shape="square">\r\n					本人已阅读并同意\r\n					\r\n				</wd-checkbox>\r\n				<view class="a">\r\n					吧唧吧唧隐私政策\r\n				</view>\r\n			</view>\r\n			<view class="rig" @click="navToRig">\r\n				\r\n			</view>\r\n		</view> '),
       vue.createElementVNode("view", { class: "button" }, [
         vue.createVNode(_component_wd_button, {
           block: "",
@@ -15104,7 +14841,7 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$M], ["__scopeId", "data-v-e4e4508d"], ["__file", "E:/mine/webfrom/Hospital/pages/login/login.vue"]]);
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$L], ["__scopeId", "data-v-e4e4508d"], ["__file", "D:/develop/code/uniapp/Hospital/pages/login/login.vue"]]);
   const fontData = [
     {
       "font_class": "arrow-down",
@@ -15755,7 +15492,7 @@ if (uni.restoreGlobal) {
     const reg = /^[0-9]*$/g;
     return typeof val === "number" || reg.test(val) ? val + "px" : val;
   };
-  const _sfc_main$M = {
+  const _sfc_main$L = {
     name: "UniIcons",
     emits: ["click"],
     props: {
@@ -15809,7 +15546,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -15824,7 +15561,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$7 = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$L], ["__scopeId", "data-v-d31e1c47"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
+  const __easycom_0$7 = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$K], ["__scopeId", "data-v-d31e1c47"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
   const SYSTEM_INFO = uni.getSystemInfoSync();
   const getStatusBarHeight = () => SYSTEM_INFO.statusBarHeight || 15;
   const getTitleBarHeight = () => {
@@ -15836,7 +15573,7 @@ if (uni.restoreGlobal) {
     }
   };
   const getNavBarHeight = () => getStatusBarHeight() + getTitleBarHeight();
-  const _sfc_main$L = {
+  const _sfc_main$K = {
     __name: "custom-nav-bar",
     props: {
       title: {
@@ -15872,7 +15609,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
     return vue.openBlock(), vue.createElementBlock("view", { class: "layout" }, [
       vue.createElementVNode("view", { class: "navbar" }, [
@@ -15918,18 +15655,7 @@ if (uni.restoreGlobal) {
               1
               /* TEXT */
             ),
-            vue.createElementVNode("navigator", {
-              url: "/pages/search/search",
-              class: "search"
-            }, [
-              vue.createVNode(_component_uni_icons, {
-                class: "icon",
-                type: "search",
-                size: "18",
-                color: "#888"
-              }),
-              vue.createElementVNode("text", { class: "text" }, "搜索")
-            ])
+            vue.createCommentVNode(' 				<navigator url="/pages/search/search" class="search">\r\n					<uni-icons class="icon" type="search" size="18" color="#888"></uni-icons>\r\n					<text class="text">搜索</text>\r\n				</navigator> ')
           ],
           4
           /* STYLE */
@@ -15947,7 +15673,7 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const __easycom_0$6 = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$K], ["__scopeId", "data-v-412fc155"], ["__file", "E:/mine/webfrom/Hospital/components/custom-nav-bar/custom-nav-bar.vue"]]);
+  const __easycom_0$6 = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$J], ["__scopeId", "data-v-412fc155"], ["__file", "D:/develop/code/uniapp/Hospital/components/custom-nav-bar/custom-nav-bar.vue"]]);
   const swiperNavprops = {
     ...baseProps,
     /**
@@ -15979,7 +15705,7 @@ if (uni.restoreGlobal) {
      */
     type: makeStringProp("dots")
   };
-  const _sfc_main$K = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$J = /* @__PURE__ */ vue.defineComponent({
     __name: "wd-swiper-nav",
     props: swiperNavprops,
     emits: ["change"],
@@ -15995,7 +15721,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -16061,7 +15787,7 @@ if (uni.restoreGlobal) {
       /* STABLE_FRAGMENT */
     );
   }
-  const wdSwiperNav = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$J], ["__scopeId", "data-v-7a2b7438"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-swiper-nav/wd-swiper-nav.vue"]]);
+  const wdSwiperNav = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$I], ["__scopeId", "data-v-7a2b7438"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-swiper-nav/wd-swiper-nav.vue"]]);
   const swiperProps = {
     ...baseProps,
     /**
@@ -16191,7 +15917,7 @@ if (uni.restoreGlobal) {
      */
     customNextImageClass: makeStringProp("")
   };
-  const _sfc_main$J = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$I = /* @__PURE__ */ vue.defineComponent({
     __name: "wd-swiper",
     props: swiperProps,
     emits: ["click", "change", "animationfinish", "update:current"],
@@ -16287,7 +16013,7 @@ if (uni.restoreGlobal) {
         emit("update:current", navCurrent.value);
       }
       const __returned__ = { props: props2, emit, navCurrent, swiperIndicator, go, goToStart, goToEnd, isPrev, isNext, getCustomImageClass, handleChange, handleAnimationfinish, handleClick, handleIndicatorChange, doIndicatorBtnChange, wdSwiperNav, get addUnit() {
-        return addUnit$2;
+        return addUnit$1;
       }, get isObj() {
         return isObj;
       } };
@@ -16295,7 +16021,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -16370,56 +16096,101 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1$8 = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$I], ["__scopeId", "data-v-f903ae98"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-swiper/wd-swiper.vue"]]);
-  const props$7 = defineMixin({
+  const __easycom_1$8 = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$H], ["__scopeId", "data-v-f903ae98"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-swiper/wd-swiper.vue"]]);
+  const _sfc_main$H = {
+    __name: "small-icon",
+    props: {
+      item: {
+        type: Object,
+        default() {
+          return {
+            name: "默认名称",
+            picurl: "../../static/logo.png"
+          };
+        }
+      }
+    },
+    setup(__props, { expose: __expose }) {
+      __expose();
+      const defaultPicurl = vue.ref("../../static/logo.png");
+      const defaultUrl2 = vue.ref("/pages/registration/registration");
+      const __returned__ = { defaultPicurl, defaultUrl: defaultUrl2, ref: vue.ref };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  };
+  function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "smallIcon" }, [
+      vue.createElementVNode("navigator", {
+        class: "box",
+        url: $props.item.url
+      }, [
+        vue.createCommentVNode(' <view class="empty"></view> '),
+        vue.createElementVNode("image", {
+          class: "pic",
+          src: $props.item.picurl || $setup.defaultPicurl,
+          mode: "aspectFit"
+        }, null, 8, ["src"]),
+        vue.createElementVNode(
+          "view",
+          { class: "text" },
+          vue.toDisplayString($props.item.name),
+          1
+          /* TEXT */
+        )
+      ], 8, ["url"])
+    ]);
+  }
+  const __easycom_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$G], ["__scopeId", "data-v-399c1124"], ["__file", "D:/develop/code/uniapp/Hospital/components/small-icon/small-icon.vue"]]);
+  const props$6 = defineMixin({
     props: {
       // 文字颜色
       color: {
         type: String,
-        default: () => props$a.link.color
+        default: () => props$9.link.color
       },
       // 字体大小，单位px
       fontSize: {
         type: [String, Number],
-        default: () => props$a.link.fontSize
+        default: () => props$9.link.fontSize
       },
       // 是否显示下划线
       underLine: {
         type: Boolean,
-        default: () => props$a.link.underLine
+        default: () => props$9.link.underLine
       },
       // 要跳转的链接
       href: {
         type: String,
-        default: () => props$a.link.href
+        default: () => props$9.link.href
       },
       // 小程序中复制到粘贴板的提示语
       mpTips: {
         type: String,
-        default: () => props$a.link.mpTips
+        default: () => props$9.link.mpTips
       },
       // 下划线颜色
       lineColor: {
         type: String,
-        default: () => props$a.link.lineColor
+        default: () => props$9.link.lineColor
       },
       // 超链接的问题，不使用slot形式传入，是因为nvue下无法修改颜色
       text: {
         type: String,
-        default: () => props$a.link.text
+        default: () => props$9.link.text
       }
     }
   });
-  const _sfc_main$I = {
+  const _sfc_main$G = {
     name: "u-link",
-    mixins: [mpMixin$1, mixin$1, props$7],
+    mixins: [mpMixin$1, mixin$1, props$6],
     computed: {
       linkStyle() {
         const style = {
           color: this.color,
-          fontSize: addUnit$3(this.fontSize),
+          fontSize: addUnit$2(this.fontSize),
           // line-height设置为比字体大小多2px
-          lineHeight: addUnit$3(getPx$1(this.fontSize) + 2),
+          lineHeight: addUnit$2(getPx$1(this.fontSize) + 2),
           textDecoration: this.underLine ? "underline" : "none"
         };
         return style;
@@ -16434,7 +16205,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -16447,119 +16218,119 @@ if (uni.restoreGlobal) {
       /* TEXT, STYLE */
     );
   }
-  const __easycom_1$7 = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$H], ["__scopeId", "data-v-12f6646d"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uview-plus/components/u-link/u-link.vue"]]);
-  const props$6 = defineMixin({
+  const __easycom_1$7 = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$F], ["__scopeId", "data-v-12f6646d"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uview-plus/components/u-link/u-link.vue"]]);
+  const props$5 = defineMixin({
     props: {
       // 主题颜色
       type: {
         type: String,
-        default: () => props$a.text.type
+        default: () => props$9.text.type
       },
       // 是否显示
       show: {
         type: Boolean,
-        default: () => props$a.text.show
+        default: () => props$9.text.show
       },
       // 显示的值
       text: {
         type: [String, Number],
-        default: () => props$a.text.text
+        default: () => props$9.text.text
       },
       // 前置图标
       prefixIcon: {
         type: String,
-        default: () => props$a.text.prefixIcon
+        default: () => props$9.text.prefixIcon
       },
       // 后置图标
       suffixIcon: {
         type: String,
-        default: () => props$a.text.suffixIcon
+        default: () => props$9.text.suffixIcon
       },
       // 文本处理的匹配模式
       // text-普通文本，price-价格，phone-手机号，name-姓名，date-日期，link-超链接
       mode: {
         type: String,
-        default: () => props$a.text.mode
+        default: () => props$9.text.mode
       },
       // mode=link下，配置的链接
       href: {
         type: String,
-        default: () => props$a.text.href
+        default: () => props$9.text.href
       },
       // 格式化规则
       format: {
         type: [String, Function],
-        default: () => props$a.text.format
+        default: () => props$9.text.format
       },
       // mode=phone时，点击文本是否拨打电话
       call: {
         type: Boolean,
-        default: () => props$a.text.call
+        default: () => props$9.text.call
       },
       // 小程序的打开方式
       openType: {
         type: String,
-        default: () => props$a.text.openType
+        default: () => props$9.text.openType
       },
       // 是否粗体，默认normal
       bold: {
         type: Boolean,
-        default: () => props$a.text.bold
+        default: () => props$9.text.bold
       },
       // 是否块状
       block: {
         type: Boolean,
-        default: () => props$a.text.block
+        default: () => props$9.text.block
       },
       // 文本显示的行数，如果设置，超出此行数，将会显示省略号
       lines: {
         type: [String, Number],
-        default: () => props$a.text.lines
+        default: () => props$9.text.lines
       },
       // 文本颜色
       color: {
         type: String,
-        default: () => props$a.text.color
+        default: () => props$9.text.color
       },
       // 字体大小
       size: {
         type: [String, Number],
-        default: () => props$a.text.size
+        default: () => props$9.text.size
       },
       // 图标的样式
       iconStyle: {
         type: [Object, String],
-        default: () => props$a.text.iconStyle
+        default: () => props$9.text.iconStyle
       },
       // 文字装饰，下划线，中划线等，可选值 none|underline|line-through
       decoration: {
         tepe: String,
-        default: () => props$a.text.decoration
+        default: () => props$9.text.decoration
       },
       // 外边距，对象、字符串，数值形式均可
       margin: {
         type: [Object, String, Number],
-        default: () => props$a.text.margin
+        default: () => props$9.text.margin
       },
       // 文本行高
       lineHeight: {
         type: [String, Number],
-        default: () => props$a.text.lineHeight
+        default: () => props$9.text.lineHeight
       },
       // 文本对齐方式，可选值left|center|right
       align: {
         type: String,
-        default: () => props$a.text.align
+        default: () => props$9.text.align
       },
       // 文字换行，可选值break-word|normal|anywhere
       wordWrap: {
         type: String,
-        default: () => props$a.text.wordWrap
+        default: () => props$9.text.wordWrap
       },
       // 占满剩余空间
       flex1: {
         type: Boolean,
-        default: () => props$a.text.flex1
+        default: () => props$9.text.flex1
       }
     }
   });
@@ -16637,9 +16408,9 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  const _sfc_main$H = {
+  const _sfc_main$F = {
     name: "up-text",
-    mixins: [mpMixin$1, mixin$1, value, props$6],
+    mixins: [mpMixin$1, mixin$1, value, props$5],
     emits: ["click"],
     computed: {
       wrapStyle() {
@@ -16658,11 +16429,11 @@ if (uni.restoreGlobal) {
           textDecoration: this.decoration,
           fontWeight: this.bold ? "bold" : "normal",
           wordWrap: this.wordWrap,
-          fontSize: addUnit$3(this.size)
+          fontSize: addUnit$2(this.size)
         };
         !this.type && (style.color = this.color);
         this.isNvue && this.lines && (style.lines = this.lines);
-        this.lineHeight && (style.lineHeight = addUnit$3(this.lineHeight));
+        this.lineHeight && (style.lineHeight = addUnit$2(this.lineHeight));
         !this.isNvue && this.block && (style.display = "block");
         return deepMerge$2(style, addStyle$1(this.customStyle));
       },
@@ -16690,7 +16461,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_1$a);
     const _component_u_link = resolveEasycom(vue.resolveDynamicComponent("u-link"), __easycom_1$7);
     return _ctx.show ? (vue.openBlock(), vue.createElementBlock(
@@ -16776,68 +16547,68 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_1$6 = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$G], ["__scopeId", "data-v-0a574502"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uview-plus/components/u-text/u-text.vue"]]);
-  const props$5 = defineMixin({
+  const __easycom_1$6 = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$E], ["__scopeId", "data-v-0a574502"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uview-plus/components/u-text/u-text.vue"]]);
+  const props$4 = defineMixin({
     props: {
       // 头像图片路径(不能为相对路径)
       src: {
         type: String,
-        default: () => props$a.avatar.src
+        default: () => props$9.avatar.src
       },
       // 头像形状，circle-圆形，square-方形
       shape: {
         type: String,
-        default: () => props$a.avatar.shape
+        default: () => props$9.avatar.shape
       },
       // 头像尺寸
       size: {
         type: [String, Number],
-        default: () => props$a.avatar.size
+        default: () => props$9.avatar.size
       },
       // 裁剪模式
       mode: {
         type: String,
-        default: () => props$a.avatar.mode
+        default: () => props$9.avatar.mode
       },
       // 显示的文字
       text: {
         type: String,
-        default: () => props$a.avatar.text
+        default: () => props$9.avatar.text
       },
       // 背景色
       bgColor: {
         type: String,
-        default: () => props$a.avatar.bgColor
+        default: () => props$9.avatar.bgColor
       },
       // 文字颜色
       color: {
         type: String,
-        default: () => props$a.avatar.color
+        default: () => props$9.avatar.color
       },
       // 文字大小
       fontSize: {
         type: [String, Number],
-        default: () => props$a.avatar.fontSize
+        default: () => props$9.avatar.fontSize
       },
       // 显示的图标
       icon: {
         type: String,
-        default: () => props$a.avatar.icon
+        default: () => props$9.avatar.icon
       },
       // 显示小程序头像，只对百度，微信，QQ小程序有效
       mpAvatar: {
         type: Boolean,
-        default: () => props$a.avatar.mpAvatar
+        default: () => props$9.avatar.mpAvatar
       },
       // 是否使用随机背景色
       randomBgColor: {
         type: Boolean,
-        default: () => props$a.avatar.randomBgColor
+        default: () => props$9.avatar.randomBgColor
       },
       // 加载失败的默认头像(组件有内置默认图片)
       defaultUrl: {
         type: String,
-        default: () => props$a.avatar.defaultUrl
+        default: () => props$9.avatar.defaultUrl
       },
       // 如果配置了randomBgColor为true，且配置了此值，则从默认的背景色数组中取出对应索引的颜色值，取值0-19之间
       colorIndex: {
@@ -16846,19 +16617,19 @@ if (uni.restoreGlobal) {
         validator(n) {
           return test$2.range(n, [0, 19]) || n === "";
         },
-        default: () => props$a.avatar.colorIndex
+        default: () => props$9.avatar.colorIndex
       },
       // 组件标识符
       name: {
         type: String,
-        default: () => props$a.avatar.name
+        default: () => props$9.avatar.name
       }
     }
   });
   const base64Avatar = "data:image/jpg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMraHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjREMEQwRkY0RjgwNDExRUE5OTY2RDgxODY3NkJFODMxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjREMEQwRkY1RjgwNDExRUE5OTY2RDgxODY3NkJFODMxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NEQwRDBGRjJGODA0MTFFQTk5NjZEODE4Njc2QkU4MzEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NEQwRDBGRjNGODA0MTFFQTk5NjZEODE4Njc2QkU4MzEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAGBAQEBQQGBQUGCQYFBgkLCAYGCAsMCgoLCgoMEAwMDAwMDBAMDg8QDw4MExMUFBMTHBsbGxwfHx8fHx8fHx8fAQcHBw0MDRgQEBgaFREVGh8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx//wAARCADIAMgDAREAAhEBAxEB/8QAcQABAQEAAwEBAAAAAAAAAAAAAAUEAQMGAgcBAQAAAAAAAAAAAAAAAAAAAAAQAAIBAwICBgkDBQAAAAAAAAABAhEDBCEFMVFBYXGREiKBscHRMkJSEyOh4XLxYjNDFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A/fAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHbHFyZ/Dam+yLA+Z2L0Pjtyj2poD4AAAAAAAAAAAAAAAAAAAAAAAAKWFs9y6lcvvwQeqj8z9wFaziY1n/HbUX9XF97A7QAGXI23EvJ1goyfzR0YEfN269jeZ+a03pNe0DIAAAAAAAAAAAAAAAAAAAACvtO3RcVkXlWutuL9YFYAAAAAOJRjKLjJVi9GmB5/csH/mu1h/in8PU+QGMAAAAAAAAAAAAAAAAAAaMDG/6MmMH8C80+xAelSSVFolwQAAAAAAAHVlWI37ErUulaPk+hgeYnCUJuElSUXRrrQHAAAAAAAAAAAAAAAAABa2Oz4bM7r4zdF2ICmAAAAAAAAAg7zZ8GX41wuJP0rRgYAAAAAAAAAAAAAAAAAD0m2R8ODaXU33tsDSAAAAAAAAAlb9HyWZcnJd9PcBHAAAAAAAAAAAAAAAAAPS7e64Vn+KA0AAAAAAAAAJm+v8Ftf3ewCKAAAAAAAAAAAAAAAAAX9muqeGo9NttP06+0DcAAAAAAAAAjb7dTu2ra+VOT9P8AQCWAAAAAAAAAAAAAAAAAUNmyPt5Ltv4bui/kuAF0AAAAAAADiUlGLlJ0SVW+oDzOXfd/Ind6JPRdS0QHSAAAAAAAAAAAAAAAAAE2nVaNcGB6Lbs6OTao9LsF51z60BrAAAAAABJ3jOVHjW3r/sa9QEgAAAAAAAAAAAAAAAAAAAPu1duWriuW34ZR4MC9hbnZyEoy8l36XwfYBsAAADaSq9EuLAlZ+7xSdrGdW9Hc5dgEdtt1erfFgAAAAAAAAAAAAAAAAADVjbblX6NR8MH80tEBRs7HYivyzlN8lovaBPzduvY0m6eK10TXtAyAarO55lpJK54orolr+4GqO/Xaea1FvqbXvA+Z77kNeW3GPbV+4DJfzcm/pcm3H6Vou5AdAFLC2ed2Pjv1txa8sV8T6wOL+yZEKu1JXFy4MDBOE4ScZxcZLinoB8gAAAAAAAAAAAB242LeyJ+C3GvN9C7QLmJtePYpKS+5c+p8F2IDYAANJqj1T4oCfk7Nj3G5Wn9qXJax7gJ93Z82D8sVNc4v30A6Xg5i42Z+iLfqARwcyT0sz9MWvWBps7LlTf5Grce9/oBTxdtxseklHxT+uWr9AGoAB138ezfj4bsFJdD6V2MCPm7RdtJzs1uW1xXzL3gTgAAAAAAAAADRhYc8q74I6RWs5ckB6GxYtWLat21SK731sDsAAAAAAAAAAAAAAAASt021NO/YjrxuQXT1oCOAAAAAAABzGLlJRSq26JAelwsWONYjbXxcZvmwO8AAAAAAAAAAAAAAAAAAef3TEWPkVivx3NY9T6UBiAAAAAABo2+VmGXblddIJ8eivRUD0oAAAAAAAAAAAAAAAAAAAYt4tKeFKVNYNSXfRgefAAAAAAAAr7VuSSWPedKaW5v1MCsAAAAAAAAAAAAAAAAAAIe6bj96Ts2n+JPzSXzP3ATgAAAAAAAAFbbt1UUrOQ9FpC4/UwK6aaqtU+DAAAAAAAAAAAAAAA4lKMIuUmoxWrb4ARNx3R3q2rLpa4Sl0y/YCcAAAAAAAAAAANmFud7G8r89r6X0dgFvGzLGRGtuWvTF6NAdwAAAAAAAAAAAy5W442PVN+K59EePp5ARMvOv5MvO6QXCC4AZwAAAAAAAAAAAAAcxlKLUotprg1owN+PvORborq+7Hnwl3gUbO74VzRydt8pKn68ANcJwmqwkpLmnUDkAAAAfNy9atqtyagut0AxXt5xIV8Fbj6lRd7Am5G65V6qUvtwfyx94GMAAAAAAAAAAAAAAAAAAAOU2nVOj5gdsc3LiqRvTpyqwOxbnnrhdfpSfrQB7pnv/AGvuS9gHXPMy5/Fem1yq0v0A6W29XqwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//Z";
-  const _sfc_main$G = {
+  const _sfc_main$E = {
     name: "u-avatar",
-    mixins: [mpMixin$1, mixin$1, props$5],
+    mixins: [mpMixin$1, mixin$1, props$4],
     data() {
       return {
         // 如果配置randomBgColor参数为true，在图标或者文字的模式下，会随机从中取出一个颜色值当做背景色
@@ -16913,7 +16684,7 @@ if (uni.restoreGlobal) {
     emits: ["click"],
     methods: {
       addStyle: addStyle$1,
-      addUnit: addUnit$3,
+      addUnit: addUnit$2,
       random: random$1,
       init() {
       },
@@ -16930,7 +16701,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_1$a);
     const _component_up_text = resolveEasycom(vue.resolveDynamicComponent("up-text"), __easycom_1$6);
     return vue.openBlock(), vue.createElementBlock(
@@ -16981,8 +16752,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_2$3 = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$F], ["__scopeId", "data-v-34d954f9"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uview-plus/components/u-avatar/u-avatar.vue"]]);
-  const _sfc_main$F = {
+  const __easycom_2$4 = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$D], ["__scopeId", "data-v-34d954f9"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uview-plus/components/u-avatar/u-avatar.vue"]]);
+  const _sfc_main$D = {
     __name: "health-card",
     props: {
       cardinfo: {
@@ -17028,8 +16799,8 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_up_avatar = resolveEasycom(vue.resolveDynamicComponent("up-avatar"), __easycom_2$3);
+  function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_up_avatar = resolveEasycom(vue.resolveDynamicComponent("up-avatar"), __easycom_2$4);
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
     return vue.openBlock(), vue.createElementBlock("view", { class: "health-card" }, [
       $setup.cardExist ? (vue.openBlock(), vue.createElementBlock("view", {
@@ -17075,9 +16846,9 @@ if (uni.restoreGlobal) {
       ]))
     ]);
   }
-  const __easycom_1$5 = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$E], ["__scopeId", "data-v-9bc90eca"], ["__file", "E:/mine/webfrom/Hospital/components/health-card/health-card.vue"]]);
-  function ChildrenMixin(parent, options2 = {}) {
-    options2.indexKey || "index";
+  const __easycom_1$5 = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$C], ["__scopeId", "data-v-9bc90eca"], ["__file", "D:/develop/code/uniapp/Hospital/components/health-card/health-card.vue"]]);
+  function ChildrenMixin(parent, options = {}) {
+    options.indexKey || "index";
     return {
       inject: {
         [parent]: {
@@ -17129,7 +16900,7 @@ if (uni.restoreGlobal) {
       uni.createSelectorQuery().in(context).select(selector).boundingClientRect().exec((rect = []) => resolve(rect[0]));
     });
   }
-  const _sfc_main$E = {
+  const _sfc_main$C = {
     name: "z-swipe-item",
     mixins: [ChildrenMixin("zSwipe")],
     props: {
@@ -17273,7 +17044,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -17288,7 +17059,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_3$2 = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$D], ["__scopeId", "data-v-46825bf1"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/zebra-swiper/components/z-swiper-item/z-swiper-item.vue"]]);
+  const __easycom_4$1 = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$B], ["__scopeId", "data-v-46825bf1"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/zebra-swiper/components/z-swiper-item/z-swiper-item.vue"]]);
   function deleteProps(obj) {
     const object2 = obj;
     Object.keys(object2).forEach((key) => {
@@ -17312,10 +17083,10 @@ if (uni.restoreGlobal) {
     }
     return curTransform || 0;
   }
-  function isObject$3(o) {
+  function isObject$2(o) {
     return typeof o === "object" && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === "Object";
   }
-  function now$1() {
+  function now() {
     return Date.now();
   }
   function nextTick(callback, delay = 0) {
@@ -17332,13 +17103,13 @@ if (uni.restoreGlobal) {
           const nextKey = keysArray[nextIndex];
           const desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
           if (desc !== void 0 && desc.enumerable) {
-            if (isObject$3(to[nextKey]) && isObject$3(nextSource[nextKey])) {
+            if (isObject$2(to[nextKey]) && isObject$2(nextSource[nextKey])) {
               if (nextSource[nextKey].__swiper__) {
                 to[nextKey] = nextSource[nextKey];
               } else {
                 extend$1(to[nextKey], nextSource[nextKey]);
               }
-            } else if (!isObject$3(to[nextKey]) && isObject$3(nextSource[nextKey])) {
+            } else if (!isObject$2(to[nextKey]) && isObject$2(nextSource[nextKey])) {
               to[nextKey] = {};
               if (nextSource[nextKey].__swiper__) {
                 to[nextKey] = nextSource[nextKey];
@@ -17378,8 +17149,8 @@ if (uni.restoreGlobal) {
       if (startTime === null) {
         startTime = time;
       }
-      const progress2 = Math.max(Math.min((time - startTime) / duration, 1), 0);
-      const easeProgress = 0.5 - Math.cos(progress2 * Math.PI) / 2;
+      const progress = Math.max(Math.min((time - startTime) / duration, 1), 0);
+      const easeProgress = 0.5 - Math.cos(progress * Math.PI) / 2;
       let currentPosition = startPosition + easeProgress * (targetPosition - startPosition);
       if (isOutOfBound(currentPosition, targetPosition)) {
         currentPosition = targetPosition;
@@ -17996,23 +17767,23 @@ if (uni.restoreGlobal) {
     const params = swiper.params;
     const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
     let {
-      progress: progress2,
+      progress,
       isBeginning,
       isEnd
     } = swiper;
     const wasBeginning = isBeginning;
     const wasEnd = isEnd;
     if (translatesDiff === 0) {
-      progress2 = 0;
+      progress = 0;
       isBeginning = true;
       isEnd = true;
     } else {
-      progress2 = (translate2 - swiper.minTranslate()) / translatesDiff;
-      isBeginning = progress2 <= 0;
-      isEnd = progress2 >= 1;
+      progress = (translate2 - swiper.minTranslate()) / translatesDiff;
+      isBeginning = progress <= 0;
+      isEnd = progress >= 1;
     }
     Object.assign(swiper, {
-      progress: progress2,
+      progress,
       isBeginning,
       isEnd
     });
@@ -18027,7 +17798,7 @@ if (uni.restoreGlobal) {
     if (wasBeginning && !isBeginning || wasEnd && !isEnd) {
       swiper.emit("fromEdge");
     }
-    swiper.emit("progress", progress2);
+    swiper.emit("progress", progress);
   }
   function updateSlidesClasses() {
     const swiper = this;
@@ -18265,7 +18036,7 @@ if (uni.restoreGlobal) {
       params,
       $wrapperEl,
       wrapperEl,
-      progress: progress2
+      progress
     } = swiper;
     let x = 0;
     let y = 0;
@@ -18298,7 +18069,7 @@ if (uni.restoreGlobal) {
     } else {
       newProgress = (translate2 - swiper.minTranslate()) / translatesDiff;
     }
-    if (newProgress !== progress2) {
+    if (newProgress !== progress) {
       swiper.updateProgress(translate2);
     }
     swiper.emit("setTranslate", swiper.translate, byController);
@@ -19174,7 +18945,7 @@ if (uni.restoreGlobal) {
     });
     touches.startX = startX;
     touches.startY = startY;
-    data.touchStartTime = now$1();
+    data.touchStartTime = now();
     swiper.allowClick = true;
     swiper.updateSize();
     swiper.swipeDirection = void 0;
@@ -19221,7 +18992,7 @@ if (uni.restoreGlobal) {
           currentX: pageX,
           currentY: pageY
         });
-        data.touchStartTime = now$1();
+        data.touchStartTime = now();
       }
       return;
     }
@@ -19387,7 +19158,7 @@ if (uni.restoreGlobal) {
     if (params.grabCursor && data.isMoved && data.isTouched && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
       swiper.setGrabCursor(false);
     }
-    const touchEndTime = now$1();
+    const touchEndTime = now();
     const timeDiff = touchEndTime - data.touchStartTime;
     if (swiper.allowClick) {
       e.path || e.composedPath && e.composedPath();
@@ -19396,7 +19167,7 @@ if (uni.restoreGlobal) {
         swiper.emit("doubleTap doubleClick", e);
       }
     }
-    data.lastClickTime = now$1();
+    data.lastClickTime = now();
     nextTick(() => {
       if (!swiper.destroyed)
         swiper.allowClick = true;
@@ -19747,7 +19518,7 @@ if (uni.restoreGlobal) {
           // Form elements to match
           focusableElements: swiper.params.focusableElements,
           // Last click time
-          lastClickTime: now$1(),
+          lastClickTime: now(),
           clickTimeout: void 0,
           // Velocities
           velocities: [],
@@ -19798,12 +19569,12 @@ if (uni.restoreGlobal) {
       }
       swiper.emit("disable");
     }
-    setProgress(progress2, speed) {
+    setProgress(progress, speed) {
       const swiper = this;
-      progress2 = Math.min(Math.max(progress2, 0), 1);
+      progress = Math.min(Math.max(progress, 0), 1);
       const min = swiper.minTranslate();
       const max = swiper.maxTranslate();
-      const current = (max - min) * progress2 + min;
+      const current = (max - min) * progress + min;
       swiper.translateTo(current, typeof speed === "undefined" ? 0 : speed);
       swiper.updateActiveIndex();
       swiper.updateSlidesClasses();
@@ -20281,7 +20052,7 @@ if (uni.restoreGlobal) {
       }
       data.velocities.push({
         position: touches[swiper.isHorizontal() ? "currentX" : "currentY"],
-        time: now$1()
+        time: now()
       });
     }
     function onTouchEnd2({
@@ -20294,7 +20065,7 @@ if (uni.restoreGlobal) {
         snapGrid,
         touchEventsData: data
       } = swiper;
-      const touchEndTime = now$1();
+      const touchEndTime = now();
       const timeDiff = touchEndTime - data.touchStartTime;
       if (currentPos < -swiper.minTranslate()) {
         swiper.slideTo(swiper.activeIndex);
@@ -20319,7 +20090,7 @@ if (uni.restoreGlobal) {
           if (Math.abs(swiper.velocity) < params.freeMode.minimumVelocity) {
             swiper.velocity = 0;
           }
-          if (time > 150 || now$1() - lastMoveEvent.time > 300) {
+          if (time > 150 || now() - lastMoveEvent.time > 300) {
             swiper.velocity = 0;
           }
         } else {
@@ -20661,7 +20432,7 @@ if (uni.restoreGlobal) {
           slideAngle = -slideAngle;
           round2 = Math.floor(-slideAngle / 360);
         }
-        const progress2 = Math.max(Math.min($slideEl.progress, 1), -1);
+        const progress = Math.max(Math.min($slideEl.progress, 1), -1);
         let tx = 0;
         let ty = 0;
         let tz = 0;
@@ -20686,10 +20457,10 @@ if (uni.restoreGlobal) {
           tx = 0;
         }
         const transform = `rotateX(${isHorizontal ? 0 : -slideAngle}deg) rotateY(${isHorizontal ? slideAngle : 0}deg) translate3d(${tx}px, ${ty}px, ${tz}px)`;
-        if (progress2 <= 1 && progress2 > -1) {
-          wrapperRotate = slideIndex * 90 + progress2 * 90;
+        if (progress <= 1 && progress > -1) {
+          wrapperRotate = slideIndex * 90 + progress * 90;
           if (rtl)
-            wrapperRotate = -slideIndex * 90 - progress2 * 90;
+            wrapperRotate = -slideIndex * 90 - progress * 90;
         }
         $slideEl.transform(transform);
         $slideEl.addClass("swiper-slide-cube");
@@ -20858,12 +20629,12 @@ if (uni.restoreGlobal) {
       const params = swiper.params.flipEffect;
       for (let i = 0; i < slides.length; i += 1) {
         const $slideEl = slides[i];
-        let progress2 = $slideEl.progress;
+        let progress = $slideEl.progress;
         if (swiper.params.flipEffect.limitRotation) {
-          progress2 = Math.max(Math.min($slideEl.progress, 1), -1);
+          progress = Math.max(Math.min($slideEl.progress, 1), -1);
         }
         const offset = $slideEl.swiperSlideOffset;
-        const rotate = -180 * progress2;
+        const rotate = -180 * progress;
         let rotateY = rotate;
         let rotateX = 0;
         let tx = swiper.params.cssMode ? -offset - swiper.translate : -offset;
@@ -20877,7 +20648,7 @@ if (uni.restoreGlobal) {
           rotateY = -rotateY;
         }
         $slideEl.css({
-          zIndex: -Math.abs(Math.round(progress2)) + slides.length
+          zIndex: -Math.abs(Math.round(progress)) + slides.length
         });
         const transform = `translate3d(${tx}px, ${ty}px, 0px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         const $targetEl2 = effectTarget(params, $slideEl);
@@ -20946,7 +20717,7 @@ if (uni.restoreGlobal) {
       for (let i = 0; i < slides.length; i += 1) {
         const $slideEl = slides[i];
         const slideProgress = $slideEl.progress;
-        const progress2 = Math.min(Math.max(slideProgress, -4), 4);
+        const progress = Math.min(Math.max(slideProgress, -4), 4);
         let offset = $slideEl.swiperSlideOffset;
         if (swiper.params.centeredSlides && !swiper.params.cssMode) {
           swiper.$wrapperEl.transform(`translateX(${swiper.minTranslate()}px)`);
@@ -20956,23 +20727,23 @@ if (uni.restoreGlobal) {
         }
         let tX = swiper.params.cssMode ? -offset - swiper.translate : -offset;
         let tY = 0;
-        const tZ = -100 * Math.abs(progress2);
+        const tZ = -100 * Math.abs(progress);
         let scale = 1;
-        let rotate = -params.perSlideRotate * progress2;
-        let tXAdd = params.perSlideOffset - Math.abs(progress2) * 0.75;
-        const isSwipeToNext = (i === activeIndex || i === activeIndex - 1) && progress2 > 0 && progress2 < 1 && (isTouched || swiper.params.cssMode) && currentTranslate < startTranslate;
-        const isSwipeToPrev = (i === activeIndex || i === activeIndex + 1) && progress2 < 0 && progress2 > -1 && (isTouched || swiper.params.cssMode) && currentTranslate > startTranslate;
+        let rotate = -params.perSlideRotate * progress;
+        let tXAdd = params.perSlideOffset - Math.abs(progress) * 0.75;
+        const isSwipeToNext = (i === activeIndex || i === activeIndex - 1) && progress > 0 && progress < 1 && (isTouched || swiper.params.cssMode) && currentTranslate < startTranslate;
+        const isSwipeToPrev = (i === activeIndex || i === activeIndex + 1) && progress < 0 && progress > -1 && (isTouched || swiper.params.cssMode) && currentTranslate > startTranslate;
         if (isSwipeToNext || isSwipeToPrev) {
-          const subProgress = (1 - Math.abs((Math.abs(progress2) - 0.5) / 0.5)) ** 0.5;
-          rotate += -28 * progress2 * subProgress;
+          const subProgress = (1 - Math.abs((Math.abs(progress) - 0.5) / 0.5)) ** 0.5;
+          rotate += -28 * progress * subProgress;
           scale += -0.5 * subProgress;
           tXAdd += 96 * subProgress;
-          tY = `${-25 * subProgress * Math.abs(progress2)}%`;
+          tY = `${-25 * subProgress * Math.abs(progress)}%`;
         }
-        if (progress2 < 0) {
-          tX = `calc(${tX}px + (${tXAdd * Math.abs(progress2)}%))`;
-        } else if (progress2 > 0) {
-          tX = `calc(${tX}px + (-${tXAdd * Math.abs(progress2)}%))`;
+        if (progress < 0) {
+          tX = `calc(${tX}px + (${tXAdd * Math.abs(progress)}%))`;
+        } else if (progress > 0) {
+          tX = `calc(${tX}px + (-${tXAdd * Math.abs(progress)}%))`;
         } else {
           tX = `${tX}px`;
         }
@@ -20981,7 +20752,7 @@ if (uni.restoreGlobal) {
           tY = tX;
           tX = prevY;
         }
-        const scaleString = progress2 < 0 ? `${1 + (1 - scale) * progress2}` : `${1 - (1 - scale) * progress2}`;
+        const scaleString = progress < 0 ? `${1 + (1 - scale) * progress}` : `${1 - (1 - scale) * progress}`;
         const transform = `translate3d(${tX}, ${tY}, ${tZ}px) rotateZ(${params.rotate ? rotate : 0}deg) scale(${scaleString})`;
         $slideEl.css({
           zIndex: -Math.abs(Math.round(slideProgress)) + slides.length
@@ -21070,11 +20841,11 @@ if (uni.restoreGlobal) {
       for (let i = 0; i < slides.length; i += 1) {
         const $slideEl = slides[i];
         const slideProgress = $slideEl.progress;
-        const progress2 = Math.min(
+        const progress = Math.min(
           Math.max($slideEl.progress, -params.limitProgress),
           params.limitProgress
         );
-        let originalProgress = progress2;
+        let originalProgress = progress;
         if (!isCenteredSlides) {
           originalProgress = Math.min(
             Math.max($slideEl.originalProgress, -params.limitProgress),
@@ -21094,18 +20865,18 @@ if (uni.restoreGlobal) {
           scale: 1,
           opacity: 1
         };
-        if (progress2 < 0) {
+        if (progress < 0) {
           data = params.next;
-        } else if (progress2 > 0) {
+        } else if (progress > 0) {
           data = params.prev;
         }
         t.forEach((value2, index2) => {
           t[index2] = `calc(${value2}px + (${getTranslateValue(data.translate[index2])} * ${Math.abs(
-            progress2 * multiplier
+            progress * multiplier
           )}))`;
         });
         r.forEach((value2, index2) => {
-          r[index2] = data.rotate[index2] * Math.abs(progress2 * multiplier);
+          r[index2] = data.rotate[index2] * Math.abs(progress * multiplier);
         });
         $slideEl.css({
           zIndex: -Math.abs(Math.round(slideProgress)) + slides.length
@@ -21914,7 +21685,7 @@ if (uni.restoreGlobal) {
           watchSlidesProgress: true,
           slideToClickedSlide: false
         });
-      } else if (isObject$3(thumbsParams.swiper)) {
+      } else if (isObject$2(thumbsParams.swiper)) {
         const thumbsSwiperParams = Object.assign({}, thumbsParams.swiper);
         Object.assign(thumbsSwiperParams, {
           watchSlidesProgress: true,
@@ -22069,11 +21840,11 @@ if (uni.restoreGlobal) {
       const {
         scrollbar,
         rtlTranslate: rtl,
-        progress: progress2
+        progress
       } = swiper;
       const params = swiper.params.scrollbar;
       let newSize = dragSize;
-      let newPos = (trackSize - dragSize) * progress2;
+      let newPos = (trackSize - dragSize) * progress;
       if (rtl) {
         newPos = -newPos;
         if (newPos > 0) {
@@ -22831,7 +22602,7 @@ if (uni.restoreGlobal) {
     Controller
   ];
   Swiper.use(modules);
-  function isObject$2(o) {
+  function isObject$1(o) {
     return typeof o === "object" && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === "Object";
   }
   function extend(target, src) {
@@ -22839,7 +22610,7 @@ if (uni.restoreGlobal) {
     Object.keys(src).filter((key) => noExtend.indexOf(key) < 0).forEach((key) => {
       if (typeof target[key] === "undefined")
         target[key] = src[key];
-      else if (isObject$2(src[key]) && isObject$2(target[key]) && Object.keys(src[key]).length > 0) {
+      else if (isObject$1(src[key]) && isObject$1(target[key]) && Object.keys(src[key]).length > 0) {
         if (src[key].__swiper__)
           target[key] = src[key];
         else
@@ -22992,7 +22763,7 @@ if (uni.restoreGlobal) {
       if (typeof obj[key] === "undefined")
         return;
       if (allowedParams.indexOf(key) >= 0) {
-        if (isObject$2(obj[key])) {
+        if (isObject$1(obj[key])) {
           params[key] = {};
           passedParams[key] = {};
           extend(params[key], obj[key]);
@@ -23119,7 +22890,7 @@ if (uni.restoreGlobal) {
     const watchParams = paramsList.filter((key) => key[0] === "_").map((key) => key.replace(/_/, ""));
     watchParams.forEach((key) => {
       if (key in swiperParams && key in oldParams) {
-        if (isObject$2(swiperParams[key]) && isObject$2(oldParams[key])) {
+        if (isObject$1(swiperParams[key]) && isObject$1(oldParams[key])) {
           const newKeys = Object.keys(swiperParams[key]);
           const oldKeys = Object.keys(oldParams[key]);
           if (newKeys.length !== oldKeys.length) {
@@ -23200,7 +22971,7 @@ if (uni.restoreGlobal) {
       }
     };
     updateParams.forEach((key) => {
-      if (isObject$2(currentParams[key]) && isObject$2(passedParams[key])) {
+      if (isObject$1(currentParams[key]) && isObject$1(passedParams[key])) {
         extend(currentParams[key], passedParams[key]);
       } else {
         const newValue = passedParams[key];
@@ -23272,7 +23043,7 @@ if (uni.restoreGlobal) {
       swiper.parallax.setTranslate();
     }
   }
-  const _sfc_main$D = {
+  const _sfc_main$B = {
     name: "z-swipe",
     mixins: [
       ParentMixin("zSwipe")
@@ -23638,7 +23409,7 @@ if (uni.restoreGlobal) {
         this.$emit("swiper");
         this.firstLoad = false;
       },
-      updateSwiper(value2, options2, children) {
+      updateSwiper(value2, options, children) {
         this.swiper.slides = children;
         this.slidesRef = children;
         let initializedRef = this.initializedRef;
@@ -23657,7 +23428,7 @@ if (uni.restoreGlobal) {
         }
         const {
           passedParams: newPassedParams
-        } = getParams(options2);
+        } = getParams(options);
         const changedParams = getChangedParams(
           newPassedParams,
           oldPassedParamsRef,
@@ -23828,8 +23599,8 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_z_swiper_item = resolveEasycom(vue.resolveDynamicComponent("z-swiper-item"), __easycom_3$2);
+  function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_z_swiper_item = resolveEasycom(vue.resolveDynamicComponent("z-swiper-item"), __easycom_4$1);
     return vue.openBlock(), vue.createElementBlock("view", {
       id: "swiper" + $options._uid,
       class: vue.normalizeClass(["swiper", $data.contentClass, $data.containerClasses, $props.options.direction === "vertical" ? "swiper-vertical" : ""]),
@@ -24009,2306 +23780,7 @@ if (uni.restoreGlobal) {
       )) : vue.createCommentVNode("v-if", true)
     ], 14, ["id"]);
   }
-  const __easycom_4$1 = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$C], ["__scopeId", "data-v-3db01611"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/zebra-swiper/components/z-swiper/z-swiper.vue"]]);
-  const _sfc_main$C = {
-    __name: "small-icon",
-    props: {
-      item: {
-        type: Object,
-        default() {
-          return {
-            name: "默认名称",
-            picurl: "../../static/logo.png"
-          };
-        }
-      }
-    },
-    setup(__props, { expose: __expose }) {
-      __expose();
-      const defaultPicurl = vue.ref("../../static/logo.png");
-      const defaultUrl2 = vue.ref("/pages/registration/registration");
-      const __returned__ = { defaultPicurl, defaultUrl: defaultUrl2, ref: vue.ref };
-      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
-      return __returned__;
-    }
-  };
-  function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "smallIcon" }, [
-      vue.createElementVNode("navigator", {
-        class: "box",
-        url: $props.item.url
-      }, [
-        vue.createCommentVNode(' <view class="empty"></view> '),
-        vue.createElementVNode("image", {
-          class: "pic",
-          src: $props.item.picurl || $setup.defaultPicurl,
-          mode: "aspectFit"
-        }, null, 8, ["src"]),
-        vue.createElementVNode(
-          "view",
-          { class: "text" },
-          vue.toDisplayString($props.item.name),
-          1
-          /* TEXT */
-        )
-      ], 8, ["url"])
-    ]);
-  }
-  const __easycom_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$B], ["__scopeId", "data-v-399c1124"], ["__file", "E:/mine/webfrom/Hospital/components/small-icon/small-icon.vue"]]);
-  function isNull(val) {
-    if (typeof val == "boolean") {
-      return false;
-    }
-    if (typeof val == "number") {
-      return false;
-    }
-    if (val instanceof Array) {
-      if (val.length == 0)
-        return true;
-    } else if (val instanceof Object) {
-      if (JSON.stringify(val) === "{}")
-        return true;
-    } else {
-      if (val == "null" || val == null || val == "undefined" || val == void 0 || val == "")
-        return true;
-      return false;
-    }
-    return false;
-  }
-  function isDef(val) {
-    return val !== void 0 && val !== null;
-  }
-  function isNumeric(val) {
-    return /^\d+(\.\d+)?$/.test(val);
-  }
-  function isObject$1(val) {
-    return val !== null && typeof val === "object";
-  }
-  function noop() {
-  }
-  function isFunction(val) {
-    return typeof val === "function";
-  }
-  function isPromise(val) {
-    return isObject$1(val) && isFunction(val.then) && isFunction(val.catch);
-  }
-  function addUnit$1(value2) {
-    if (!isDef(value2)) {
-      return void 0;
-    }
-    value2 = String(value2);
-    return isNumeric(value2) ? `${value2}px` : value2;
-  }
-  function callInterceptor(options2) {
-    const {
-      interceptor,
-      args,
-      done
-    } = options2;
-    if (interceptor) {
-      const returnVal = interceptor(...args);
-      if (isPromise(returnVal)) {
-        returnVal.then((value2) => {
-          if (value2)
-            done();
-        }).catch(noop);
-      } else if (returnVal) {
-        done();
-      }
-    } else {
-      done();
-    }
-  }
-  const rgbaRegex = /^rgba\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),\s*(\d*(?:\.\d+)?)\)$/;
-  const getColor = function(colorStr) {
-    const matches = colorStr.match(rgbaRegex);
-    if (matches && matches.length === 5) {
-      return [
-        matches[1],
-        matches[2],
-        matches[3],
-        matches[4]
-      ];
-    }
-    return [];
-  };
-  function toClass(classObj, ...classArray) {
-    const arr = Object.keys(classObj || {}).filter((key) => classObj[key]);
-    arr.push(...classArray);
-    return arr.join(" ");
-  }
-  function getDirection(x, y) {
-    if (x > y)
-      return "horizontal";
-    if (y > x)
-      return "vertical";
-    return "";
-  }
-  function easingFunction(time, duration, type = "linear") {
-    let pos = time / duration;
-    let value2 = 0;
-    switch (type) {
-      case "easeOutCubic":
-        value2 = Math.pow(pos - 1, 3) + 1;
-        break;
-      case "easeInOutCubic":
-        if ((pos /= 0.5) < 1)
-          value2 = 0.5 * Math.pow(pos, 3);
-        else
-          value2 = 0.5 * (Math.pow(pos - 2, 3) + 2);
-        break;
-      default:
-        value2 = pos;
-        break;
-    }
-    return value2;
-  }
-  function progress(time, begin, end, duration, type) {
-    return begin + (end - begin) * easingFunction(time, duration, type);
-  }
-  let uid = 0;
-  function getUid() {
-    return uid++;
-  }
-  const now = Date.now || function() {
-    return +/* @__PURE__ */ new Date();
-  };
-  function array$1(value2) {
-    if (typeof Array.isArray === "function") {
-      return Array.isArray(value2);
-    }
-    return Object.prototype.toString.call(value2) === "[object Array]";
-  }
-  function deepClone$1(obj) {
-    if ([null, void 0, NaN, false].includes(obj))
-      return obj;
-    if (typeof obj !== "object" && typeof obj !== "function") {
-      return obj;
-    }
-    const o = array$1(obj) ? [] : {};
-    for (const i in obj) {
-      if (obj.hasOwnProperty(i)) {
-        o[i] = typeof obj[i] === "object" ? deepClone$1(obj[i]) : obj[i];
-      }
-    }
-    return o;
-  }
-  const options = {
-    styleIsolation: "shared"
-    // 将自定义节点设置成虚拟的，更加接近Vue组件的表现。我们不希望自定义组件的这个节点本身可以设置样式、响应 flex 布局等，
-    // 而是希望自定义组件内部的第一层节点能够响应 flex 布局或者样式由自定义组件本身完全决定，启用后可以通过 mergeVirtualHostAttributes 合并组件虚拟节点外层属性
-    // 平台兼容性：微信小程序、支付宝小程序（默认值为 true）、抖音小程序（4.02+）
-    // 微信（可以使用virtualHost配置）/QQ/百度/字节跳动/京东这几家小程序，自定义组件在渲染时会比App/H5端多一级节点，导致flex无效，在组件上增加class控制
-    // 支付宝小程序默认启用了virtualHost配置不会插入节点
-    // 抖音小程序不需要设置为true，否则自定义组件显示有问题
-  };
-  const emits = [
-    "input",
-    "update:modelValue",
-    //　更新v-model绑定的变量
-    "click",
-    //点击标签时触发 回调参数：name：标识符，title：标题
-    "change",
-    //当前激活的标签改变时触发 回调参数：name：标识符，title：标题
-    "disabled",
-    //点击被禁用的标签时触发 回调参数：name：标识符，title：标题
-    "rendered",
-    //标签内容首次渲染时触发（仅在开启延迟渲染后触发） 回调参数：name：标识符，title：标题
-    "sticky-change",
-    //吸顶时触发，仅在 sticky 模式下生效 回调参数：name：标识符，title：标题
-    "loaded",
-    //组件内部初始化完成后调用 回调参数：{ isFixed: 是否吸顶 }
-    "slide-change",
-    //内容页滑动时触发（仅barAnimateMode为linear、worm、worm-ease时有效） 回调参数：{ dx：滑动距离； rate：当前滑动长度占滑动区域的比例；targetIndex：目标下标；}
-    "slide-end",
-    //内容页滑动结束时触发（仅barAnimateMode为linear、worm、worm-ease时有效） 回调参数：{ targetIndex：目标下标；}
-    "changeSwipe"
-  ];
-  const props$4 = {
-    // v-model绑定属性，绑定当前选中标签的标识符（标签的下标）
-    value: {
-      type: [Number, String],
-      default: 0
-    },
-    modelValue: {
-      type: [Number, String],
-      default: 0
-    },
-    // 样式风格类型，可选值为 text、card、button、line-button
-    type: {
-      type: String,
-      default: "line",
-      validator(value2) {
-        return ["line", "text", "card", "button", "line-button"].includes(value2);
-      }
-    },
-    color: {
-      type: [String, null],
-      default: "#0022AB"
-    },
-    //标签主题色, 默认值为"#0022AB"
-    background: {
-      type: [String, null]
-      // default: "#fff"
-    },
-    //标签栏背景色,默认值为"#fff"
-    // 标签栏样式
-    wrapStyle: {
-      type: [Object, null],
-      default: () => {
-      }
-    },
-    // 标签栏的展示方位,可选值：vertical。
-    direction: {
-      type: String,
-      default: "horizontal",
-      validator(value2) {
-        return ["horizontal", "vertical"].includes(value2);
-      }
-    },
-    titleActiveColor: String,
-    //标题选中态颜色
-    titleInactiveColor: String,
-    //标题默认态颜色
-    titleActiveStyle: Object,
-    //标题选中时的样式
-    titleInactiveStyle: Object,
-    //标题默认时的样式
-    // 是否开启左侧收缩布局,开启后，所有的标签会向左侧收缩对齐。
-    shrink: {
-      type: Boolean,
-      default: false
-    },
-    // 动画时间，单位秒，默认为0.3s。仅支持type为line、button、line-button的滑块切换动画，切换标签内容时的转场动画、滚动导航下的内容定位动画。
-    duration: {
-      type: [Number, String],
-      default: 0.2
-    },
-    // 滑块宽度，默认单位为px, 支持数字、rpx、vh、vw等单位及calc() 函数。 仅支持type为line、button、line-button。
-    // 标签栏水平/垂直展示时,type为line,宽度默认为20px/3px, 而type为button、line-button时,宽度默认为选中标签宽度-8px。 
-    barWidth: [Number, String],
-    //inherit：继承tab的宽高
-    // 滑块高度，默认单位为px, 支持数字、rpx、vh、vw等单位及calc() 函数。 仅支持type为line、button、line-button。
-    // 标签栏水平/垂直展示时,type为line,高度默认为3px/20px, 而type为button、line-button时,宽度默认为选中标签高度-8px。 
-    barHeight: [Number, String],
-    //滑块样式，仅支持type为line、button、line-button。
-    barStyle: Object,
-    // 滑动切换tab内容时滑块的动画模式，默认值为line，即切换tab时滑块宽度保持不变，线性运动。可选值为worm(毛毛虫效果)、worm-ease(毛毛虫缓动)、none(不设置)。
-    // 可结合swiper组件使用，滑动效果更好。
-    // 仅支持type为line。
-    barAnimateMode: {
-      type: String,
-      default: "linear",
-      validator(value2) {
-        return ["none", "linear", "worm", "worm-ease"].includes(value2);
-      }
-    },
-    // 标签宽高是否动态变化
-    // 表示标签切换了选中状态后宽高是否有变化，有则需要开启该属性，否则会导致滑块错位
-    isDynamic: {
-      type: Boolean,
-      default: false
-    },
-    // 是否省略过长的标题文字。标签栏水平展示时，如果标签数量未超过滚动阈值则生效，垂直展示不限制。
-    ellipsis: {
-      type: Boolean,
-      default: true
-    },
-    // 滚动阈值，标签数量超过阈值且总宽度超过标签栏宽度时开始横向滚动
-    scrollThreshold: {
-      type: [Number, String],
-      default: 5
-    },
-    // 标签栏滚动时当前标签居中
-    scrollToCenter: {
-      type: Boolean,
-      default: true
-    },
-    // 切换标签前的回调函数，返回 false 可阻止切换，支持返回 Promise
-    beforeChange: Function,
-    // 是否开启延迟渲染（首次切换到标签时才触发内容渲染）
-    isLazyRender: Boolean,
-    // 是否开启切换动画
-    // 用于标签栏滚动动画、切换标签内容时的转场动画、滚动导航下的内容定位动画
-    animated: {
-      type: Boolean,
-      default: true
-    },
-    // 在滚动导航模式下，滚动到最后一个标签内容但其顶部未超过可视区域时，是否激活对应的标签项
-    activeLast: {
-      type: Boolean,
-      default: false
-    },
-    // ---------------------------------- 用于内容区域左右滑动的配置 ----------------------------------------
-    // 是否开启手势滑动切换
-    swipeable: {
-      type: Boolean,
-      default: false
-    },
-    // 是否开启标签内容滑动时的拖动动画
-    // swipeable为true时有效，建议设置is-lazy-render=false。（该属性开启时考虑给包裹内容的容器增加一个min-height，因为其他未显示的标签内容会沿用当前显示的高度，拖动切换后由于高度不一致会有回弹）
-    swipeAnimated: {
-      type: Boolean,
-      default: true
-    },
-    // 滑动切换的滑动距离阈值，单位为px；表示开启手势滑动时，横向滑动多少px切换标签内容（快速滑动时不受限制）
-    swipeThreshold: {
-      type: [Number, String],
-      default: 120
-    },
-    // ---------------------------------- 用于滚动吸顶的配置 ----------------------------------------
-    // 是否使用粘性定位布局进行滚动吸顶
-    sticky: Boolean,
-    // 是否关闭css sticky实现的吸顶方案，是则使用之前的js方案处理
-    closeCssSticky: {
-      type: Boolean,
-      default: false
-    },
-    // 粘性布局下与顶部的最小距离，单位为px
-    offsetTop: {
-      type: [Number, String],
-      default: 0
-    },
-    // 粘性布局下标签栏的z-index值
-    zIndex: {
-      type: [Number, String],
-      default: 99
-    },
-    // 粘性布局的判断阈值：表示在页面滚动过程中,标签栏距屏幕顶部多少px时，触发吸顶函数进行吸顶判断
-    stickyThreshold: {
-      type: [Number, String],
-      default: 0
-    },
-    // 页面滚动过程中,标题栏背景色是否透明渐变
-    // background属性值必须为rgba格式
-    transparent: {
-      type: Boolean,
-      default: false
-    },
-    // 标题栏背景色透明渐变的滚动距离
-    transparentOffset: {
-      type: [Number, String],
-      default: 100
-    },
-    // 是否开启滚动导航；该模式下，内容将会平铺展示
-    // 如果标签栏垂直展示，且内容平铺展示，就为侧边栏模式
-    scrollspy: Boolean,
-    // 滚动导航模式下，内容区域是否跟随页面滚动
-    // 为true时，整体区域跟随页面而滚动，为false时，内容区域是放在scroll-view中实现的局部滚动
-    pageScroll: {
-      type: Boolean,
-      default: true
-    }
-  };
-  const _sfc_main$B = {
-    name: "y-tab",
-    options,
-    props: {
-      title: String,
-      // 标题
-      disabled: Boolean,
-      // 是否禁用标签
-      dot: Boolean,
-      // 是否在标题右上角显示小红点
-      badge: {
-        type: [Number, String],
-        default: ""
-      },
-      // 图标右上角徽标的内容
-      // 徽标数最大数字限制,超过这个数字将变成badgeMaxCount+,如果传空字符串则不设置
-      badgeMaxCount: {
-        type: [Number, String],
-        default: 99
-      },
-      name: [Number, String],
-      // 标签名称，作为匹配的标识符
-      titleStyle: Object,
-      //	自定义标题样式
-      titleClass: String,
-      //	自定义标题类名
-      iconType: String,
-      //图标图案，为uniapp扩展组件（uni-ui）下的uni-icons的type值，customPrefix用法等同
-      iconSize: {
-        type: [Number, String],
-        default: 16
-      },
-      //图标大小
-      customPrefix: String,
-      //自定义图标
-      imageSrc: String,
-      //图片路径
-      //图片裁剪、缩放的模式，为uniapp内置组件->媒体组件—>image下的mode值
-      imageMode: {
-        type: String,
-        default: "scaleToFill",
-        validator(value2) {
-          return [
-            "scaleToFill",
-            "aspectFit",
-            "aspectFill",
-            "widthFix",
-            "heightFix",
-            "top",
-            "bottom",
-            "center",
-            "left",
-            "right",
-            "top left",
-            "top right",
-            "bottom left",
-            "bottom right"
-          ].includes(value2);
-        }
-      },
-      //如果存在图片或图标，标题围绕它们的位置
-      position: {
-        type: String,
-        default: "right",
-        validator(value2) {
-          return ["top", "bottom", "left", "right"].includes(value2);
-        }
-      },
-      // 是否开启标题插槽（仅针对vue3版本下的小程序端），为true则可以自定义标题（在vue3版本下，循环生成的具名动态插槽无法渲染后备内容）
-      titleSlot: {
-        type: Boolean,
-        default: false
-      },
-      // 标题插槽的name值，默认为'title'+y-tab的下标（比如第一个y-tab，它的默认插槽名称就是'title0'）
-      titleSlotName: {
-        type: String,
-        default: ""
-      }
-    },
-    data() {
-      return {
-        isUnmounted: false,
-        index: -1,
-        //内容卡片对应的下标
-        // parent: null, //父元素实例
-        active: false,
-        //是否为激活状态
-        rendered: false,
-        //是否渲染过
-        swipeable: false,
-        //是否开启手势滑动切换
-        paneStyle: null,
-        //内容样式
-        scrollspy: false,
-        //是否为滚动导航模式
-        // paneObserver: null, //pane交叉观察器
-        isDisjoint: false,
-        //当前pane是否与参照节点布局区域相离
-        isActiveLast: false
-        // 最后一个pane在滚动导航模式下是否激活对应的标签项
-      };
-    },
-    computed: {
-      computedName() {
-        return !isNull(this.name) ? this.name : this.index;
-      },
-      unqieKey() {
-        return getUid();
-      },
-      // 保证唯一的样式
-      uniquePaneClass() {
-        return "y-tab__pane" + this.unqieKey;
-      },
-      // 内容class
-      paneClass() {
-        return toClass({ "is-active": this.active, "is-scrollspy": this.scrollspy });
-      }
-    },
-    created() {
-      this.parent = this.getParent();
-    },
-    mounted() {
-      if (!this.parent)
-        return;
-      if (this.parent.childrens.indexOf(this) === -1)
-        this.parent.childrens.push(this);
-      this.parent.putTab({ ...deepClone$1(this.$props || {}), key: this.unqieKey });
-      this.scrollspy = this.parent.scrollspy;
-      this.rendered = !this.parent.isLazyRender || this.scrollspy;
-      this.$watch(() => this.$props, {
-        deep: true,
-        handler(props2) {
-          if (this.parent && props2)
-            this.parent.updateTab({ ...props2 }, this.index);
-        }
-      });
-    },
-    unmounted() {
-      this.isUnmounted = true;
-      this.unInit();
-    },
-    methods: {
-      // 获取查询节点信息的对象
-      getSelectorQuery() {
-        let query = null;
-        query = uni.createSelectorQuery().in(this);
-        return query;
-      },
-      // 获取元素位置信息
-      getRect(selector) {
-        return new Promise((resolve, reject) => {
-          selector = `.${this.uniquePaneClass}` + (!isNull(selector) ? " " + selector : "");
-          this.getSelectorQuery().select(selector).boundingClientRect().exec((rect) => {
-            resolve(rect[0] || {});
-          });
-        });
-      },
-      // 卸载组件的处理
-      unInit() {
-        this.disconnectObserver();
-        if (this.parent) {
-          const index2 = this.parent.childrens.findIndex((item) => item === this);
-          this.parent.childrens.splice(index2, 1);
-          this.parent.tabs.splice(index2, 1);
-          this.parent.tabRects.splice(index2, 1);
-        }
-      },
-      //获取父元素实例
-      getParent(name = "y-tabs") {
-        let parent = this.$parent;
-        let parentName = parent.$options.name;
-        while (parentName !== name) {
-          parent = parent.$parent;
-          if (!parent)
-            return false;
-          parentName = parent.$options.name;
-        }
-        return parent;
-      },
-      // 断掉观察，释放资源
-      disconnectObserver() {
-        var _a;
-        this.paneObserver && ((_a = this.paneObserver) == null ? void 0 : _a.disconnect());
-      },
-      // 观察 - 标签内容滚动时定位标签项
-      async observePane(top) {
-        this.disconnectObserver();
-        const paneObserver = uni.createIntersectionObserver(this, { thresholds: [0, 0.01, 0.99, 1] });
-        paneObserver.relativeToViewport({ top: -top });
-        paneObserver.observe(`.${this.uniquePaneClass} .y-tab__pane--wrap`, (res) => {
-          if (!this.isActiveLast) {
-            this.isDisjoint = res.intersectionRatio <= 0 && res.boundingClientRect.top < res.relativeRect.top;
-          } else {
-            this.isDisjoint = res.intersectionRatio > 0 && res.boundingClientRect.bottom <= res.relativeRect.bottom;
-          }
-          if (this.parent.isLoaded && !this.parent.lockedScrollspy)
-            this.parent.setActivedIndexToScroll();
-        });
-        this.paneObserver = paneObserver;
-      }
-    }
-  };
-  function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", {
-      class: vue.normalizeClass(["y-tab__pane", [$options.uniquePaneClass, $options.paneClass]]),
-      "data-index": $data.index,
-      style: vue.normalizeStyle([$data.paneStyle])
-    }, [
-      vue.createCommentVNode(" 渲染过的则不再渲染，未渲染的根据激活状态active进行渲染 "),
-      ($data.rendered ? true : $data.active) ? (vue.openBlock(), vue.createElementBlock("view", {
-        key: 0,
-        class: "y-tab__pane--wrap"
-      }, [
-        vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-      ])) : vue.createCommentVNode("v-if", true)
-    ], 14, ["data-index"]);
-  }
-  const __easycom_7 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$A], ["__scopeId", "data-v-2d763a4b"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/y-tabs/components/y-tab/y-tab.vue"]]);
-  const touchMixin = function() {
-    return {
-      data() {
-        return {
-          tonchOpt: {
-            direction: "",
-            //滑动方向
-            startX: "",
-            //开始滑动的x坐标
-            startY: "",
-            //开始滑动的y坐标
-            nextIndex: -1,
-            //下一个切换的标签下标
-            moved: false,
-            //是否为一次水平滑动
-            deltaX: 0,
-            deltaY: 0,
-            startTimestamp: 0,
-            nestedSwipeable: true
-            //对于嵌套的上级tabs，是否允许水平滑动（下级tabs滑动边界时才允许上级tabs滑动）
-          },
-          windowWidth: 414
-          //可使用窗口宽度
-        };
-      },
-      computed: {
-        // 是否允许水平滑动
-        horizontalSwipe() {
-          return this.swipeable && this.tonchOpt.nestedSwipeable && !this.scrollspy;
-        }
-      },
-      created() {
-        var _a;
-        this.nestedTabs = this.getNestedTabs();
-        this.windowWidth = ((_a = uni.getSystemInfoSync()) == null ? void 0 : _a.windowWidth) || 414;
-      },
-      methods: {
-        //获取嵌套的上级tabs实例
-        getNestedTabs(name = "y-tabs") {
-          let parent = this.$parent;
-          let parentName = parent.$options.name;
-          while (parentName !== name) {
-            parent = parent.$parent;
-            if (!parent)
-              return false;
-            parentName = parent.$options.name;
-          }
-          return parent;
-        },
-        touchStart(event) {
-          this.releaseScrollspyLock();
-          if (!this.horizontalSwipe)
-            return;
-          this.resetTouchStatus();
-          this.tonchOpt.startX = event.touches[0].clientX;
-          this.tonchOpt.startY = event.touches[0].clientY;
-          this.tonchOpt.startTimestamp = now();
-        },
-        touchMove(event) {
-          var _a;
-          if (!this.horizontalSwipe)
-            return;
-          const touch = event.touches[0];
-          const clientX = touch.clientX < 0 ? 0 : touch.clientX > this.windowWidth ? this.windowWidth : touch.clientX;
-          this.tonchOpt.deltaX = this.tonchOpt.startX - clientX;
-          this.tonchOpt.deltaY = this.tonchOpt.startY - touch.clientY;
-          const offsetX = Math.abs(this.tonchOpt.deltaX);
-          const offsetY = Math.abs(this.tonchOpt.deltaY);
-          if (!this.tonchOpt.direction || offsetX < 10 && offsetY < 10) {
-            this.tonchOpt.direction = getDirection(offsetX, offsetY);
-          }
-          if (this.tonchOpt.direction === "horizontal") {
-            const { dataLen, contentWidth, currentIndex, tabs, swipeAnimated } = this;
-            const isRight = this.tonchOpt.deltaX < 0;
-            if (isRight && currentIndex === 0 || !isRight && currentIndex === dataLen - 1) {
-              this.setNestTabsSwipe(true);
-              return;
-            } else {
-              this.setNestTabsSwipe(false);
-            }
-            this.tonchOpt.nextIndex = currentIndex + (isRight ? -1 : 1);
-            if ((_a = tabs[this.tonchOpt.nextIndex]) == null ? void 0 : _a.disabled)
-              return;
-            this.tonchOpt.moved = true;
-            if (swipeAnimated) {
-              const offsetWidth = contentWidth * currentIndex * -1 + offsetX * (isRight ? 1 : -1);
-              this.changeTrackStyle(true, 0, offsetWidth);
-              this.setDx(this.tonchOpt.deltaX, false);
-            }
-            event.preventDefault();
-          }
-        },
-        touchEnd() {
-          if (this.tonchOpt.moved) {
-            const deltaTime = now() - this.tonchOpt.startTimestamp;
-            const distance = Math.abs(this.tonchOpt.deltaX);
-            const speed = (distance / deltaTime).toFixed(4);
-            const isChange = speed > 0.25 || distance >= Number(this.swipeThreshold);
-            const currIndex = this.currentIndex;
-            const targetIndex = isChange ? this.tonchOpt.nextIndex : currIndex;
-            this.touchEndForPane(this.tonchOpt.deltaX, currIndex, targetIndex, isChange);
-          }
-        },
-        // 重置触摸状态
-        resetTouchStatus() {
-          this.tonchOpt.direction = "";
-          this.tonchOpt.deltaX = 0;
-          this.tonchOpt.deltaY = 0;
-          this.tonchOpt.nextIndex = -1;
-          this.tonchOpt.moved = false;
-          this.tonchOpt.startTimestamp = 0;
-          this.setNestTabsSwipe(true);
-        },
-        // 设置嵌套的上级tabs是否可水平滑动
-        setNestTabsSwipe(value2) {
-          if (!this.nestedTabs)
-            return;
-          this.nestedTabs.tonchOpt.nestedSwipeable = value2;
-        }
-      }
-    };
-  };
-  const _sfc_main$A = {
-    name: "y-tabs",
-    options,
-    emits,
-    props: props$4,
-    mixins: [touchMixin()],
-    data() {
-      return {
-        isUnmounted: false,
-        //标记组件是否卸载
-        isLoaded: false,
-        //标记组件内部是否已经初始化完成
-        // initTimer: null,
-        currentIndex: null,
-        //当前选中下标
-        lastIndex: null,
-        //上一个选中的下标
-        // childrens: [], // 存放子组件数组
-        tabs: [],
-        //存放标签栏数据
-        tabRects: [],
-        //存放标签节点信息等数据
-        reseted: true,
-        //组件是否重置完成
-        shouldSetDx: true,
-        //是否可以执行setDx函数
-        // 元素节点信息
-        stickyRect: {},
-        wrapRect: {},
-        //标签栏
-        contentRect: {},
-        // 标签内容容器
-        barRect: {},
-        //滑块
-        dependOffsetRect: {},
-        //标签栏吸顶设置offset时的模拟元素
-        extraWidth: 0,
-        //标签栏navLeft、navRight插槽宽度
-        extraHeight: 0,
-        //标签栏navLeft、navRight插槽高度
-        // 标签栏的scroll-view相关
-        scrollLeft: 0,
-        //设置横向滚动条位置
-        scrollTop: 0,
-        //设置竖向滚动条位置
-        scrollViewRect: 0,
-        //标签栏scroll-view的节点信息
-        scrollDetail: { scrollLeft: 0, scrollTop: 0 },
-        //标签栏scroll-view滚动时的详情信息
-        // 标签栏滑块动画相关
-        barOffset: 0,
-        //滑块偏移量：水平展示为left值，垂直为top值
-        barAnimated: false,
-        //是否开启滑块切换动画（首次不开启）
-        barCalcedWidth: void 0,
-        barCalcedHeight: void 0,
-        disabledSetLine: false,
-        //是否允许标签切换时设置滑块位置
-        firstSetLine: true,
-        //是否首次设置滑块，是则透明度为0，避免translate3d设置时会有一瞬间的闪动
-        // 内容区域相关
-        paneScrollTop: 0,
-        //设置内容区域scroll-view的竖向滚动条位置
-        trackStyle: null,
-        //内容区域滑动轨道样式
-        lockedScrollspy: false,
-        //锁定滚动导航模式下点击标签栏触发的pane交互观察器的回调执行
-        // 标签栏吸顶相关
-        // dependObserver: null,
-        isFixed: false,
-        //标签栏是否吸顶
-        cssSticky: false,
-        // 是否使用css的sticky实现
-        fixedRelativeHeight: 0,
-        // 标签栏垂直吸顶时，获取参照节点高度
-        vWrapHeight: 0,
-        // 标签栏垂直且吸顶时的视口可见区域的标签容器高度
-        // 标签栏渐变相关
-        // tranObserver: null,
-        transparentBgColor: "rgba(255,255,255,0)",
-        //标签栏透明背景色
-        rgba: {
-          R: "",
-          G: "",
-          B: "",
-          A: ""
-        }
-      };
-    },
-    computed: {
-      // 传入的实际值
-      realValue() {
-        return this.modelValue;
-      },
-      // 标签栏是否垂直展示
-      isVertical() {
-        return this.direction === "vertical";
-      },
-      // 标签栏垂直展示时允许垂直滚动
-      scrollY() {
-        return this.isVertical;
-      },
-      // 标签栏是否允许横向滚动
-      scrollX() {
-        return !this.isVertical && this.tabs.length > Number(this.scrollThreshold);
-      },
-      // js模式时，是否处于吸顶模式
-      jsFixed() {
-        return !this.cssSticky && this.isFixed;
-      },
-      // 是否省略过长的标题文字
-      isEllipsis() {
-        return (!this.scrollX || this.isVertical) && this.ellipsis;
-      },
-      // 是否为滚动导航
-      scrollNav() {
-        return this.scrollspy && !this.isVertical;
-      },
-      // 是否为侧边栏导航
-      sidebarNav() {
-        return this.scrollspy && this.isVertical;
-      },
-      // 样式风格为滑块
-      isLine() {
-        return this.type === "line";
-      },
-      // 样式风格为胶囊，type为button、line-button
-      isPills() {
-        return ["button", "line-button"].includes(this.type);
-      },
-      // 用于滑块切换的样式风格，仅支持type为line、button、line-button
-      isSlideBlock() {
-        return this.isLine || this.isPills;
-      },
-      // 滑块切换模式为线性运动
-      isLineMode() {
-        return this.isLine && this.barAnimateMode === "linear";
-      },
-      // 滑块切换模式为毛毛虫运动
-      isWormMode() {
-        return this.isLine && this.barAnimateMode.indexOf("worm") >= 0;
-      },
-      // 当前激活标签的name值
-      currentName() {
-        if (isNull(this.currentIndex))
-          return "";
-        const { name, index: index2 } = this.tabs[this.currentIndex] || {};
-        return !isNull(name) ? name : index2;
-      },
-      // 标签数量
-      dataLen() {
-        return this.tabs.length;
-      },
-      // 滑动动画时长(ms)
-      msDuration() {
-        return this.animated ? Number(this.duration) * 1e3 : 0;
-      },
-      // 在设置滚动条位置时使用动画过渡
-      // （scroll-view的过渡动画时长为300ms，不能设置，因此为300ms时使用scroll-view自身的过渡，否则模拟一组数据实现过渡,setInterval时间不准确，暂时不做）
-      scrollWithAnimation() {
-        return this.animated && this.reseted;
-      },
-      // 保证标签页唯一的样式
-      uniqueTabsClass() {
-        return "y-tabs" + getUid();
-      },
-      // 标签页class
-      tabsClass() {
-        return toClass(
-          {
-            "is-fixed": this.isFixed,
-            "is-vertical": this.isVertical,
-            //标签栏是否垂直
-            "is-scrollNav": this.scrollNav,
-            //滚动导航
-            "is-sidebarNav": this.sidebarNav,
-            //侧边栏导航
-            "is-areaScroll": !this.pageScroll
-            //pane是否为区域滚动
-          },
-          `y-tabs--${this.type}`
-        );
-      },
-      // 标签栏容器class
-      wrapClass() {
-        return toClass(
-          {
-            "is-fixed": this.jsFixed,
-            "is-transparent": this.transparent,
-            "is-vertical": this.isVertical
-          },
-          `is-${this.type}`
-        );
-      },
-      // 标签栏class
-      navClass() {
-        return toClass({ "is-vertical": this.isVertical, "is-shrink": this.shrink }, `is-${this.type}`);
-      },
-      // 滑块class
-      barClass() {
-        return toClass({ "is-vertical": this.isVertical }, `is-${this.type}`);
-      },
-      // 内容卡片class
-      contentClass() {
-        return toClass({ "is-scrollspy": this.scrollspy, "is-vertical": this.isVertical });
-      },
-      stickyStyle() {
-        const style = {};
-        if (this.sticky) {
-          if (this.cssSticky) {
-            style.position = "sticky";
-            style.zIndex = this.zIndex;
-            style.top = addUnit$1(this.offsetTop);
-          } else {
-            if (this.closeCssSticky)
-              style.position = "relative";
-            ["width", "height"].forEach((key) => style[key] = addUnit$1(this.stickyRect[key]));
-          }
-        } else {
-          style.position = "relative";
-        }
-        return style;
-      },
-      // 标签栏容器样式
-      innerWrapStyle() {
-        const style = {};
-        const background = !this.transparent ? this.background : this.transparentBgColor;
-        if (!isNull(background))
-          style.background = background;
-        if (this.sticky && !this.cssSticky) {
-          style.position = this.isFixed ? "fixed" : "static";
-          style.top = addUnit$1(this.offsetTop);
-          style.left = addUnit$1(this.stickyRect.left);
-          style.width = addUnit$1(this.stickyRect.width);
-          style.zIndex = this.zIndex;
-        }
-        if (this.isVertical && this.isFixed) {
-          style.height = addUnit$1(Math.min(this.fixedRelativeHeight, this.wrapRect.height));
-        }
-        return style;
-      },
-      // 标签栏样式
-      navStyle() {
-        const style = {};
-        if (this.type === "card")
-          style.borderColor = this.color;
-        return style;
-      },
-      // 标签栏吸顶的依赖元素样式
-      dependStyle() {
-        return { top: `-${Number(this.stickyThreshold)}px` };
-      },
-      // 模拟标签栏吸顶时设置offset的样式
-      dependOffsetStyle() {
-        return { top: `${this.offsetTop}px` };
-      },
-      dependTranStyle() {
-        return { height: `${Number(this.transparentOffset)}px` };
-      },
-      // 滑块透明度
-      lineOpacity() {
-        return !this.isSlideBlock || this.currentIndex === null || this.firstSetLine ? 0 : 1;
-      },
-      // 滑块容器动画样式
-      barAnimatedStyle() {
-        const x = !this.isVertical ? `${this.barOffset}px` : 0;
-        const y = !this.isVertical ? 0 : `${this.barOffset}px`;
-        const style = {
-          opacity: this.lineOpacity,
-          transform: `translate3d(${x},${y},0)`,
-          transition: this.barAnimated ? `all ${this.duration}s linear` : "none"
-        };
-        if ((this.isPills || this.autoLineBarHeight) && this.isVertical)
-          style.height = addUnit$1(this.barCalcedHeight);
-        return style;
-      },
-      // line风格的底部条宽度自适应选中标签宽度，仅对barAnimateMode为linear生效
-      autoLineBarWidth() {
-        return this.isLine && this.barAnimateMode === "linear" && this.barWidth === "auto";
-      },
-      // line风格的底部条高度自适应选中标签高度，仅对barAnimateMode为linear生效
-      autoLineBarHeight() {
-        return this.isLine && this.barAnimateMode === "linear" && this.barHeight === "auto";
-      },
-      // 滑块内容样式
-      barInnerStyle() {
-        const style = {};
-        style.transition = this.barAnimated ? `all ${this.duration}s linear` : "none";
-        const width = !isNull(this.barCalcedWidth) ? addUnit$1(this.barCalcedWidth) : null;
-        const height = !isNull(this.barCalcedHeight) ? addUnit$1(this.barCalcedHeight) : null;
-        if (width)
-          style.width = width;
-        if (height)
-          style.height = height;
-        switch (this.type) {
-          case "line":
-            if (this.color)
-              style.backgroundColor = this.color;
-            if (this.isVertical && width)
-              style.borderRadius = width;
-            if (!this.isVertical && height)
-              style.borderRadius = height;
-            break;
-          case "button":
-            if (this.color)
-              style.backgroundColor = this.color;
-            if (height)
-              style.borderRadius = height;
-            break;
-          case "line-button":
-            if (this.color)
-              style.borderColor = this.color;
-            if (height)
-              style.borderRadius = height;
-            break;
-        }
-        return style;
-      },
-      // 标签栏scroll-view样式
-      scrollStyle() {
-        if (!this.isVertical)
-          return { width: `calc(100% - ${this.extraWidth}px)` };
-        return { height: `calc(100% - ${this.extraHeight}px)` };
-      },
-      // 标签水平展示时到中心点的宽度 
-      tabCenterWidth() {
-        var _a, _b;
-        const wrapW = (_a = this.wrapRect) == null ? void 0 : _a.width;
-        const viewW = (_b = this.scrollViewRect) == null ? void 0 : _b.width;
-        const width = viewW < wrapW ? viewW : wrapW - this.extraWidth;
-        return width / 2;
-      },
-      // 标签垂直展示时到中心点的高度
-      tabCenterHeight() {
-        var _a, _b;
-        const wrapH = (_a = this.wrapRect) == null ? void 0 : _a.height;
-        const viewH = (_b = this.scrollViewRect) == null ? void 0 : _b.height;
-        const height = viewH < wrapH ? viewH : wrapH - this.extraHeight;
-        return height / 2;
-      },
-      // 内容宽度
-      contentWidth() {
-        var _a;
-        let width = ((_a = this.contentRect) == null ? void 0 : _a.width) || 0;
-        return width;
-      },
-      // 页面级滚动，非导航模式下，如果标签栏吸顶，记录上一个pane的滚动位置，保证切换切换回来时自动定位
-      pageScrollLocate() {
-        return this.pageScroll && !this.scrollspy && this.isFixed;
-      }
-    },
-    watch: {
-      // 监听子组件数组长度变化，赋index值
-      "tabs.length"() {
-        const lastIndex = this.childrens.length - 1;
-        this.childrens.forEach((child, index2) => {
-          child.index = index2;
-          child.isActiveLast = this.activeLast ? lastIndex === index2 : false;
-          const tab = this.tabs[index2];
-          if (tab)
-            this.$set(tab, "index", index2);
-        });
-      },
-      // 监听选中标识符变化,用于绑定的v-model变化时激活对应的标签
-      realValue(value2) {
-        if (this.isLoaded && value2 !== this.currentName)
-          this.setCurrentIndexByName(value2);
-      },
-      // 监听选中下标变化
-      currentIndex(newIdx, oldIdx) {
-        if (isNull(newIdx))
-          return;
-        this.lastIndex = oldIdx;
-        if (this.scrollspy)
-          this.childrens.forEach((child, index2) => child.isDisjoint = index2 < newIdx);
-        this.$nextTick(() => {
-          this.setLine();
-          if (!this.scrollspy) {
-            this.changeStatus(newIdx, oldIdx);
-            this.changeStyle();
-          }
-        });
-      },
-      // 监听背景色变化，重新获取rgba各值
-      background: {
-        immediate: true,
-        handler(value2) {
-          if (this.transparent) {
-            const color2 = getColor(isNull(value2) ? "rgba(255,255,255,0)" : value2);
-            if (color2.length) {
-              const [R, G, B, A] = color2;
-              this.rgba = { R, G, B, A: parseFloat(A) };
-            } else {
-              throw new Error("元素背景颜色必须为RGBA");
-            }
-          }
-        }
-      },
-      isFixed(val) {
-        this.$emit("sticky-change", { isFixed: val });
-        this.updateTabsWrapRect();
-        this.clearScrollPostion();
-      },
-      // 更新滑块计算宽度
-      barWidth: {
-        immediate: true,
-        handler(val) {
-          if (val !== "auto")
-            this.barCalcedWidth = val;
-        }
-      },
-      // 更新滑块计算高度
-      barHeight: {
-        immediate: true,
-        handler(val) {
-          if (val !== "auto")
-            this.barCalcedHeight = val;
-        }
-      }
-    },
-    created() {
-      this.childrens = [];
-    },
-    mounted() {
-    },
-    unmounted() {
-      this.isUnmounted = true;
-      this.unInit();
-    },
-    // 组件创建了Observer监听，当切换页面时页面不一定会销毁， 因此tabs组件也没有销毁，就无法触发destroyed或unmounted钩子，导致unInit方法不会调用从而断开监听。
-    // 在页面隐藏后，组件仍然保持监听，会因为获取不到元素的节点信息而报错：Cannot read property 'bottom' of null
-    // 因此在组件失活后手动断开监听来解决这个报错
-    activated() {
-      this.createObserver();
-    },
-    deactivated() {
-      this.destroyObserver();
-    },
-    methods: {
-      // 卸载组件的处理
-      unInit() {
-        this.destroyObserver();
-      },
-      // @exposed-api 重置组件的一些状态
-      reset(callback) {
-        this.reseted = false;
-        this.barAnimated = false;
-        this.lockedScrollspy = true;
-        this.disabledSetLine = false;
-        this.firstSetLine = true;
-        this.shouldSetDx = true;
-        this.scrollLeft = 0;
-        this.scrollTop = 0;
-        this.scrollDetail = { scrollLeft: 0, scrollTop: 0 };
-        this.paneScrollTop = 0;
-        this.barCalcedWidth = this.barWidth;
-        this.barCalcedHeight = this.barHeight;
-        this.$nextTick(() => {
-          this.reseted = true;
-          this.resize(callback);
-        });
-      },
-      // @exposed-api 外层元素大小或组件显示状态变化时，可以调用此方法来触发重绘
-      async resize(callback) {
-        this.init(() => {
-          callback && callback();
-        });
-      },
-      // @exposed-api 滚动到指定的标签页，在滚动导航模式下可用
-      scrollTo(name) {
-        this.$nextTick(() => {
-          this.setCurrentIndexByName(name);
-          this.scrollToCurrentContent(false);
-        });
-      },
-      // 添加tab
-      putTab(props2) {
-        const defaultSlotName = "title" + this.tabs.length;
-        this.tabs.push({
-          ...props2,
-          //标题插槽名，默认以"title"+下标命名，如果用户设置了titleSlotName，就使用titleSlotName
-          //vue3只有H5、app支持自定义标签插槽,因此通过titleSlot控制vue3下的小程序端是否使用插槽，否则直接显示标题
-          defaultSlotName,
-          //标题的默认插槽名
-          titleSlotName: this.getTitleSlotName(defaultSlotName, props2 == null ? void 0 : props2.titleSlotName),
-          //标题的实际插槽名
-          show: this.scrollspy
-          //是否显示内容（滚动导航模式默认显示）
-        });
-        this.$nextTick(() => {
-          this.initTimer && clearTimeout(this.initTimer);
-          this.initTimer = setTimeout(() => this.init(), 5);
-        });
-      },
-      // 更新tab
-      updateTab(props2, index2) {
-        const tab = this.tabs[index2];
-        Object.entries(props2 || {}).forEach((ele) => this.$set(tab, ele[0], ele[1]));
-        this.$set(tab, "titleSlotName", this.getTitleSlotName(tab.defaultSlotName, props2 == null ? void 0 : props2.titleSlotName));
-      },
-      // 获取标题插槽名
-      getTitleSlotName(defaultSlotName, titleSlotName) {
-        return !isNull(titleSlotName) ? titleSlotName : defaultSlotName;
-      },
-      // 标签项class
-      tabClass(index2, tab) {
-        return toClass(
-          {
-            "is-active": this.currentIndex === index2,
-            "is-disabled": tab.disabled,
-            "is-animated": this.isSlideBlock,
-            "is-shrink": this.shrink,
-            "y-tabs__ellipsis": this.isEllipsis,
-            "y-tab__prev": index2 === this.currentIndex - 1,
-            //与当前标签相邻的前面的标签
-            "y-tab__next": index2 === this.currentIndex + 1
-            //与当前标签相邻的后面的标签
-          },
-          `is-${this.type}`,
-          `y-tab_${index2}`,
-          tab.titleClass
-        );
-      },
-      // 标签区域class
-      titleClass(tab) {
-        return toClass({ "y-tabs__ellipsis": this.isEllipsis }, `y-tab__title--${tab.position}`);
-      },
-      // 标签文字class
-      textClass(tab) {
-        return toClass({ "y-tabs__ellipsis": this.isEllipsis }, `y-tab__text--${tab.position}`);
-      },
-      // 标签项style
-      tabStyle(index2) {
-        const activated = this.currentIndex === index2;
-        if (activated && this.type === "card")
-          return { background: this.color };
-        else
-          return {};
-      },
-      // 标题style
-      titleStyle(tab) {
-        const activated = this.currentIndex === tab.index;
-        let { titleActiveColor: color2, titleInactiveColor: defColor } = this;
-        switch (this.type) {
-          case "line":
-            if (isNull(color2))
-              color2 = "#323233";
-            if (isNull(defColor))
-              defColor = "#646566";
-            break;
-          case "text":
-            if (isNull(color2))
-              color2 = this.color;
-            if (isNull(defColor))
-              defColor = "#323233";
-            break;
-          case "card":
-            if (isNull(color2))
-              color2 = "#fff";
-            if (isNull(defColor))
-              defColor = this.color;
-            break;
-          case "button":
-            if (isNull(color2))
-              color2 = "#fff";
-            if (isNull(defColor))
-              defColor = "#323233";
-          case "line-button":
-            if (isNull(color2))
-              color2 = this.color;
-            if (isNull(defColor))
-              defColor = "#323233";
-            break;
-        }
-        const titleStyle = activated ? this.titleActiveStyle : this.titleInactiveStyle;
-        const style = {
-          color: activated ? color2 : defColor,
-          ...titleStyle || {},
-          ...tab.titleStyle || {}
-        };
-        return style;
-      },
-      // 徽标格式化
-      formatBadge(tab) {
-        if (!isNull(tab == null ? void 0 : tab.badge) && !isNull(tab == null ? void 0 : tab.badgeMaxCount) && (tab == null ? void 0 : tab.badge) > (tab == null ? void 0 : tab.badgeMaxCount)) {
-          return (tab == null ? void 0 : tab.badgeMaxCount) + "+";
-        } else {
-          return tab == null ? void 0 : tab.badge;
-        }
-      },
-      // 初始化操作
-      async init(callback) {
-        var _a, _b;
-        try {
-          this.stickyRect = await this.getRect(".y-tabs__sticky");
-          this.wrapRect = await this.getRect(".y-tabs__wrap");
-          this.scrollViewRect = await this.getRect(".y-tabs__scroll");
-          this.barRect = await this.getRect(".y-tabs__bar");
-          this.contentRect = await this.getRect(".y-tabs__content");
-          this.dependOffsetRect = await this.getRect(".y-tabs__depend--offset");
-          const r1 = await this.getRect(".y-tabs__nav-left");
-          const r2 = await this.getRect(".y-tabs__nav-right");
-          this.extraWidth = (r1 == null ? void 0 : r1.width) + (r2 == null ? void 0 : r2.width);
-          this.extraHeight = (r1 == null ? void 0 : r1.height) + (r2 == null ? void 0 : r2.height);
-          const barWidth = (_a = this.barRect) == null ? void 0 : _a.width;
-          const barHeight = (_b = this.barRect) == null ? void 0 : _b.height;
-          if (this.isLine) {
-            if (!this.isVertical && barWidth > 0)
-              this.barCalcedWidth = barWidth;
-            if (this.isVertical && barHeight > 0)
-              this.barCalcedHeight = barHeight;
-          }
-          await this.updateTabRect(true);
-          await this.createObserver();
-          this.setCurrentIndexByName(this.realValue);
-          await this.setLine();
-          this.emitLoaded();
-        } finally {
-          callback && callback();
-        }
-      },
-      // 触发组件内部初始化完成的事件"loaded"
-      emitLoaded() {
-        if (this.isLoaded)
-          return;
-        this.$nextTick(() => {
-          this.isLoaded = true;
-          this.$emit("loaded");
-        });
-      },
-      // 创建观察器
-      async createObserver() {
-        await this.observeSticky();
-        await this.observerTransparent();
-        await this.observePane();
-      },
-      // 销毁观察器
-      destroyObserver() {
-        var _a;
-        ["dependObserver", "tranObserver"].forEach((name) => this.disconnectObserver(name));
-        (_a = this.childrens) == null ? void 0 : _a.forEach((child) => child.disconnectObserver());
-      },
-      // 断掉观察，释放资源
-      disconnectObserver(observerName) {
-        const observer = this[observerName];
-        observer && observer.disconnect();
-      },
-      // 观察 - 标签栏吸顶
-      async observeSticky() {
-        if (!this.sticky)
-          return;
-        if (!this.closeCssSticky)
-          this.checkSupportCssSticky();
-        this.disconnectObserver("dependObserver");
-        const dependObserver = uni.createIntersectionObserver(this, {
-          thresholds: [0, 0.95, 0.98, 1]
-        });
-        const offsetTop = Number(this.offsetTop);
-        dependObserver.relativeToViewport({ top: -offsetTop });
-        dependObserver.observe(`.${this.uniqueTabsClass} .y-tabs__depend`, (res) => {
-          this.isFixed = res.intersectionRatio <= 0 && res.boundingClientRect.top <= offsetTop;
-          if (this.isVertical && this.isFixed)
-            this.fixedRelativeHeight = res.relativeRect.height;
-        });
-        this.dependObserver = dependObserver;
-      },
-      // 检测是否支持css sticky
-      async checkSupportCssSticky() {
-        const sys2 = uni.getSystemInfoSync();
-        const os2 = sys2.platform.toLowerCase();
-        if (os2 === "android" && Number(sys2.system) > 8) {
-          this.cssSticky = true;
-        }
-        this.cssSticky = await this.checkComputedStyle();
-        if (os2 === "ios") {
-          this.cssSticky = true;
-        }
-        formatAppLog("log", "at uni_modules/y-tabs/components/y-tabs/y-tabs.vue:873", "cssSticky:" + this.cssSticky);
-      },
-      // 在APP和微信小程序上，通过uni.createSelectorQuery可以判断是否支持css sticky
-      checkComputedStyle() {
-        return new Promise((resolve) => {
-          uni.createSelectorQuery().in(this).select(".y-tabs__sticky").fields({
-            computedStyle: ["position"]
-            //指定样式名列表，返回节点对应样式名的当前值（仅 App 和微信小程序支持）
-          }).exec((e) => {
-            var _a;
-            return resolve("sticky" === ((_a = e == null ? void 0 : e[0]) == null ? void 0 : _a.position));
-          });
-        });
-      },
-      // H5通过创建元素的形式嗅探是否支持css sticky
-      // 判断浏览器是否支持sticky属性
-      checkCssStickyForH5() {
-      },
-      // 观察 - 透明渐变标签栏
-      async observerTransparent() {
-        if (!this.transparent)
-          return;
-        const transOffset = Number(this.transparentOffset);
-        const screenHeight = uni.getSystemInfoSync().screenHeight;
-        const rect = await this.getRect(".y-tabs__depend--transparent");
-        const visibleHeight = screenHeight - rect.top;
-        const length = 30;
-        const increment = 1 / transOffset * Math.floor(transOffset / length);
-        const thresholds = Array.from({ length: length + 1 }, (_, i) => {
-          let value2 = Number((i * increment).toFixed(3));
-          if (value2 > 1)
-            value2 = 1;
-          if (value2 < 0)
-            value2 = 0;
-          return value2;
-        });
-        this.disconnectObserver("tranObserver");
-        const tranObserver = uni.createIntersectionObserver(this, { thresholds });
-        tranObserver.relativeToViewport({ bottom: -visibleHeight });
-        tranObserver.observe(".y-tabs__depend--transparent", (res) => {
-          const { A, R, G, B } = this.rgba || {};
-          let opacity = res.boundingClientRect.top > res.relativeRect.top ? res.intersectionRatio + A : 1;
-          opacity = Math.min(Math.max(A, opacity), 1);
-          this.transparentBgColor = `rgba(${R},${G},${B},${opacity})`;
-        });
-        this.tranObserver = tranObserver;
-      },
-      // 观察 - 标签内容滚动时定位标签项
-      async observePane() {
-        var _a, _b;
-        if (!this.scrollspy)
-          return;
-        const top = this.pageScroll ? Number(this.offsetTop) + (this.scrollNav ? ((_a = this.wrapRect) == null ? void 0 : _a.height) || 0 : 0) : ((_b = this.contentRect) == null ? void 0 : _b.top) || 0;
-        this.childrens.forEach(async (child) => await child.observePane(top));
-      },
-      // 标签点击事件
-      onClick(index2) {
-        const { title, disabled, computedName } = this.childrens[index2];
-        if (disabled) {
-          this.$emit("disabled", computedName, title);
-        } else {
-          this.$emit("click", computedName, title);
-          callInterceptor({
-            interceptor: this.beforeChange,
-            args: [computedName],
-            done: () => {
-              this.disabledSetLine = false;
-              this._lockDx();
-              this.setCurrentIndex(index2);
-              setTimeout(() => this.scrollToCurrentContent(), 0);
-            }
-          });
-        }
-      },
-      // 更正活动选项卡的索引
-      setCurrentIndexByName(name) {
-        const matched = this.childrens.find((child) => child.computedName === name);
-        const defaultIndex = this.childrens[0] ? this.childrens[0].index : 0;
-        this.setCurrentIndex(matched ? matched.index : defaultIndex);
-      },
-      // 设置当前下标
-      setCurrentIndex(currentIndex) {
-        const newIndex = this.findAvailableTab(currentIndex);
-        if (!isDef(newIndex))
-          return;
-        const shouldEmit = newIndex !== this.currentIndex;
-        const shouldEmitChange = this.currentIndex !== null;
-        const { title, computedName, rendered } = this.childrens[newIndex];
-        if (this.isLazyRender && !this.scrollspy && !rendered)
-          this.$emit("rendered", computedName, title);
-        this.currentIndex = newIndex;
-        if (shouldEmit) {
-          this.$emit("update:modelValue", computedName);
-          if (shouldEmitChange)
-            this.$emit("change", computedName, title);
-        }
-      },
-      // 查询可用tab
-      findAvailableTab(index2) {
-        var _a;
-        const diff = index2 < this.currentIndex ? -1 : 1;
-        while (index2 >= 0 && index2 < this.tabs.length) {
-          if (!((_a = this.tabs[index2]) == null ? void 0 : _a.disabled)) {
-            return index2;
-          }
-          index2 += diff;
-        }
-      },
-      // 设置滑块位置
-      async setLine() {
-        if (this.isDynamic)
-          await this.updateTabRect(false);
-        const rect = this.tabRects[this.currentIndex];
-        if (this.isSlideBlock && !this.disabledSetLine) {
-          if (this.isPills || this.autoLineBarWidth || this.autoLineBarHeight) {
-            if (!this.isVertical)
-              this.barCalcedWidth = rect == null ? void 0 : rect.width;
-            else
-              this.barCalcedHeight = rect == null ? void 0 : rect.height;
-          }
-          this.barOffset = rect == null ? void 0 : rect.barOffset;
-          if (!this.barAnimated) {
-            this.delayedFn(
-              () => {
-                this.barAnimated = true;
-                this.firstSetLine = false;
-              },
-              "barAnimatedTimer"
-            );
-          }
-        }
-        this.delayedFn(() => this.scrollIntoView(), "scrollIntoViewTimer");
-      },
-      // 将激活的tab滚动到可见区域中
-      async scrollIntoView() {
-        if (!this.scrollX && !this.scrollY)
-          return;
-        const rect = this.tabRects[this.currentIndex];
-        const fieldName = !this.isVertical ? "scrollLeft" : "scrollTop";
-        let scrollOffset = this.scrollToCenter ? rect == null ? void 0 : rect.scrollOffset : rect == null ? void 0 : rect[!this.isVertical ? "offsetLeft" : "offsetTop"];
-        if (scrollOffset < 0)
-          scrollOffset = 0;
-        this[fieldName] = scrollOffset;
-      },
-      // 滚动到当前标签内容
-      async scrollToCurrentContent(immediate = false) {
-        var _a, _b;
-        if (!this.scrollspy)
-          return;
-        this.lockedScrollspy = true;
-        let { scrollTop = 0 } = await this.getScrollViewRect();
-        let { top = 0 } = await this.childrens[this.currentIndex].getRect();
-        if (this.pageScroll) {
-          if (this.scrollNav && this.sticky) {
-            top -= ((_a = this.dependOffsetRect) == null ? void 0 : _a.top) || 0;
-            top -= ((_b = this.wrapRect) == null ? void 0 : _b.height) || 0;
-          }
-        } else {
-          const rect = await this.getRect(".y-tabs__content");
-          top -= (rect == null ? void 0 : rect.top) || 0;
-        }
-        scrollTop += top;
-        scrollTop = Math.max(0, scrollTop);
-        scrollTop += Math.random() * 0.1;
-        if (this.pageScroll) {
-          const duration = immediate ? 0 : this.msDuration;
-          uni.pageScrollTo({ scrollTop, duration });
-          this.handleTransparentColor(duration);
-        } else {
-          this.paneScrollTop = scrollTop;
-        }
-        this.unLockedPane(scrollTop);
-      },
-      // 标签栏scroll-view滚动时触发
-      handleScrollByNav(e) {
-        this.scrollDetail = e == null ? void 0 : e.detail;
-      },
-      // 释放滚动锁
-      releaseScrollspyLock() {
-        this.lockedScrollspy = false;
-      },
-      // 释放pane滚动锁
-      async unLockedPane(scrollTop) {
-        await this.callNextTick();
-        const ms = (this.pageScroll ? this.msDuration : 300) + 50;
-        this.intervalFn(async (clear) => {
-          const rect = await this.getScrollViewRect();
-          if (rect.scrollTop >= scrollTop - 5 && rect.scrollTop <= scrollTop + 5) {
-            this.releaseScrollspyLock();
-            clear();
-          }
-        }, "paneLockedTimer", ms);
-      },
-      // 处理因调用uni.pageScrollTo使页面快速滚动而无法触发透明标签栏的observe监听
-      handleTransparentColor(ms = 0) {
-        ms = ms + 50;
-        this.intervalFn(async (clear) => {
-          const { scrollTop = 0 } = await this.getScrollViewRect();
-          if (ms > 0) {
-            let opacity = scrollTop < this.transparentOffset ? scrollTop * 0.01 : 1;
-            if (opacity < 1)
-              ms -= 50;
-            else
-              ms = 0;
-            const { A, R, G, B } = this.rgba || {};
-            opacity = Math.min(Math.max(A, opacity), 1);
-            this.transparentBgColor = `rgba(${R},${G},${B},${opacity})`;
-          } else {
-            clear();
-          }
-        }, "transparentColorTimer", 50);
-      },
-      // 设置内容区域滚动时激活的下标
-      setActivedIndexToScroll() {
-        const childs = this.childrens.filter((o) => o.isDisjoint);
-        let index2 = 0;
-        if (childs.length > 0) {
-          const dIndex = childs[childs.length - 1].index;
-          index2 = dIndex === this.childrens.length - 1 ? dIndex : dIndex + 1;
-        }
-        if (index2 !== this.currentIndex)
-          this.setCurrentIndex(index2);
-      },
-      // 状态变更
-      changeStatus(newIdx, oldIdx) {
-        this.tabs[oldIdx] && (this.tabs[oldIdx].show = false);
-        this.tabs[newIdx] && (this.tabs[newIdx].show = true);
-        this.childrens[newIdx] && (this.childrens[newIdx].rendered = true);
-        this.childrens.forEach((child, index2) => child.active = newIdx === index2);
-      },
-      // 样式切换
-      async changeStyle() {
-        this.changeTrackStyle(false);
-        await this.callNextTick();
-        this.changePaneStyle();
-      },
-      // 改变标签内容滑动轨道样式
-      changeTrackStyle(isSlide = false, duration, offsetWidth = 0) {
-        const left = isSlide ? offsetWidth + "px" : -100 * this.currentIndex + "%";
-        duration = isNull(duration) ? this.duration : duration;
-        this.trackStyle = {
-          transform: `translate(${left}, 0px) translateZ(0px)`,
-          transition: this.animated ? `transform ${duration}s linear` : "none"
-        };
-      },
-      // 改变标签内容样式
-      async changePaneStyle() {
-        var _a, _b, _c;
-        const curr = this.childrens[this.currentIndex];
-        if (!curr)
-          return;
-        let viewScrollTop = null;
-        if (this.pageScrollLocate) {
-          const rect2 = await this.getScrollViewRect();
-          viewScrollTop = rect2 == null ? void 0 : rect2.scrollTop;
-          if (!isNull(this.lastIndex))
-            this.$set(this.tabs[this.lastIndex], "scrollTop", viewScrollTop);
-        }
-        curr.paneStyle = null;
-        const rect = await curr.getRect(".y-tab__pane--wrap");
-        const panStyle = { height: (rect == null ? void 0 : rect.height) + "px" };
-        this.tabs.filter((o) => !o.show).forEach((tab) => {
-          const pane = this.childrens[tab.index];
-          if (pane)
-            pane.paneStyle = panStyle;
-        });
-        if (this.pageScrollLocate) {
-          let scrollTop = (_a = this.tabs[this.currentIndex]) == null ? void 0 : _a.scrollTop;
-          if (isNull(scrollTop)) {
-            const rect2 = await ((_c = (_b = this.childrens) == null ? void 0 : _b[this.lastIndex]) == null ? void 0 : _c.getRect());
-            scrollTop = viewScrollTop + (rect2 == null ? void 0 : rect2.top) - this.wrapRect.height - this.offsetTop + 2;
-          }
-          if (!isNull(scrollTop))
-            this.$nextTick(() => uni.pageScrollTo({ scrollTop, duration: 0 }));
-        }
-      },
-      // 清除标签内容的滚动位置
-      clearScrollPostion() {
-        if (this.pageScrollLocate)
-          this.tabs.forEach((tab) => this.$set(tab, "scrollTop", null));
-      },
-      // 获取标签栏scroll-view当前的滚动偏移量
-      getTabScrollOffset() {
-        return new Promise((resolve, reject) => {
-          const nodeRef = this.getSelectorQuery().select(`.${this.uniqueTabsClass} .y-tabs__scroll`);
-          const fieldName = !this.isVertical ? "scrollLeft" : "scrollTop";
-          nodeRef.scrollOffset((res) => resolve((res == null ? void 0 : res[fieldName]) || 0)).exec();
-        });
-      },
-      // 获取页面或内容区域的滚动高度
-      getScrollViewRect() {
-        return new Promise((resolve, reject) => {
-          const nodeRef = this.pageScroll ? uni.createSelectorQuery().selectViewport() : this.getSelectorQuery().select(
-            `.${this.uniqueTabsClass} .y-tabs__content-scrollview`
-          );
-          nodeRef.scrollOffset((res) => resolve(res || {})).exec();
-        });
-      },
-      // 更新标签栏wrap的节点信息
-      updateTabsWrapRect() {
-        if (!this.isVertical)
-          return;
-        this.$nextTick(async () => {
-          this.wrapRect = await this.getRect(".y-tabs__wrap");
-          this.scrollViewRect = await this.getRect(".y-tabs__scroll");
-          this.tabRects.forEach((item) => {
-            const res = this.getTabOffset(item);
-            this.$set(item, "barOffset", res.barOffset);
-            this.$set(item, "scrollOffset", res.scrollOffset);
-          });
-        });
-      },
-      //更新标签节点信息
-      async updateTabRect(isFull = false) {
-        var _a, _b;
-        if (isFull) {
-          const isInit = ((_a = this.scrollDetail) == null ? void 0 : _a.scrollLeft) === 0 && ((_b = this.scrollDetail) == null ? void 0 : _b.scrollTop) === 0;
-          const rects = await this.getBatchRect(this.tabs.map((_, i) => `.y-tab_${i}`));
-          this.tabRects = this.tabs.map((tab, index2) => {
-            var _a2, _b2, _c, _d;
-            const r = rects[index2] || {};
-            const result = {
-              index: index2,
-              //记录tab下标
-              width: r.width,
-              //标签宽度
-              height: r.height,
-              //标签高度
-              left: r == null ? void 0 : r.left,
-              //标签左边界距屏幕左边界的距离
-              top: r == null ? void 0 : r.top,
-              //标签上边界距屏幕上边界的距离
-              leftSpace: 0,
-              //与上一个tab的水平间隙
-              topSpace: 0,
-              //与上一个tab的垂直间隙
-              offsetLeft: 0,
-              //标签左边界距scroll-view左边界的距离
-              offsetTop: 0,
-              //标签上边界距scroll-view上边界的距离
-              barOffset: 0,
-              //滑块水平/垂直偏移量
-              scrollOffset: 0
-              //croll-view水平/垂直的滚动偏移量
-            };
-            let prevRight = (_a2 = rects[index2 - 1]) == null ? void 0 : _a2.right;
-            let prevBottom = (_b2 = rects[index2 - 1]) == null ? void 0 : _b2.bottom;
-            if (!isInit) {
-              const { scrollLeft, scrollTop } = this.scrollDetail || {};
-              result.left += scrollLeft;
-              result.top += scrollTop;
-              prevRight += scrollLeft;
-              prevBottom += scrollTop;
-            }
-            result.leftSpace = result.left - (index2 === 0 ? (_c = this.scrollViewRect) == null ? void 0 : _c.left : prevRight);
-            result.topSpace = result.top - (index2 === 0 ? (_d = this.scrollViewRect) == null ? void 0 : _d.top : prevBottom);
-            return result;
-          });
-        } else {
-          const idxs = [this.currentIndex];
-          if (!isNull(this.lastIndex))
-            idxs.push(this.lastIndex);
-          const rects = await this.getBatchRect(idxs.map((i) => `.y-tab_${i}`));
-          const keys = ["width", "height", "top", "left"];
-          idxs.forEach((i, idx) => {
-            var _a2;
-            const matched = (_a2 = this.tabRects) == null ? void 0 : _a2[i], rect = rects == null ? void 0 : rects[idx];
-            if (matched && rect)
-              keys.forEach((key) => this.$set(matched, key, rect == null ? void 0 : rect[key]));
-          });
-        }
-        let tabRects = [];
-        if (isFull) {
-          tabRects = this.tabRects;
-        } else {
-          const start = !isNull(this.lastIndex) ? Math.min(this.lastIndex, this.currentIndex) : this.currentIndex;
-          tabRects = this.tabRects.filter((_, i) => i >= start);
-        }
-        tabRects.forEach((item, i) => {
-          const prev = this.tabRects[item.index - 1] || {};
-          if (!this.isVertical) {
-            this.$set(item, "offsetLeft", item.index === 0 ? item.leftSpace : prev.offsetLeft + prev.width + item.leftSpace);
-          } else {
-            this.$set(item, "offsetTop", item.index === 0 ? item.topSpace : prev.offsetTop + prev.height + item.topSpace);
-          }
-          const res = this.getTabOffset(item);
-          this.$set(item, "barOffset", res.barOffset);
-          this.$set(item, "scrollOffset", res.scrollOffset);
-        });
-      },
-      // 获取动态偏移量等数据
-      getTabOffset({ width, height, offsetLeft, offsetTop }) {
-        if (!this.isVertical) {
-          const cLeft = offsetLeft + width / 2;
-          const barOffset = this.isLine && !this.autoLineBarWidth ? cLeft - this.barRect.width / 2 : offsetLeft;
-          let scrollOffset = cLeft - this.tabCenterWidth;
-          if (scrollOffset < 0)
-            scrollOffset = 0;
-          return { barOffset, scrollOffset };
-        } else {
-          const cTop = offsetTop + height / 2;
-          const barOffset = this.isLine && !this.autoLineBarHeight ? cTop - this.barRect.height / 2 : offsetTop;
-          const scrollOffset = cTop - this.tabCenterHeight;
-          return { barOffset, scrollOffset };
-        }
-      },
-      // pane触摸结束事件
-      async touchEndForPane(deltaX, currIndex, targetIndex, isChange) {
-        const isAnimatedMode = !this.isVertical && (this.isLineMode || this.isWormMode);
-        isAnimatedMode && (this.disabledSetLine = true);
-        isChange ? this.setCurrentIndex(targetIndex) : this.changeTrackStyle(false);
-        if (isAnimatedMode)
-          await this.handleWormAnimated(deltaX, currIndex, targetIndex, isChange);
-        if (this.isDynamic) {
-          await this.callNextTick();
-          this.disabledSetLine = false;
-          this.setLine();
-        }
-        this.unlockDx();
-      },
-      // 内容滑动结束时的毛毛虫动画模拟
-      handleWormAnimated(deltaX, currIndex, targetIndex, isChange) {
-        return new Promise((resolve) => {
-          this.barAnimated = false;
-          const duration = this.msDuration, increment = 10;
-          const endX = isChange ? this.contentWidth * (deltaX <= 0 ? -1 : 1) : 0;
-          const dxList = Array.from({ length: duration / increment }, (_, i) => {
-            const currDx = progress((i + 1) * increment, deltaX, endX, duration);
-            return this.getBarPostion(currIndex, currDx);
-          });
-          this.intervalFn((clear) => {
-            if (dxList.length === 0) {
-              this.$emit("slide-end", { targetIndex });
-              clear();
-              resolve();
-            } else {
-              const values = dxList.shift();
-              if (values) {
-                this.barOffset = values.barOffset;
-                this.barCalcedWidth = values.barCalcedWidth;
-                this.$emit("slide-change", {
-                  dx: values.dx,
-                  rate: values.rate,
-                  targetIndex
-                });
-              }
-            }
-          }, "barIntervalTimer", increment);
-        });
-      },
-      //锁定dx，用于避免在swiper被动触发滚动时候执行setDx中的代码
-      _lockDx() {
-        this.shouldSetDx = false;
-      },
-      //在swiper的@animationfinish中通知y-tabs对setDx的锁定，若在父组件中调用了setDx，则必须调用unlockDx
-      unlockDx() {
-        this.$nextTick(() => {
-          this.barAnimated = true;
-          this.shouldSetDx = true;
-        });
-      },
-      /**
-       * @exposed-api 设置滑块的水平偏移量
-       * @param {number} dx 横向滑动的值
-       * @param {boolean} isSwiper 代表是否为swiper组件滑动时调用
-       */
-      setDx(dx, isSwiper = true) {
-        if (this.isVertical)
-          return;
-        if (!this.shouldSetDx && isSwiper)
-          return;
-        if (!this.isLineMode && !this.isWormMode)
-          return;
-        if (isSwiper) {
-          this.handleDx(dx);
-        } else {
-          this.handleDx(dx, false);
-        }
-      },
-      // 设置滑块偏移量及宽度
-      handleDx(deltaX, isSwiper = true) {
-        const values = this.getBarPostion(this.currentIndex, deltaX);
-        if (!values)
-          return;
-        this.barAnimated = false;
-        const { barOffset, barCalcedWidth, dx, rate, targetIndex } = values || {};
-        this.barOffset = barOffset;
-        this.barCalcedWidth = barCalcedWidth;
-        if (!isSwiper)
-          this.$emit("slide-change", { dx, rate, targetIndex });
-      },
-      // 获取滑块应变化的位置
-      getBarPostion(currIndex, dx) {
-        var _a, _b, _c;
-        let barOffset = this.barOffset;
-        let barCalcedWidth = this.barCalcedWidth;
-        dx = Math.floor(dx);
-        const isRight = dx <= 0;
-        let dxRate = dx / (this.contentWidth + 0.1);
-        const currSwiperIndex = currIndex + parseInt(dxRate);
-        if (currSwiperIndex !== currIndex)
-          dxRate = dxRate - (currSwiperIndex - currIndex);
-        let nextIndex = currSwiperIndex + (isRight ? -1 : 1);
-        nextIndex = Math.max(0, nextIndex);
-        nextIndex = Math.min(nextIndex, this.dataLen - 1);
-        if (currSwiperIndex === nextIndex)
-          return null;
-        const nextOffset = (_a = this.tabRects[nextIndex]) == null ? void 0 : _a.barOffset;
-        const currOffset = (_b = this.tabRects[currSwiperIndex]) == null ? void 0 : _b.barOffset;
-        let distanceX = Math.abs(nextOffset - currOffset);
-        if (this.isLineMode) {
-          barOffset = currOffset + dxRate * distanceX;
-          if (this.autoLineBarWidth) {
-            const organWidth = this.tabRects[currSwiperIndex].width;
-            const width = this.tabRects[nextIndex].width;
-            const diff = width - organWidth;
-            if (diff !== 0)
-              barCalcedWidth = organWidth + diff * Math.abs(dxRate);
-          }
-        } else if (this.isWormMode) {
-          const organWidth = (_c = this.barRect) == null ? void 0 : _c.width;
-          if (this.barAnimateMode === "worm") {
-            const isHalf = Math.abs(dxRate) >= 0.5;
-            dxRate = Math.abs(dxRate * 2);
-            let calcedWidth = 0;
-            if (!isHalf) {
-              calcedWidth = organWidth + dxRate * distanceX;
-              if (isRight)
-                barOffset = currOffset - dxRate * distanceX;
-            } else {
-              calcedWidth = organWidth + (2 - dxRate) * distanceX;
-              if (!isRight)
-                barOffset = currOffset + (dxRate - 1) * distanceX;
-              else
-                barOffset = nextOffset;
-            }
-            barCalcedWidth = Math.max(calcedWidth, organWidth);
-          } else {
-            const maxWidth = distanceX * 0.5;
-            const extendWidth = (distanceX - maxWidth) / 2;
-            const extendRange = extendWidth / distanceX;
-            const shrinkWidth = maxWidth + extendWidth;
-            const shrinkRange = shrinkWidth / distanceX;
-            const changeWidth = maxWidth - organWidth;
-            const rate = Math.abs(dxRate);
-            if (rate < extendRange) {
-              const addWidth = changeWidth / extendRange * rate;
-              barCalcedWidth = Math.max(organWidth + addWidth, organWidth);
-              if (!isRight) {
-                barOffset = currOffset + extendWidth / extendRange * dxRate;
-              } else {
-                barOffset = currOffset + dxRate * distanceX - addWidth;
-              }
-            } else {
-              const reduceWidth = changeWidth / shrinkRange * (1 - rate);
-              barCalcedWidth = Math.max(organWidth + reduceWidth, organWidth);
-              if (!isRight) {
-                barOffset = currOffset + extendWidth + shrinkWidth / shrinkRange * (dxRate - extendRange);
-              } else {
-                barOffset = currOffset + dxRate * distanceX - reduceWidth;
-              }
-            }
-          }
-        }
-        return {
-          barOffset,
-          //底部条偏移量
-          barCalcedWidth,
-          //底部条宽度 
-          dx,
-          //滑动距离
-          targetIndex: nextIndex,
-          //滑动到的目标下标
-          rate: Math.abs(dx / this.contentWidth)
-          //滑动比例
-        };
-      },
-      // 获取查询节点信息的对象
-      getSelectorQuery() {
-        let query = null;
-        query = uni.createSelectorQuery().in(this);
-        return query;
-      },
-      // 获取元素位置信息
-      getRect(selector) {
-        return new Promise((resolve, reject) => {
-          if (!selector)
-            reject("Parameter is empty");
-          const query = this.getSelectorQuery();
-          query.select(`.${this.uniqueTabsClass} ${selector}`).boundingClientRect();
-          query.exec((data) => resolve(Array.isArray(data) ? data[0] : data));
-        });
-      },
-      // 批量查询节点信息
-      getBatchRect(selectors) {
-        return new Promise((resolve, reject) => {
-          if (!selectors)
-            reject("Parameter is empty");
-          const query = this.getSelectorQuery();
-          const prefix = `.${this.uniqueTabsClass} `;
-          selectors.forEach((seletor) => {
-            query.select(prefix + seletor).boundingClientRect();
-          });
-          query.exec((data) => resolve(data || []));
-        });
-      },
-      // 延时执行函数，用于执行指定动画时长(duration)完成后需要触发的逻辑
-      delayedFn(cb, name, ms) {
-        const self2 = this;
-        function clear() {
-          if (self2[name]) {
-            clearTimeout(self2[name]);
-            self2[name] = null;
-          }
-        }
-        clear();
-        this[name] = setTimeout(() => {
-          cb && cb();
-          clear();
-        }, isNull(ms) ? this.msDuration : ms);
-      },
-      // 定时器
-      intervalFn(cb, name, ms) {
-        const self2 = this;
-        function clear() {
-          if (self2[name]) {
-            clearInterval(self2[name]);
-            self2[name] = null;
-          }
-        }
-        clear();
-        this[name] = setInterval(() => {
-          cb && cb(clear);
-        }, ms);
-      },
-      // 包装一下nextTick的调用：部分用户使用了uView库，该库对$nextTick进行了重写但是未判空，因此传入一个空函数避免报错
-      callNextTick() {
-        return new Promise((resolve) => {
-          this.$nextTick(() => {
-            resolve && resolve();
-          });
-        });
-      }
-    }
-  };
-  function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
-    return vue.openBlock(), vue.createElementBlock(
-      "view",
-      {
-        class: vue.normalizeClass(["y-tabs", [$options.uniqueTabsClass, $options.tabsClass]])
-      },
-      [
-        vue.createElementVNode(
-          "view",
-          {
-            class: "y-tabs__depend--offset",
-            style: vue.normalizeStyle([$options.dependOffsetStyle])
-          },
-          null,
-          4
-          /* STYLE */
-        ),
-        vue.createCommentVNode(" 依赖元素，用于处理滚动吸顶所需 "),
-        vue.createElementVNode(
-          "view",
-          {
-            class: "y-tabs__depend",
-            style: vue.normalizeStyle([$options.dependStyle])
-          },
-          null,
-          4
-          /* STYLE */
-        ),
-        vue.createCommentVNode(" 依赖元素,用于模拟透明标签栏渐变所需 "),
-        _ctx.transparent ? (vue.openBlock(), vue.createElementBlock(
-          "view",
-          {
-            key: 0,
-            class: "y-tabs__depend--transparent",
-            style: vue.normalizeStyle([$options.dependTranStyle])
-          },
-          null,
-          4
-          /* STYLE */
-        )) : vue.createCommentVNode("v-if", true),
-        vue.createCommentVNode(" 标签栏区域 "),
-        vue.createElementVNode(
-          "view",
-          {
-            class: "y-tabs__sticky",
-            style: vue.normalizeStyle([$options.stickyStyle])
-          },
-          [
-            vue.createElementVNode(
-              "view",
-              {
-                class: vue.normalizeClass(["y-tabs__wrap", [$options.wrapClass]]),
-                style: vue.normalizeStyle([$options.innerWrapStyle, _ctx.wrapStyle])
-              },
-              [
-                vue.createCommentVNode(" 标签栏左侧插槽 "),
-                vue.createElementVNode("view", { class: "y-tabs__nav-left" }, [
-                  vue.renderSlot(_ctx.$slots, "navLeft", {}, void 0, true)
-                ]),
-                vue.createCommentVNode(' @touchmove.stop="() => {}" '),
-                vue.createCommentVNode(" 标签栏 "),
-                vue.createElementVNode("scroll-view", {
-                  class: "y-tabs__scroll",
-                  "scroll-x": $options.scrollX,
-                  "scroll-y": $options.scrollY,
-                  "scroll-with-animation": $options.scrollWithAnimation,
-                  "scroll-anchoring": "",
-                  "enable-flex": "",
-                  "scroll-left": $data.scrollLeft,
-                  "scroll-top": $data.scrollTop,
-                  style: vue.normalizeStyle([$options.scrollStyle]),
-                  onScroll: _cache[0] || (_cache[0] = (...args) => $options.handleScrollByNav && $options.handleScrollByNav(...args))
-                }, [
-                  vue.createElementVNode(
-                    "view",
-                    {
-                      class: vue.normalizeClass(["y-tabs__nav", [$options.navClass]]),
-                      style: vue.normalizeStyle([$options.navStyle])
-                    },
-                    [
-                      vue.createCommentVNode(" 标签项 "),
-                      (vue.openBlock(true), vue.createElementBlock(
-                        vue.Fragment,
-                        null,
-                        vue.renderList($data.tabs, (tab, index2) => {
-                          return vue.openBlock(), vue.createElementBlock("view", {
-                            class: vue.normalizeClass(["y-tab", [$options.tabClass(index2, tab)]]),
-                            key: tab.key,
-                            onClick: vue.withModifiers(($event) => $options.onClick(index2), ["stop"]),
-                            style: vue.normalizeStyle([$options.tabStyle(index2)])
-                          }, [
-                            vue.createCommentVNode(" 标题 "),
-                            vue.createElementVNode(
-                              "view",
-                              {
-                                class: vue.normalizeClass(["y-tab__title", [$options.titleClass(tab)]]),
-                                style: vue.normalizeStyle([$options.titleStyle(tab)])
-                              },
-                              [
-                                vue.createCommentVNode(" 图标或图片 "),
-                                tab.iconType || tab.imageSrc ? (vue.openBlock(), vue.createElementBlock("view", {
-                                  key: 0,
-                                  class: "y-tab__icons"
-                                }, [
-                                  tab.iconType ? (vue.openBlock(), vue.createBlock(_component_uni_icons, {
-                                    key: 0,
-                                    "custom-prefix": tab.customPrefix,
-                                    type: tab.iconType,
-                                    size: Number(tab.iconSize)
-                                  }, null, 8, ["custom-prefix", "type", "size"])) : vue.createCommentVNode("v-if", true),
-                                  tab.imageSrc ? (vue.openBlock(), vue.createElementBlock("image", {
-                                    key: 1,
-                                    class: "y-tab__image",
-                                    mode: tab.imageMode,
-                                    src: tab.imageSrc
-                                  }, null, 8, ["mode", "src"])) : vue.createCommentVNode("v-if", true)
-                                ])) : vue.createCommentVNode("v-if", true),
-                                vue.createCommentVNode(" 标签文本 "),
-                                vue.createElementVNode(
-                                  "view",
-                                  {
-                                    class: vue.normalizeClass(["y-tab__text", [$options.textClass(tab)]])
-                                  },
-                                  [
-                                    vue.createCommentVNode("快应用联盟不支持动态的具名插槽 "),
-                                    vue.createCommentVNode(" 非快应用联盟：app、h5、小程序端 "),
-                                    vue.createCommentVNode(" vue2：支持循环生成的具名插槽渲染后备内容 "),
-                                    vue.createCommentVNode(" vue3： 仅app、h5支持循环生成的具名插槽渲染后备内容，小程序端需通过titleSlot属性处理"),
-                                    vue.renderSlot(_ctx.$slots, tab.titleSlotName, {}, () => [
-                                      vue.createTextVNode(
-                                        vue.toDisplayString(tab.title),
-                                        1
-                                        /* TEXT */
-                                      )
-                                    ], true),
-                                    vue.createCommentVNode(" 小程序端：如果用户开启了titleSlot属性，表示自定义标题，否则直接显示传入的title值 ")
-                                  ],
-                                  2
-                                  /* CLASS */
-                                )
-                              ],
-                              6
-                              /* CLASS, STYLE */
-                            ),
-                            vue.createCommentVNode(" 标签右上角信息 "),
-                            tab.dot || tab.badge ? (vue.openBlock(), vue.createElementBlock("view", {
-                              key: 0,
-                              class: "y-tab__info"
-                            }, [
-                              vue.createCommentVNode(" 提示小红点 "),
-                              tab.dot ? (vue.openBlock(), vue.createElementBlock("text", {
-                                key: 0,
-                                class: "y-tab__info--dot"
-                              })) : vue.createCommentVNode("v-if", true),
-                              vue.createCommentVNode(" 徽标 "),
-                              tab.badge ? (vue.openBlock(), vue.createElementBlock(
-                                "text",
-                                {
-                                  key: 1,
-                                  class: "y-tab__info--badge"
-                                },
-                                vue.toDisplayString($options.formatBadge(tab)),
-                                1
-                                /* TEXT */
-                              )) : vue.createCommentVNode("v-if", true)
-                            ])) : vue.createCommentVNode("v-if", true)
-                          ], 14, ["onClick"]);
-                        }),
-                        128
-                        /* KEYED_FRAGMENT */
-                      )),
-                      vue.createCommentVNode(" 滑块: 仅支持line、button、line-button ，可使用插槽自定义"),
-                      $options.isSlideBlock ? (vue.openBlock(), vue.createElementBlock(
-                        "view",
-                        {
-                          key: 0,
-                          class: vue.normalizeClass(["y-tabs__bar", [$options.barClass]]),
-                          style: vue.normalizeStyle([$options.barAnimatedStyle, $options.barInnerStyle, _ctx.barStyle])
-                        },
-                        [
-                          vue.renderSlot(_ctx.$slots, "bar", {}, void 0, true)
-                        ],
-                        6
-                        /* CLASS, STYLE */
-                      )) : vue.createCommentVNode("v-if", true)
-                    ],
-                    6
-                    /* CLASS, STYLE */
-                  )
-                ], 44, ["scroll-x", "scroll-y", "scroll-with-animation", "scroll-left", "scroll-top"]),
-                vue.createCommentVNode(" 标签栏右侧插槽 "),
-                vue.createElementVNode("view", { class: "y-tabs__nav-right" }, [
-                  vue.createCommentVNode(" fix：快手小程序，具名插槽名称包含‘-’时不生效，因此nav-right改为navRight "),
-                  vue.renderSlot(_ctx.$slots, "navRight", {}, void 0, true)
-                ])
-              ],
-              6
-              /* CLASS, STYLE */
-            )
-          ],
-          4
-          /* STYLE */
-        ),
-        vue.createCommentVNode(" 标签内容 "),
-        vue.createElementVNode(
-          "view",
-          {
-            class: vue.normalizeClass(["y-tabs__content", [$options.contentClass]]),
-            onTouchstart: _cache[1] || (_cache[1] = (...args) => _ctx.touchStart && _ctx.touchStart(...args)),
-            onTouchmove: _cache[2] || (_cache[2] = (...args) => _ctx.touchMove && _ctx.touchMove(...args)),
-            onTouchend: _cache[3] || (_cache[3] = (...args) => _ctx.touchEnd && _ctx.touchEnd(...args))
-          },
-          [
-            vue.createElementVNode(
-              "view",
-              {
-                class: vue.normalizeClass(["y-tabs__track", [{ "is-scrollspy": _ctx.scrollspy }]]),
-                style: vue.normalizeStyle([$data.trackStyle])
-              },
-              [
-                vue.createCommentVNode(" 滚动导航与侧边栏导航的内容区域：使用scroll-view实现区域滚动，否则就是页面级滚动 "),
-                _ctx.scrollspy && !_ctx.pageScroll ? (vue.openBlock(), vue.createElementBlock("scroll-view", {
-                  key: 0,
-                  class: "y-tabs__content-scrollview",
-                  "scroll-y": "",
-                  "scroll-with-animation": $options.scrollWithAnimation,
-                  "scroll-top": $data.paneScrollTop,
-                  "scroll-anchoring": "",
-                  "enable-flex": ""
-                }, [
-                  vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-                ], 8, ["scroll-with-animation", "scroll-top"])) : vue.renderSlot(_ctx.$slots, "default", { key: 1 }, void 0, true)
-              ],
-              6
-              /* CLASS, STYLE */
-            )
-          ],
-          34
-          /* CLASS, NEED_HYDRATION */
-        )
-      ],
-      2
-      /* CLASS */
-    );
-  }
-  const __easycom_8 = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$z], ["__scopeId", "data-v-3efb49c4"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/y-tabs/components/y-tabs/y-tabs.vue"]]);
+  const __easycom_5$1 = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$A], ["__scopeId", "data-v-3db01611"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/zebra-swiper/components/z-swiper/z-swiper.vue"]]);
   const badgeProps = {
     ...baseProps,
     /**
@@ -26346,7 +23818,7 @@ if (uni.restoreGlobal) {
      */
     right: Number
   };
-  const __default__$6 = {
+  const __default__$7 = {
     name: "wd-badge",
     options: {
       addGlobalClass: true,
@@ -26354,8 +23826,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$z = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$6,
+  const _sfc_main$A = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$7,
     props: badgeProps,
     setup(__props, { expose: __expose }) {
       __expose();
@@ -26393,7 +23865,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -26418,7 +23890,25 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const wdBadge = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$y], ["__scopeId", "data-v-6ea9b0eb"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-badge/wd-badge.vue"]]);
+  const wdBadge = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$z], ["__scopeId", "data-v-6ea9b0eb"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-badge/wd-badge.vue"]]);
+  function useParent(key) {
+    const parent = vue.inject(key, null);
+    if (parent) {
+      const instance2 = vue.getCurrentInstance();
+      const { link, unlink, internalChildren } = parent;
+      link(instance2);
+      vue.onUnmounted(() => unlink(instance2));
+      const index2 = vue.computed(() => internalChildren.indexOf(instance2));
+      return {
+        parent,
+        index: index2
+      };
+    }
+    return {
+      parent: null,
+      index: vue.ref(-1)
+    };
+  }
   const TABBAR_KEY = Symbol("wd-tabbar");
   const tabbarProps = {
     ...baseProps,
@@ -26496,7 +23986,7 @@ if (uni.restoreGlobal) {
      */
     badgeProps: Object
   };
-  const __default__$5 = {
+  const __default__$6 = {
     name: "wd-tabbar-item",
     options: {
       addGlobalClass: true,
@@ -26504,8 +23994,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$y = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$5,
+  const _sfc_main$z = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$6,
     props: tabbarItemProps,
     setup(__props, { expose: __expose }) {
       __expose();
@@ -26513,7 +24003,7 @@ if (uni.restoreGlobal) {
       const { parent: tabbar, index: index2 } = useParent(TABBAR_KEY);
       const customBadgeProps = vue.computed(() => {
         const badgeProps2 = deepAssign(
-          isDef$1(props2.badgeProps) ? omitBy(props2.badgeProps, isUndefined$2) : {},
+          isDef(props2.badgeProps) ? omitBy(props2.badgeProps, isUndefined$2) : {},
           omitBy(
             {
               max: props2.max,
@@ -26523,7 +24013,7 @@ if (uni.restoreGlobal) {
             isUndefined$2
           )
         );
-        if (!isDef$1(badgeProps2.max)) {
+        if (!isDef(badgeProps2.max)) {
           badgeProps2.max = 99;
         }
         return badgeProps2;
@@ -26541,7 +24031,7 @@ if (uni.restoreGlobal) {
         return `${objToStyle(style)}`;
       });
       const active = vue.computed(() => {
-        const name = isDef$1(props2.name) ? props2.name : index2.value;
+        const name = isDef(props2.name) ? props2.name : index2.value;
         if (tabbar) {
           if (tabbar.props.modelValue === name) {
             return true;
@@ -26553,7 +24043,7 @@ if (uni.restoreGlobal) {
         }
       });
       function handleClick() {
-        const name = isDef$1(props2.name) ? props2.name : index2.value;
+        const name = isDef(props2.name) ? props2.name : index2.value;
         tabbar && tabbar.setChange({ name });
       }
       const __returned__ = { props: props2, tabbar, index: index2, customBadgeProps, textStyle, active, handleClick, wdBadge, wdIcon };
@@ -26561,7 +24051,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -26607,7 +24097,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$x], ["__scopeId", "data-v-5b5379ae"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-tabbar-item/wd-tabbar-item.vue"]]);
+  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$y], ["__scopeId", "data-v-5b5379ae"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-tabbar-item/wd-tabbar-item.vue"]]);
   function isVNode(value2) {
     return value2 ? value2.__v_isVNode === true : false;
   }
@@ -26685,7 +24175,7 @@ if (uni.restoreGlobal) {
       linkChildren
     };
   }
-  const __default__$4 = {
+  const __default__$5 = {
     name: "wd-tabbar",
     options: {
       addGlobalClass: true,
@@ -26693,8 +24183,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$x = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$4,
+  const _sfc_main$y = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$5,
     props: tabbarProps,
     emits: ["change", "update:modelValue"],
     setup(__props, { expose: __expose, emit: __emit }) {
@@ -26710,7 +24200,7 @@ if (uni.restoreGlobal) {
       });
       const rootStyle = vue.computed(() => {
         const style = {};
-        if (isDef$1(props2.zIndex)) {
+        if (isDef(props2.zIndex)) {
           style["z-index"] = props2.zIndex;
         }
         return `${objToStyle(style)};${props2.customStyle}`;
@@ -26745,13 +24235,13 @@ if (uni.restoreGlobal) {
         });
       }
       const __returned__ = { props: props2, emit, height, proxy, linkChildren, rootStyle, setChange, setPlaceholderHeight, get addUnit() {
-        return addUnit$2;
+        return addUnit$1;
       } };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
   });
-  function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -26776,14 +24266,14 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1$4 = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$w], ["__scopeId", "data-v-70467ab8"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-tabbar/wd-tabbar.vue"]]);
+  const __easycom_1$4 = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$x], ["__scopeId", "data-v-70467ab8"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-tabbar/wd-tabbar.vue"]]);
   const tabBarList = [
     { url: "/pages/index/index" },
-    { url: "/pages/catalogs/catalogs" },
+    // {url:"/pages/catalogs/catalogs"},
     { url: "/pages/User/User" }
   ];
   const defaultUrl = "/pages/index/index";
-  const _sfc_main$w = {
+  const _sfc_main$x = {
     __name: "myTabBar",
     props: {
       item: {
@@ -26813,7 +24303,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_wd_tabbar_item = resolveEasycom(vue.resolveDynamicComponent("wd-tabbar-item"), __easycom_0$4);
     const _component_wd_tabbar = resolveEasycom(vue.resolveDynamicComponent("wd-tabbar"), __easycom_1$4);
     return vue.openBlock(), vue.createElementBlock("view", { class: "myTabBar" }, [
@@ -26831,10 +24321,7 @@ if (uni.restoreGlobal) {
             title: "首页",
             icon: "home"
           }),
-          vue.createVNode(_component_wd_tabbar_item, {
-            title: "医院信息",
-            icon: "list"
-          }),
+          vue.createCommentVNode(' <wd-tabbar-item title="医院信息" icon="list"></wd-tabbar-item> '),
           vue.createVNode(_component_wd_tabbar_item, {
             title: "我的",
             icon: "user"
@@ -26845,7 +24332,7 @@ if (uni.restoreGlobal) {
       }, 8, ["modelValue"])
     ]);
   }
-  const __easycom_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$v], ["__file", "E:/mine/webfrom/Hospital/components/myTabBar/myTabBar.vue"]]);
+  const __easycom_2$3 = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$w], ["__file", "D:/develop/code/uniapp/Hospital/components/myTabBar/myTabBar.vue"]]);
   function getPatientById(id) {
     return instance({
       url: `/patients/${id}`,
@@ -26865,17 +24352,13 @@ if (uni.restoreGlobal) {
       data
     });
   }
-  const _imports_0$5 = "/static/logo.png";
-  const _sfc_main$v = {
+  const _sfc_main$w = {
     __name: "index",
     setup(__props, { expose: __expose }) {
       __expose();
       const current = vue.ref(0);
       const swiperList = vue.ref([
-        "../../static/shen.jpg",
-        "../../static/gan.jpg",
-        "../../static/xin.jpg",
-        "../../static/fei.jpg"
+        "../../static/hospital.png"
       ]);
       const slideCustomStyle = vue.ref({
         display: "flex",
@@ -26883,7 +24366,7 @@ if (uni.restoreGlobal) {
         justifyContent: "center",
         borderRadius: "36rpx"
       });
-      const options2 = vue.ref({
+      const options = vue.ref({
         effect: "cards",
         cardsEffect: {
           rotate: false
@@ -26928,7 +24411,9 @@ if (uni.restoreGlobal) {
           picurl: "../../static/zxj/fukuan.png"
         }
       ]);
-      const itemTab = vue.ref({ myTabbar: 0 });
+      const itemTab = vue.ref({
+        myTabbar: 0
+      });
       const Tabs2 = vue.ref([
         {
           title: "常用",
@@ -27039,15 +24524,27 @@ if (uni.restoreGlobal) {
       const activeIndex = vue.ref(0);
       const tabs = vue.ref([]);
       const newsLists = vue.ref([
-        { id: 111, title: "这是资讯1" },
-        { id: 222, title: "这是资讯2" },
-        { id: 333, title: "这是资讯3" },
-        { id: 444, title: "这是资讯4" }
+        {
+          id: 111,
+          title: "这是资讯1"
+        },
+        {
+          id: 222,
+          title: "这是资讯2"
+        },
+        {
+          id: 333,
+          title: "这是资讯3"
+        },
+        {
+          id: 444,
+          title: "这是资讯4"
+        }
       ]);
       async function getHealthCard() {
-        formatAppLog("log", "at pages/index/index.vue:300", store.state.user);
+        formatAppLog("log", "at pages/index/index.vue:318", store.state.user);
         let res = await getpatients(store.state.user);
-        formatAppLog("log", "at pages/index/index.vue:302", res);
+        formatAppLog("log", "at pages/index/index.vue:320", res);
         res = res.data;
         list.value = [];
         for (let index2 = 0; index2 < res.length; index2++) {
@@ -27063,22 +24560,22 @@ if (uni.restoreGlobal) {
           name: "原神",
           id: "114514191981011451"
         });
-        formatAppLog("log", "at pages/index/index.vue:318", list);
+        formatAppLog("log", "at pages/index/index.vue:336", list);
       }
       vue.onMounted(() => {
         getHealthCard();
       });
       const onClick2 = (item) => {
-        formatAppLog("log", "at pages/index/index.vue:352", item.index === 0);
+        formatAppLog("log", "at pages/index/index.vue:370", item.index === 0);
         uni.navigateTo({
           url: item.index === 0 ? "/pages/payment/payment" : "/pages/User/User"
         });
       };
       function handleClick(e) {
-        formatAppLog("log", "at pages/index/index.vue:358", e);
+        formatAppLog("log", "at pages/index/index.vue:377", e);
       }
       function onChange(e) {
-        formatAppLog("log", "at pages/index/index.vue:361", e);
+        formatAppLog("log", "at pages/index/index.vue:381", e);
       }
       const onTransition = (e) => {
         if (Tabs2.value) {
@@ -27088,9 +24585,9 @@ if (uni.restoreGlobal) {
       function onAnimationfinish(e) {
         activeIndex.value = e.detail.current;
         tabs.value.unlockDx();
-        formatAppLog("log", "at pages/index/index.vue:376", activeIndex);
+        formatAppLog("log", "at pages/index/index.vue:396", activeIndex);
       }
-      const __returned__ = { current, swiperList, slideCustomStyle, options: options2, list, plus: plus2, noticeList, myFunction, itemTab, Tabs: Tabs2, activeIndex, tabs, newsLists, getHealthCard, onClick: onClick2, handleClick, onChange, onTransition, onAnimationfinish, ref: vue.ref, onMounted: vue.onMounted, get store() {
+      const __returned__ = { current, swiperList, slideCustomStyle, options, list, plus: plus2, noticeList, myFunction, itemTab, Tabs: Tabs2, activeIndex, tabs, newsLists, getHealthCard, onClick: onClick2, handleClick, onChange, onTransition, onAnimationfinish, ref: vue.ref, onMounted: vue.onMounted, get store() {
         return store;
       }, get tabBarList() {
         return tabBarList;
@@ -27103,19 +24600,16 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_custom_nav_bar = resolveEasycom(vue.resolveDynamicComponent("custom-nav-bar"), __easycom_0$6);
     const _component_wd_swiper = resolveEasycom(vue.resolveDynamicComponent("wd-swiper"), __easycom_1$8);
-    const _component_health_card = resolveEasycom(vue.resolveDynamicComponent("health-card"), __easycom_1$5);
-    const _component_z_swiper_item = resolveEasycom(vue.resolveDynamicComponent("z-swiper-item"), __easycom_3$2);
-    const _component_z_swiper = resolveEasycom(vue.resolveDynamicComponent("z-swiper"), __easycom_4$1);
     const _component_small_icon = resolveEasycom(vue.resolveDynamicComponent("small-icon"), __easycom_0$5);
-    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
-    const _component_y_tab = resolveEasycom(vue.resolveDynamicComponent("y-tab"), __easycom_7);
-    const _component_y_tabs = resolveEasycom(vue.resolveDynamicComponent("y-tabs"), __easycom_8);
-    const _component_myTabBar = resolveEasycom(vue.resolveDynamicComponent("myTabBar"), __easycom_2$2);
+    const _component_health_card = resolveEasycom(vue.resolveDynamicComponent("health-card"), __easycom_1$5);
+    const _component_z_swiper_item = resolveEasycom(vue.resolveDynamicComponent("z-swiper-item"), __easycom_4$1);
+    const _component_z_swiper = resolveEasycom(vue.resolveDynamicComponent("z-swiper"), __easycom_5$1);
+    const _component_myTabBar = resolveEasycom(vue.resolveDynamicComponent("myTabBar"), __easycom_2$3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "homeLayout pageBg" }, [
-      vue.createVNode(_component_custom_nav_bar, { title: "推荐" }),
+      vue.createVNode(_component_custom_nav_bar, { title: "纽约市人民医院" }),
       vue.createElementVNode("view", { class: "banner" }, [
         vue.createElementVNode("view", { class: "card-swiper" }, [
           vue.createVNode(_component_wd_swiper, {
@@ -27131,6 +24625,19 @@ if (uni.restoreGlobal) {
             previousMargin: "24px",
             nextMargin: "24px"
           }, null, 8, ["current", "list"])
+        ])
+      ]),
+      vue.createElementVNode("view", { class: "bigBox" }, [
+        vue.createElementVNode("view", { class: "function" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($setup.myFunction, (item) => {
+              return vue.openBlock(), vue.createBlock(_component_small_icon, { item }, null, 8, ["item"]);
+            }),
+            256
+            /* UNKEYED_FRAGMENT */
+          ))
         ])
       ]),
       vue.createVNode(_component_z_swiper, {
@@ -27162,160 +24669,70 @@ if (uni.restoreGlobal) {
         _: 1
         /* STABLE */
       }, 8, ["modelValue", "options"]),
-      vue.createElementVNode("view", { class: "bigBox" }, [
-        vue.createElementVNode("view", { class: "function" }, [
-          (vue.openBlock(true), vue.createElementBlock(
-            vue.Fragment,
-            null,
-            vue.renderList($setup.myFunction, (item) => {
-              return vue.openBlock(), vue.createBlock(_component_small_icon, { item }, null, 8, ["item"]);
-            }),
-            256
-            /* UNKEYED_FRAGMENT */
-          ))
-        ])
+      vue.createElementVNode("view", { class: "textBox" }, [
+        vue.createElementVNode("view", { class: "text" }, " 纽约市人民医院自 2028 年建成以来，在医疗领域的影响力与日俱增。其独特的建筑风格不仅成为城市的一道亮丽风景线，更巧妙地融合了自然采光与舒适的就医环境设计理念。内部设施从先进的诊断设备到温馨的康复病房，每一处细节都彰显着对患者的关怀。 医院的各科专家团队，汇聚了全球顶尖的医学人才，他们在心血管科、肿瘤科、神经科等多个领域都有着卓越的建树。 除了精湛的医疗技术，医院还注重患者的就医体验。多语言服务团队确保来自世界各地的患者都能顺畅地与医护人员沟通交流；人性化的就医流程设计，减少了患者排队等候的时间。 纽约市人民医院始终坚守 “救死扶伤，关爱生命” 的使命，不断追求卓越，向着成为全球医疗行业标杆的目标奋勇前行，持续为全人类的健康福祉贡献着自己的力量，在世界医学的舞台上绽放着耀眼的光芒，让每一位踏入这里的患者都能重燃对健康生活的希望与信心。 ")
       ]),
-      vue.createElementVNode("view", { class: "notice" }, [
-        vue.createElementVNode("view", { class: "left" }, [
-          vue.createVNode(_component_uni_icons, {
-            type: "sound-filled",
-            size: "20"
-          }),
-          vue.createElementVNode("text", { class: "text" }, "公告")
-        ]),
-        vue.createElementVNode("view", { class: "center" }, [
-          vue.createElementVNode("swiper", {
-            vertical: "",
-            autoplay: "",
-            interval: "1500",
-            duration: "300",
-            circular: ""
-          }, [
-            (vue.openBlock(true), vue.createElementBlock(
-              vue.Fragment,
-              null,
-              vue.renderList($setup.noticeList, (item) => {
-                return vue.openBlock(), vue.createElementBlock("swiper-item", null, [
-                  vue.createElementVNode("navigator", {
-                    url: "/pages/notice/detail?id=" + item._id
-                  }, vue.toDisplayString(item.title), 9, ["url"])
-                ]);
-              }),
-              256
-              /* UNKEYED_FRAGMENT */
-            ))
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "right" }, [
-          vue.createVNode(_component_uni_icons, {
-            type: "right",
-            size: "20"
-          })
-        ])
-      ]),
-      vue.createElementVNode("view", { class: "guide" }, [
-        vue.createVNode(_component_y_tabs, {
-          "wrap-style": { "border-radius": "30rpx 30rpx 0 0" },
-          color: "red",
-          ref: "tabs",
-          modelValue: $setup.activeIndex,
-          "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.activeIndex = $event),
-          barAnimateMode: "worm"
-        }, {
-          default: vue.withCtx(() => [
-            (vue.openBlock(true), vue.createElementBlock(
-              vue.Fragment,
-              null,
-              vue.renderList($setup.Tabs, (tab) => {
-                return vue.openBlock(), vue.createBlock(_component_y_tab, {
-                  title: tab.title,
-                  key: tab.title
-                }, null, 8, ["title"]);
-              }),
-              128
-              /* KEYED_FRAGMENT */
-            ))
-          ]),
-          _: 1
-          /* STABLE */
-        }, 8, ["modelValue"]),
-        vue.createElementVNode("swiper", {
-          class: "swiper",
-          current: $setup.activeIndex,
-          onTransition: $setup.onTransition,
-          onAnimationfinish: $setup.onAnimationfinish
-        }, [
-          (vue.openBlock(true), vue.createElementBlock(
-            vue.Fragment,
-            null,
-            vue.renderList($setup.Tabs, (tab) => {
-              return vue.openBlock(), vue.createElementBlock("swiper-item", {
-                key: tab.title
-              }, [
-                vue.createElementVNode("view", { class: "swiper-item-view" }, [
-                  (vue.openBlock(true), vue.createElementBlock(
-                    vue.Fragment,
-                    null,
-                    vue.renderList(tab.list, (item) => {
-                      return vue.openBlock(), vue.createBlock(_component_small_icon, { item }, null, 8, ["item"]);
-                    }),
-                    256
-                    /* UNKEYED_FRAGMENT */
-                  ))
-                ])
-              ]);
-            }),
-            128
-            /* KEYED_FRAGMENT */
-          ))
-        ], 40, ["current"])
-      ]),
-      vue.createElementVNode("view", { class: "news" }, [
-        vue.createElementVNode("view", { class: "title" }, " 医院资讯 "),
-        vue.createElementVNode("view", { class: "out" }, [
-          (vue.openBlock(true), vue.createElementBlock(
-            vue.Fragment,
-            null,
-            vue.renderList($setup.newsLists, (item, index2) => {
-              return vue.openBlock(), vue.createElementBlock("view", {
-                class: "list",
-                key: item.id
-              }, [
-                vue.createElementVNode("view", { class: "image" }, [
-                  vue.createElementVNode("image", {
-                    src: _imports_0$5,
-                    mode: "aspectFill"
-                  })
-                ]),
-                vue.createElementVNode("view", { class: "row" }, [
-                  vue.createElementVNode(
-                    "view",
-                    { class: "text" },
-                    vue.toDisplayString(index2 + 1) + "." + vue.toDisplayString(item.title),
-                    1
-                    /* TEXT */
-                  ),
-                  vue.createElementVNode("view", { class: "smallText" }, "这是小字")
-                ])
-              ]);
-            }),
-            128
-            /* KEYED_FRAGMENT */
-          )),
-          vue.createElementVNode(
-            "view",
-            { class: "count" },
-            " 共" + vue.toDisplayString($setup.newsLists.length) + "条资讯 ",
-            1
-            /* TEXT */
-          )
-        ])
-      ]),
+      vue.createCommentVNode(` 		\r
+		<view class="notice">\r
+			<view class="left">\r
+				<uni-icons type="sound-filled" size="20"></uni-icons>\r
+				<text class="text">公告</text>\r
+				\r
+			</view>\r
+			<view class="center">\r
+				<swiper vertical autoplay interval="1500" duration="300" circular>\r
+					<swiper-item v-for="item in noticeList" >\r
+						<navigator :url="'/pages/notice/detail?id='+item._id">\r
+							{{item.title}}\r
+						</navigator>\r
+					</swiper-item>\r
+				</swiper>\r
+			</view>\r
+			<view class="right">				\r
+				<uni-icons type="right" size="20"></uni-icons>\r
+			</view>\r
+		</view> `),
+      vue.createCommentVNode(` 		<view class="guide">\r
+		    <y-tabs \r
+			:wrap-style="{ 'border-radius': '30rpx 30rpx 0 0' }"\r
+\r
+			color="red" ref="tabs" v-model="activeIndex" barAnimateMode="worm">\r
+		        <y-tab v-for="tab in Tabs" :title="tab.title" :key="tab.title" />\r
+		    </y-tabs>\r
+		    \r
+		    <swiper class="swiper" :current="activeIndex" @transition="onTransition" @animationfinish="onAnimationfinish">\r
+		        <swiper-item v-for="tab in Tabs" :key="tab.title">\r
+		            <view class="swiper-item-view">\r
+		                <small-icon v-for="item in tab.list" :item="item"></small-icon>\r
+		            </view>\r
+		        </swiper-item>\r
+		    </swiper>\r
+		</view>\r
+		\r
+		<view class="news">\r
+		 	<view class="title">\r
+		 	    医院资讯\r
+		 	</view>\r
+			<view class="out">\r
+				<view class="list" v-for="(item,index) in newsLists" :key="item.id">\r
+					<view class="image">\r
+						<image src="../../static/logo.png" mode="aspectFill"></image>\r
+					</view>\r
+					<view class="row">\r
+						<view class="text">{{index+1}}.{{item.title}}</view>\r
+						<view class="smallText">这是小字</view>\r
+					</view>\r
+				</view>	\r
+				<view class="count">\r
+					共{{newsLists.length}}条资讯\r
+				</view>	\r
+			</view>\r
+		</view>`),
       vue.createVNode(_component_myTabBar, { item: $setup.itemTab }, null, 8, ["item"]),
       vue.createElementVNode("view", { class: "safe-area-inset-bottom" })
     ]);
   }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$u], ["__scopeId", "data-v-1cf27b2a"], ["__file", "E:/mine/webfrom/Hospital/pages/index/index.vue"]]);
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$v], ["__scopeId", "data-v-1cf27b2a"], ["__file", "D:/develop/code/uniapp/Hospital/pages/index/index.vue"]]);
   const SIDEBAR_KEY = Symbol("wd-sidebar");
   const sidebarProps = {
     ...baseProps,
@@ -27349,7 +24766,7 @@ if (uni.restoreGlobal) {
     /** 是否禁用 */
     disabled: makeBooleanProp(false)
   };
-  const __default__$3 = {
+  const __default__$4 = {
     name: "wd-sidebar-item",
     options: {
       addGlobalClass: true,
@@ -27357,8 +24774,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$u = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$3,
+  const _sfc_main$v = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$4,
     props: sidebarItemProps,
     setup(__props, { expose: __expose }) {
       __expose();
@@ -27366,7 +24783,7 @@ if (uni.restoreGlobal) {
       const { parent: sidebar } = useParent(SIDEBAR_KEY);
       const customBadgeProps = vue.computed(() => {
         const badgeProps2 = deepAssign(
-          isDef$1(props2.badgeProps) ? omitBy(props2.badgeProps, isUndefined$2) : {},
+          isDef(props2.badgeProps) ? omitBy(props2.badgeProps, isUndefined$2) : {},
           omitBy(
             {
               max: props2.max,
@@ -27376,7 +24793,7 @@ if (uni.restoreGlobal) {
             isUndefined$2
           )
         );
-        if (!isDef$1(badgeProps2.max)) {
+        if (!isDef(badgeProps2.max)) {
           badgeProps2.max = 99;
         }
         return badgeProps2;
@@ -27429,7 +24846,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -27466,8 +24883,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$t], ["__scopeId", "data-v-0597c3a8"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-sidebar-item/wd-sidebar-item.vue"]]);
-  const __default__$2 = {
+  const __easycom_1$3 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$u], ["__scopeId", "data-v-0597c3a8"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-sidebar-item/wd-sidebar-item.vue"]]);
+  const __default__$3 = {
     name: "wd-sidebar",
     options: {
       addGlobalClass: true,
@@ -27475,8 +24892,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$t = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$2,
+  const _sfc_main$u = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$3,
     props: sidebarProps,
     emits: ["change", "update:modelValue"],
     setup(__props, { expose: __expose, emit: __emit }) {
@@ -27494,7 +24911,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -27509,7 +24926,7 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$s], ["__scopeId", "data-v-d265e78d"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-sidebar/wd-sidebar.vue"]]);
+  const __easycom_2$2 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$t], ["__scopeId", "data-v-d265e78d"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-sidebar/wd-sidebar.vue"]]);
   const CELL_GROUP_KEY = Symbol("wd-cell-group");
   const cellGroupProps = {
     ...baseProps,
@@ -27621,7 +25038,7 @@ if (uni.restoreGlobal) {
      */
     customTitleClass: makeStringProp("")
   };
-  const __default__$1 = {
+  const __default__$2 = {
     name: "wd-cell",
     options: {
       addGlobalClass: true,
@@ -27629,8 +25046,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$s = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$1,
+  const _sfc_main$t = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$2,
     props: cellProps,
     emits: ["click"],
     setup(__props, { expose: __expose, emit: __emit }) {
@@ -27639,7 +25056,7 @@ if (uni.restoreGlobal) {
       const emit = __emit;
       const cell = useCell();
       const isBorder = vue.computed(() => {
-        return isDef$1(cell.border.value) ? cell.border.value : props2.border;
+        return isDef(cell.border.value) ? cell.border.value : props2.border;
       });
       const { parent: form } = useParent(FORM_KEY);
       const errorMessage = vue.computed(() => {
@@ -27679,7 +25096,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", {
       class: vue.normalizeClass(["wd-cell", $setup.isBorder ? "is-border" : "", _ctx.size ? "is-" + _ctx.size : "", _ctx.center ? "is-center" : "", _ctx.customClass]),
       style: vue.normalizeStyle(_ctx.customStyle),
@@ -27782,8 +25199,8 @@ if (uni.restoreGlobal) {
       )
     ], 14, ["hover-class"]);
   }
-  const __easycom_3$1 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$r], ["__scopeId", "data-v-f1c5bbe2"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-cell/wd-cell.vue"]]);
-  const __default__ = {
+  const __easycom_3$1 = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$s], ["__scopeId", "data-v-f1c5bbe2"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-cell/wd-cell.vue"]]);
+  const __default__$1 = {
     name: "wd-cell-group",
     options: {
       addGlobalClass: true,
@@ -27791,8 +25208,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$r = /* @__PURE__ */ vue.defineComponent({
-    ...__default__,
+  const _sfc_main$s = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$1,
     props: cellGroupProps,
     setup(__props, { expose: __expose }) {
       __expose();
@@ -27804,7 +25221,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   });
-  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -27845,8 +25262,8 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_4 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$q], ["__scopeId", "data-v-55e5786b"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/wot-design-uni/components/wd-cell-group/wd-cell-group.vue"]]);
-  const _sfc_main$q = {
+  const __easycom_4 = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$r], ["__scopeId", "data-v-55e5786b"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-cell-group/wd-cell-group.vue"]]);
+  const _sfc_main$r = {
     __name: "precautions",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -27855,7 +25272,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("div", { class: "precautions-container" }, [
       vue.createCommentVNode(" <h2>挂号前注意事项</h2> "),
       vue.createElementVNode("div", { class: "scrollable-content" }, [
@@ -27924,12 +25341,12 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const __easycom_5 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__scopeId", "data-v-2cacd83b"], ["__file", "E:/mine/webfrom/Hospital/components/precautions/precautions.vue"]]);
+  const __easycom_5 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$q], ["__scopeId", "data-v-2cacd83b"], ["__file", "D:/develop/code/uniapp/Hospital/components/precautions/precautions.vue"]]);
   class MPAnimation {
-    constructor(options2, _this) {
-      this.options = options2;
+    constructor(options, _this) {
+      this.options = options;
       this.animation = uni.createAnimation({
-        ...options2
+        ...options
       });
       this.currentStepAnimates = {};
       this.next = 0;
@@ -28037,7 +25454,7 @@ if (uni.restoreGlobal) {
     clearTimeout(_this.timer);
     return new MPAnimation(option, _this);
   }
-  const _sfc_main$p = {
+  const _sfc_main$q = {
     name: "uniTransition",
     emits: ["click", "change"],
     props: {
@@ -28288,7 +25705,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.withDirectives((vue.openBlock(), vue.createElementBlock("view", {
       ref: "ani",
       animation: $data.animationData,
@@ -28301,8 +25718,8 @@ if (uni.restoreGlobal) {
       [vue.vShow, $data.isShow]
     ]);
   }
-  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uni-transition/components/uni-transition/uni-transition.vue"]]);
-  const _sfc_main$o = {
+  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uni-transition/components/uni-transition/uni-transition.vue"]]);
+  const _sfc_main$p = {
     name: "uniPopup",
     components: {},
     emits: ["change", "maskClick"],
@@ -28652,7 +26069,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_transition = resolveEasycom(vue.resolveDynamicComponent("uni-transition"), __easycom_0$3);
     return $data.showPopup ? (vue.openBlock(), vue.createElementBlock(
       "view",
@@ -28712,7 +26129,7 @@ if (uni.restoreGlobal) {
       /* CLASS */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__scopeId", "data-v-4dd3c44b"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uni-popup/components/uni-popup/uni-popup.vue"]]);
+  const __easycom_2$1 = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__scopeId", "data-v-4dd3c44b"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uni-popup/components/uni-popup/uni-popup.vue"]]);
   function getAllDepartments() {
     return instance({
       url: "/departments/all",
@@ -28725,7 +26142,7 @@ if (uni.restoreGlobal) {
       method: "get"
     });
   }
-  const _sfc_main$n = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$o = /* @__PURE__ */ vue.defineComponent({
     __name: "registration",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -28769,7 +26186,7 @@ if (uni.restoreGlobal) {
           };
           subCategories.value.push(obj);
         }
-        formatAppLog("log", "at pages/registration/registration.vue:125", subCategories.value);
+        formatAppLog("log", "at pages/registration/registration.vue:112", subCategories.value);
       }
       function handleChange({ value: value2 }) {
         active.value = value2;
@@ -28814,14 +26231,14 @@ if (uni.restoreGlobal) {
     }
   });
   const _imports_0$4 = "/static/picture/guahao.jpg";
-  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
     const _component_wd_sidebar_item = resolveEasycom(vue.resolveDynamicComponent("wd-sidebar-item"), __easycom_1$3);
-    const _component_wd_sidebar = resolveEasycom(vue.resolveDynamicComponent("wd-sidebar"), __easycom_2$1);
+    const _component_wd_sidebar = resolveEasycom(vue.resolveDynamicComponent("wd-sidebar"), __easycom_2$2);
     const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_3$1);
     const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_4);
     const _component_precautions = resolveEasycom(vue.resolveDynamicComponent("precautions"), __easycom_5);
-    const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_2);
+    const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_2$1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "registrationLayout pageBg" }, [
       vue.createElementVNode("view", { class: "layout" }, [
         vue.createElementVNode("view", { class: "navbar" }, [
@@ -28969,13 +26386,15 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const PagesRegistrationRegistration = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__scopeId", "data-v-1e5d1fa0"], ["__file", "E:/mine/webfrom/Hospital/pages/registration/registration.vue"]]);
-  const _imports_0$3 = "/static/zxj/v-Photoroom.png";
-  const _sfc_main$m = {
+  const PagesRegistrationRegistration = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__scopeId", "data-v-1e5d1fa0"], ["__file", "D:/develop/code/uniapp/Hospital/pages/registration/registration.vue"]]);
+  const _imports_0$3 = "/static/hospital_logo.png";
+  const _sfc_main$n = {
     __name: "User",
     setup(__props, { expose: __expose }) {
       __expose();
-      const itemTab = vue.ref({ myTabbar: 2 });
+      const itemTab = vue.ref({
+        myTabbar: 1
+      });
       const recordNum = vue.ref(33);
       async function userLoginOut() {
         const res = await loginout();
@@ -29027,9 +26446,9 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
-    const _component_myTabBar = resolveEasycom(vue.resolveDynamicComponent("myTabBar"), __easycom_2$2);
+    const _component_myTabBar = resolveEasycom(vue.resolveDynamicComponent("myTabBar"), __easycom_2$3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "userLayout pageBg" }, [
       vue.createElementVNode("view", { class: "userInfo" }, [
         vue.createElementVNode("view", { class: "avatar" }, [
@@ -29038,8 +26457,8 @@ if (uni.restoreGlobal) {
             mode: "aspectFill"
           })
         ]),
-        vue.createElementVNode("view", { class: "ip" }, "100.100.100.100"),
-        vue.createElementVNode("view", { class: "address" }, "来自于：中南大学")
+        vue.createElementVNode("view", { class: "ip" }, "纽约市人民医院"),
+        vue.createCommentVNode(' <view class="address">来自于：中南大学</view> ')
       ]),
       vue.createElementVNode("view", { class: "section" }, [
         vue.createElementVNode("view", { class: "list" }, [
@@ -29063,82 +26482,13 @@ if (uni.restoreGlobal) {
               })
             ])
           ]),
-          vue.createElementVNode("view", {
-            class: "row",
-            onClick: $setup.navToB
-          }, [
-            vue.createElementVNode("view", { class: "left" }, [
-              vue.createVNode(_component_uni_icons, {
-                type: "star-filled",
-                size: "20"
-              }),
-              vue.createElementVNode("view", { class: "text" }, "我的评分")
-            ]),
-            vue.createElementVNode("view", { class: "right" }, [
-              vue.createElementVNode("view", { class: "text" }, "33"),
-              vue.createVNode(_component_uni_icons, {
-                type: "right",
-                size: "15",
-                color: "#aaa"
-              })
-            ])
-          ]),
-          vue.createElementVNode("view", { class: "row" }, [
-            vue.createElementVNode("view", { class: "left" }, [
-              vue.createVNode(_component_uni_icons, {
-                type: "chatboxes-filled",
-                size: "20"
-              }),
-              vue.createElementVNode("view", { class: "text" }, "联系客服")
-            ]),
-            vue.createElementVNode("view", { class: "right" }, [
-              vue.createElementVNode("view", { class: "text" }),
-              vue.createVNode(_component_uni_icons, {
-                type: "right",
-                size: "15",
-                color: "#aaa"
-              })
-            ]),
-            vue.createElementVNode("button", { onClick: $setup.clickContact }, "拨打电话")
-          ])
+          vue.createCommentVNode(' 				<view class="row" @click="navToB">\r\n					<view class="left">\r\n						<uni-icons type="star-filled" size="20"></uni-icons>\r\n						<view class="text">我的评分</view>\r\n					</view>\r\n					<view class="right">\r\n						<view class="text">33</view>\r\n						<uni-icons type="right" size="15" color="#aaa"></uni-icons>\r\n					</view>\r\n				</view> ')
         ])
       ]),
       vue.createElementVNode("view", { class: "section" }, [
         vue.createElementVNode("view", { class: "list" }, [
-          vue.createElementVNode("view", { class: "row" }, [
-            vue.createElementVNode("view", { class: "left" }, [
-              vue.createVNode(_component_uni_icons, {
-                type: "notification-filled",
-                size: "20"
-              }),
-              vue.createElementVNode("view", { class: "text" }, "订阅更新")
-            ]),
-            vue.createElementVNode("view", { class: "right" }, [
-              vue.createElementVNode("view", { class: "text" }),
-              vue.createVNode(_component_uni_icons, {
-                type: "right",
-                size: "15",
-                color: "#aaa"
-              })
-            ])
-          ]),
-          vue.createElementVNode("view", { class: "row" }, [
-            vue.createElementVNode("view", { class: "left" }, [
-              vue.createVNode(_component_uni_icons, {
-                type: "flag-filled",
-                size: "20"
-              }),
-              vue.createElementVNode("view", { class: "text" }, "常见问题")
-            ]),
-            vue.createElementVNode("view", { class: "right" }, [
-              vue.createElementVNode("view", { class: "text" }),
-              vue.createVNode(_component_uni_icons, {
-                type: "right",
-                size: "15",
-                color: "#aaa"
-              })
-            ])
-          ]),
+          vue.createCommentVNode(' 			<view class="row">\r\n				<view class="left">\r\n					<uni-icons type="notification-filled" size="20"></uni-icons>\r\n					<view class="text">订阅更新</view>\r\n				</view>\r\n				<view class="right">\r\n					<view class="text"></view>\r\n					<uni-icons type="right" size="15" color="#aaa"></uni-icons>\r\n				</view>\r\n			</view> '),
+          vue.createCommentVNode(' \r\n			<view class="row">\r\n				<view class="left">\r\n					<uni-icons type="flag-filled" size="20"></uni-icons>\r\n					<view class="text">常见问题</view>\r\n				</view>\r\n				<view class="right">\r\n					<view class="text"></view>\r\n					<uni-icons type="right" size="15" color="#aaa"></uni-icons>\r\n				</view>\r\n			</view> '),
           vue.createElementVNode("view", {
             class: "row",
             onClick: $setup.loginOut
@@ -29164,8 +26514,8 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_myTabBar, { item: $setup.itemTab }, null, 8, ["item"])
     ]);
   }
-  const PagesUserUser = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-1e1b347f"], ["__file", "E:/mine/webfrom/Hospital/pages/User/User.vue"]]);
-  const _sfc_main$l = {
+  const PagesUserUser = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__scopeId", "data-v-1e1b347f"], ["__file", "D:/develop/code/uniapp/Hospital/pages/User/User.vue"]]);
+  const _sfc_main$m = {
     __name: "myEmpty",
     props: {
       height: {
@@ -29188,7 +26538,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -29200,10 +26550,10 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-b985e341"], ["__file", "E:/mine/webfrom/Hospital/components/myEmpty/myEmpty.vue"]]);
+  const __easycom_1$2 = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__scopeId", "data-v-b985e341"], ["__file", "D:/develop/code/uniapp/Hospital/components/myEmpty/myEmpty.vue"]]);
   const _imports_0$2 = "/static/zhongyi.jpg";
   const _imports_1$1 = "/static/zxj/v.png";
-  const _sfc_main$k = {
+  const _sfc_main$l = {
     __name: "catalogs",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -29253,10 +26603,10 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_small_icon = resolveEasycom(vue.resolveDynamicComponent("small-icon"), __easycom_0$5);
     const _component_myEmpty = resolveEasycom(vue.resolveDynamicComponent("myEmpty"), __easycom_1$2);
-    const _component_myTabBar = resolveEasycom(vue.resolveDynamicComponent("myTabBar"), __easycom_2$2);
+    const _component_myTabBar = resolveEasycom(vue.resolveDynamicComponent("myTabBar"), __easycom_2$3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "catalogsLayout" }, [
       vue.createElementVNode("view", { class: "imageBackground" }, [
         vue.createElementVNode("image", {
@@ -29290,7 +26640,7 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_myTabBar, { item: $setup.itemTab }, null, 8, ["item"])
     ]);
   }
-  const PagesCatalogsCatalogs = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-5149d303"], ["__file", "E:/mine/webfrom/Hospital/pages/catalogs/catalogs.vue"]]);
+  const PagesCatalogsCatalogs = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__scopeId", "data-v-5149d303"], ["__file", "D:/develop/code/uniapp/Hospital/pages/catalogs/catalogs.vue"]]);
   const mpMixin = {};
   function email(value2) {
     return /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(value2);
@@ -30055,14 +27405,14 @@ if (uni.restoreGlobal) {
       return url2 += query;
     }
     // 对外的方法名称
-    async route(options2 = {}, params = {}) {
+    async route(options = {}, params = {}) {
       let mergeConfig2 = {};
-      if (typeof options2 === "string") {
-        mergeConfig2.url = this.mixinParam(options2, params);
+      if (typeof options === "string") {
+        mergeConfig2.url = this.mixinParam(options, params);
         mergeConfig2.type = "navigateTo";
       } else {
-        mergeConfig2 = deepMerge$1(this.config, options2);
-        mergeConfig2.url = this.mixinParam(options2.url, options2.params);
+        mergeConfig2 = deepMerge$1(this.config, options);
+        mergeConfig2.url = this.mixinParam(options.url, options.params);
       }
       if (mergeConfig2.url === page())
         return;
@@ -30549,7 +27899,7 @@ if (uni.restoreGlobal) {
       ...(_f = (_e = uni.$uv) == null ? void 0 : _e.props) == null ? void 0 : _f.icon
     }
   };
-  const _sfc_main$j = {
+  const _sfc_main$k = {
     name: "uv-icon",
     emits: ["click"],
     mixins: [mpMixin, mixin, props$3],
@@ -30610,7 +27960,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -30654,7 +28004,7 @@ if (uni.restoreGlobal) {
       /* CLASS */
     );
   }
-  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-b7a6dd5d"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uv-icon/components/uv-icon/uv-icon.vue"]]);
+  const __easycom_0$2 = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__scopeId", "data-v-b7a6dd5d"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uv-icon/components/uv-icon/uv-icon.vue"]]);
   const props$2 = {
     props: {
       // 内置图标名称，或图片路径，建议绝对路径
@@ -30715,7 +28065,7 @@ if (uni.restoreGlobal) {
       ...(_h = (_g = uni.$uv) == null ? void 0 : _g.props) == null ? void 0 : _h.empty
     }
   };
-  const _sfc_main$i = {
+  const _sfc_main$j = {
     name: "uv-empty",
     mixins: [mpMixin, mixin, props$2],
     data() {
@@ -30760,7 +28110,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uv_icon = resolveEasycom(vue.resolveDynamicComponent("uv-icon"), __easycom_0$2);
     return _ctx.show ? (vue.openBlock(), vue.createElementBlock(
       "view",
@@ -30803,7 +28153,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-6efcec67"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uv-empty/components/uv-empty/uv-empty.vue"]]);
+  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-6efcec67"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uv-empty/components/uv-empty/uv-empty.vue"]]);
   function getDoctorInfo(id) {
     return instance({
       url: `/doctors/${id}`,
@@ -30855,7 +28205,7 @@ if (uni.restoreGlobal) {
     const date2 = new Date(currentYear, month - 1, day);
     return date2;
   }
-  const _sfc_main$h = {
+  const _sfc_main$i = {
     __name: "search",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -31001,12 +28351,12 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
     const _component_up_input = resolveEasycom(vue.resolveDynamicComponent("up-input"), __easycom_0$8);
     const _component_up_icon = resolveEasycom(vue.resolveDynamicComponent("up-icon"), __easycom_1$a);
     const _component_uv_empty = resolveEasycom(vue.resolveDynamicComponent("uv-empty"), __easycom_3);
-    const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_2);
+    const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_2$1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "searchLayout pageBg" }, [
       vue.createElementVNode("view", { class: "searchBar" }, [
         vue.createElementVNode("view", {
@@ -31225,7 +28575,7 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const PagesSearchSearch = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-c10c040c"], ["__file", "E:/mine/webfrom/Hospital/pages/search/search.vue"]]);
+  const PagesSearchSearch = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__scopeId", "data-v-c10c040c"], ["__file", "D:/develop/code/uniapp/Hospital/pages/search/search.vue"]]);
   function pad(str, length = 2) {
     str += "";
     while (str.length < length) {
@@ -31418,7 +28768,7 @@ if (uni.restoreGlobal) {
       suffix
     );
   }
-  const _sfc_main$g = {
+  const _sfc_main$h = {
     name: "uniDateformat",
     props: {
       date: {
@@ -31484,7 +28834,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "text",
       null,
@@ -31493,17 +28843,17 @@ if (uni.restoreGlobal) {
       /* TEXT */
     );
   }
-  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uni-dateformat/components/uni-dateformat/uni-dateformat.vue"]]);
+  const __easycom_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uni-dateformat/components/uni-dateformat/uni-dateformat.vue"]]);
   const _imports_0$1 = "/assets/zhifu-zhifuchenggong.b7ab7d99.svg";
   const _imports_1 = "/assets/zhifu-zhifushibai.ff167364.svg";
-  const _sfc_main$f = {
+  const _sfc_main$g = {
     __name: "payment",
     setup(__props, { expose: __expose }) {
       __expose();
       const isSuccess = vue.ref(false);
-      onLoad((options2) => {
-        formatAppLog("log", "at pages/payment/payment.vue:47", options2);
-        isSuccess.value = options2.isSuccess === "true" || false;
+      onLoad((options) => {
+        formatAppLog("log", "at pages/payment/payment.vue:47", options);
+        isSuccess.value = options.isSuccess === "true" || false;
       });
       const navBack = () => {
         uni.navigateTo({
@@ -31517,7 +28867,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_dateformat = resolveEasycom(vue.resolveDynamicComponent("uni-dateformat"), __easycom_1$1);
     const _component_wd_button = resolveEasycom(vue.resolveDynamicComponent("wd-button"), __easycom_1$9);
     return vue.openBlock(), vue.createElementBlock("view", { class: "paymentLayout" }, [
@@ -31586,9 +28936,9 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesPaymentPayment = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-eade9ab2"], ["__file", "E:/mine/webfrom/Hospital/pages/payment/payment.vue"]]);
+  const PagesPaymentPayment = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__scopeId", "data-v-eade9ab2"], ["__file", "D:/develop/code/uniapp/Hospital/pages/payment/payment.vue"]]);
   const _imports_0 = "/static/zxj/male.png";
-  const _sfc_main$e = {
+  const _sfc_main$f = {
     __name: "doctor",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -31682,12 +29032,15 @@ if (uni.restoreGlobal) {
           let now2 = /* @__PURE__ */ new Date();
           for (let i = 0; i < 6; i++) {
             now2.setDate(now2.getDate() + 1);
-            date2.value.push({ id: i + 1, time: formatDateToChinese(now2) });
+            date2.value.push({
+              id: i + 1,
+              time: formatDateToChinese(now2)
+            });
           }
           let res = await getBySpecializationId(specializationsId.value);
           let doctorHash = {};
           res = res.data;
-          formatAppLog("log", "at pages/doctor/doctor.vue:168", res);
+          formatAppLog("log", "at pages/doctor/doctor.vue:179", res);
           now2 = /* @__PURE__ */ new Date();
           for (let i = 0; i < res.length; i++) {
             let z = new Date(res[i].date);
@@ -31735,7 +29088,7 @@ if (uni.restoreGlobal) {
           }
           if (doctorList.value)
             showDoctorList.value = doctorList.value;
-          formatAppLog("log", "at pages/doctor/doctor.vue:217", showDoctorList);
+          formatAppLog("log", "at pages/doctor/doctor.vue:226", showDoctorList);
         }
         getDoctorList();
       });
@@ -31759,7 +29112,7 @@ if (uni.restoreGlobal) {
             showDoctorList.value.push(doctor);
         }
         datepos.value = id;
-        formatAppLog("log", "at pages/doctor/doctor.vue:241", showDoctorList);
+        formatAppLog("log", "at pages/doctor/doctor.vue:250", showDoctorList);
       };
       const navToDetail = (id, date3, doctor) => {
         uni.navigateTo({
@@ -31780,7 +29133,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
     return vue.openBlock(), vue.createElementBlock("view", { class: "doctorLayout pageBg" }, [
       vue.createElementVNode("view", { class: "layout" }, [
@@ -31931,63 +29284,63 @@ if (uni.restoreGlobal) {
       ))
     ]);
   }
-  const PagesDoctorDoctor = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-d944f3d9"], ["__file", "E:/mine/webfrom/Hospital/pages/doctor/doctor.vue"]]);
+  const PagesDoctorDoctor = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-d944f3d9"], ["__file", "D:/develop/code/uniapp/Hospital/pages/doctor/doctor.vue"]]);
   const props$1 = defineMixin({
     props: {
       // 是否显示组件
       show: {
         type: Boolean,
-        default: () => props$a.loadingIcon.show
+        default: () => props$9.loadingIcon.show
       },
       // 颜色
       color: {
         type: String,
-        default: () => props$a.loadingIcon.color
+        default: () => props$9.loadingIcon.color
       },
       // 提示文字颜色
       textColor: {
         type: String,
-        default: () => props$a.loadingIcon.textColor
+        default: () => props$9.loadingIcon.textColor
       },
       // 文字和图标是否垂直排列
       vertical: {
         type: Boolean,
-        default: () => props$a.loadingIcon.vertical
+        default: () => props$9.loadingIcon.vertical
       },
       // 模式选择，circle-圆形，spinner-花朵形，semicircle-半圆形
       mode: {
         type: String,
-        default: () => props$a.loadingIcon.mode
+        default: () => props$9.loadingIcon.mode
       },
       // 图标大小，单位默认px
       size: {
         type: [String, Number],
-        default: () => props$a.loadingIcon.size
+        default: () => props$9.loadingIcon.size
       },
       // 文字大小
       textSize: {
         type: [String, Number],
-        default: () => props$a.loadingIcon.textSize
+        default: () => props$9.loadingIcon.textSize
       },
       // 文字内容
       text: {
         type: [String, Number],
-        default: () => props$a.loadingIcon.text
+        default: () => props$9.loadingIcon.text
       },
       // 动画模式
       timingFunction: {
         type: String,
-        default: () => props$a.loadingIcon.timingFunction
+        default: () => props$9.loadingIcon.timingFunction
       },
       // 动画执行周期时间
       duration: {
         type: [String, Number],
-        default: () => props$a.loadingIcon.duration
+        default: () => props$9.loadingIcon.duration
       },
       // mode=circle时的暗边颜色
       inactiveColor: {
         type: String,
-        default: () => props$a.loadingIcon.inactiveColor
+        default: () => props$9.loadingIcon.inactiveColor
       }
     }
   });
@@ -32101,7 +29454,7 @@ if (uni.restoreGlobal) {
     rgbToHex,
     colorToRgba
   };
-  const _sfc_main$d = {
+  const _sfc_main$e = {
     name: "u-loading-icon",
     mixins: [mpMixin$1, mixin$1, props$1],
     data() {
@@ -32142,7 +29495,7 @@ if (uni.restoreGlobal) {
       this.init();
     },
     methods: {
-      addUnit: addUnit$3,
+      addUnit: addUnit$2,
       addStyle: addStyle$1,
       init() {
         setTimeout(() => {
@@ -32163,7 +29516,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     return _ctx.show ? (vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -32226,161 +29579,161 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-2af81691"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uview-plus/components/u-loading-icon/u-loading-icon.vue"]]);
+  const __easycom_0$1 = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-2af81691"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uview-plus/components/u-loading-icon/u-loading-icon.vue"]]);
   const props = defineMixin({
     props: {
       // 是否细边框
       hairline: {
         type: Boolean,
-        default: () => props$a.button.hairline
+        default: () => props$9.button.hairline
       },
       // 按钮的预置样式，info，primary，error，warning，success
       type: {
         type: String,
-        default: () => props$a.button.type
+        default: () => props$9.button.type
       },
       // 按钮尺寸，large，normal，small，mini
       size: {
         type: String,
-        default: () => props$a.button.size
+        default: () => props$9.button.size
       },
       // 按钮形状，circle（两边为半圆），square（带圆角）
       shape: {
         type: String,
-        default: () => props$a.button.shape
+        default: () => props$9.button.shape
       },
       // 按钮是否镂空
       plain: {
         type: Boolean,
-        default: () => props$a.button.plain
+        default: () => props$9.button.plain
       },
       // 是否禁止状态
       disabled: {
         type: Boolean,
-        default: () => props$a.button.disabled
+        default: () => props$9.button.disabled
       },
       // 是否加载中
       loading: {
         type: Boolean,
-        default: () => props$a.button.loading
+        default: () => props$9.button.loading
       },
       // 加载中提示文字
       loadingText: {
         type: [String, Number],
-        default: () => props$a.button.loadingText
+        default: () => props$9.button.loadingText
       },
       // 加载状态图标类型
       loadingMode: {
         type: String,
-        default: () => props$a.button.loadingMode
+        default: () => props$9.button.loadingMode
       },
       // 加载图标大小
       loadingSize: {
         type: [String, Number],
-        default: () => props$a.button.loadingSize
+        default: () => props$9.button.loadingSize
       },
       // 开放能力，具体请看uniapp稳定关于button组件部分说明
       // https://uniapp.dcloud.io/component/button
       openType: {
         type: String,
-        default: () => props$a.button.openType
+        default: () => props$9.button.openType
       },
       // 用于 <form> 组件，点击分别会触发 <form> 组件的 submit/reset 事件
       // 取值为submit（提交表单），reset（重置表单）
       formType: {
         type: String,
-        default: () => props$a.button.formType
+        default: () => props$9.button.formType
       },
       // 打开 APP 时，向 APP 传递的参数，open-type=launchApp时有效
       // 只微信小程序、QQ小程序有效
       appParameter: {
         type: String,
-        default: () => props$a.button.appParameter
+        default: () => props$9.button.appParameter
       },
       // 指定是否阻止本节点的祖先节点出现点击态，微信小程序有效
       hoverStopPropagation: {
         type: Boolean,
-        default: () => props$a.button.hoverStopPropagation
+        default: () => props$9.button.hoverStopPropagation
       },
       // 指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文。只微信小程序有效
       lang: {
         type: String,
-        default: () => props$a.button.lang
+        default: () => props$9.button.lang
       },
       // 会话来源，open-type="contact"时有效。只微信小程序有效
       sessionFrom: {
         type: String,
-        default: () => props$a.button.sessionFrom
+        default: () => props$9.button.sessionFrom
       },
       // 会话内消息卡片标题，open-type="contact"时有效
       // 默认当前标题，只微信小程序有效
       sendMessageTitle: {
         type: String,
-        default: () => props$a.button.sendMessageTitle
+        default: () => props$9.button.sendMessageTitle
       },
       // 会话内消息卡片点击跳转小程序路径，open-type="contact"时有效
       // 默认当前分享路径，只微信小程序有效
       sendMessagePath: {
         type: String,
-        default: () => props$a.button.sendMessagePath
+        default: () => props$9.button.sendMessagePath
       },
       // 会话内消息卡片图片，open-type="contact"时有效
       // 默认当前页面截图，只微信小程序有效
       sendMessageImg: {
         type: String,
-        default: () => props$a.button.sendMessageImg
+        default: () => props$9.button.sendMessageImg
       },
       // 是否显示会话内消息卡片，设置此参数为 true，用户进入客服会话会在右下角显示"可能要发送的小程序"提示，
       // 用户点击后可以快速发送小程序消息，open-type="contact"时有效
       showMessageCard: {
         type: Boolean,
-        default: () => props$a.button.showMessageCard
+        default: () => props$9.button.showMessageCard
       },
       // 额外传参参数，用于小程序的data-xxx属性，通过target.dataset.name获取
       dataName: {
         type: String,
-        default: () => props$a.button.dataName
+        default: () => props$9.button.dataName
       },
       // 节流，一定时间内只能触发一次
       throttleTime: {
         type: [String, Number],
-        default: () => props$a.button.throttleTime
+        default: () => props$9.button.throttleTime
       },
       // 按住后多久出现点击态，单位毫秒
       hoverStartTime: {
         type: [String, Number],
-        default: () => props$a.button.hoverStartTime
+        default: () => props$9.button.hoverStartTime
       },
       // 手指松开后点击态保留时间，单位毫秒
       hoverStayTime: {
         type: [String, Number],
-        default: () => props$a.button.hoverStayTime
+        default: () => props$9.button.hoverStayTime
       },
       // 按钮文字，之所以通过props传入，是因为slot传入的话
       // nvue中无法控制文字的样式
       text: {
         type: [String, Number],
-        default: () => props$a.button.text
+        default: () => props$9.button.text
       },
       // 按钮图标
       icon: {
         type: String,
-        default: () => props$a.button.icon
+        default: () => props$9.button.icon
       },
       // 按钮图标
       iconColor: {
         type: String,
-        default: () => props$a.button.icon
+        default: () => props$9.button.icon
       },
       // 按钮颜色，支持传入linear-gradient渐变色
       color: {
         type: String,
-        default: () => props$a.button.color
+        default: () => props$9.button.color
       },
       // 停止冒泡
       stop: {
         type: Boolean,
-        default: () => props$a.button.stop
+        default: () => props$9.button.stop
       }
     }
   });
@@ -32402,7 +29755,7 @@ if (uni.restoreGlobal) {
       }, wait);
     }
   }
-  const _sfc_main$c = {
+  const _sfc_main$d = {
     name: "u-button",
     mixins: [mpMixin$1, mixin$1, props],
     data() {
@@ -32532,7 +29885,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_u_loading_icon = resolveEasycom(vue.resolveDynamicComponent("u-loading-icon"), __easycom_0$1);
     const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_1$a);
     return vue.openBlock(), vue.createElementBlock("button", {
@@ -32611,7 +29964,7 @@ if (uni.restoreGlobal) {
       ))
     ], 46, ["hover-start-time", "hover-stay-time", "form-type", "open-type", "app-parameter", "hover-stop-propagation", "send-message-title", "send-message-path", "lang", "data-name", "session-from", "send-message-img", "show-message-card", "hover-class"]);
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-5ce41ee6"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uview-plus/components/u-button/u-button.vue"]]);
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-5ce41ee6"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uview-plus/components/u-button/u-button.vue"]]);
   const millisecondsInWeek = 6048e5;
   const millisecondsInDay = 864e5;
   const constructFromSymbol = Symbol.for("constructDateFrom");
@@ -32631,22 +29984,22 @@ if (uni.restoreGlobal) {
   function getDefaultOptions() {
     return defaultOptions;
   }
-  function startOfWeek(date2, options2) {
+  function startOfWeek(date2, options) {
     var _a, _b, _c, _d;
     const defaultOptions2 = getDefaultOptions();
-    const weekStartsOn = (options2 == null ? void 0 : options2.weekStartsOn) ?? ((_b = (_a = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a.options) == null ? void 0 : _b.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_d = (_c = defaultOptions2.locale) == null ? void 0 : _c.options) == null ? void 0 : _d.weekStartsOn) ?? 0;
-    const _date = toDate(date2, options2 == null ? void 0 : options2.in);
+    const weekStartsOn = (options == null ? void 0 : options.weekStartsOn) ?? ((_b = (_a = options == null ? void 0 : options.locale) == null ? void 0 : _a.options) == null ? void 0 : _b.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_d = (_c = defaultOptions2.locale) == null ? void 0 : _c.options) == null ? void 0 : _d.weekStartsOn) ?? 0;
+    const _date = toDate(date2, options == null ? void 0 : options.in);
     const day = _date.getDay();
     const diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
     _date.setDate(_date.getDate() - diff);
     _date.setHours(0, 0, 0, 0);
     return _date;
   }
-  function startOfISOWeek(date2, options2) {
-    return startOfWeek(date2, { ...options2, weekStartsOn: 1 });
+  function startOfISOWeek(date2, options) {
+    return startOfWeek(date2, { ...options, weekStartsOn: 1 });
   }
-  function getISOWeekYear(date2, options2) {
-    const _date = toDate(date2, options2 == null ? void 0 : options2.in);
+  function getISOWeekYear(date2, options) {
+    const _date = toDate(date2, options == null ? void 0 : options.in);
     const year = _date.getFullYear();
     const fourthOfJanuaryOfNextYear = constructFrom(_date, 0);
     fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
@@ -32687,14 +30040,14 @@ if (uni.restoreGlobal) {
     );
     return dates.map(normalize);
   }
-  function startOfDay(date2, options2) {
-    const _date = toDate(date2, options2 == null ? void 0 : options2.in);
+  function startOfDay(date2, options) {
+    const _date = toDate(date2, options == null ? void 0 : options.in);
     _date.setHours(0, 0, 0, 0);
     return _date;
   }
-  function differenceInCalendarDays(laterDate, earlierDate, options2) {
+  function differenceInCalendarDays(laterDate, earlierDate, options) {
     const [laterDate_, earlierDate_] = normalizeDates(
-      options2 == null ? void 0 : options2.in,
+      options == null ? void 0 : options.in,
       laterDate,
       earlierDate
     );
@@ -32704,9 +30057,9 @@ if (uni.restoreGlobal) {
     const earlierTimestamp = +earlierStartOfDay - getTimezoneOffsetInMilliseconds(earlierStartOfDay);
     return Math.round((laterTimestamp - earlierTimestamp) / millisecondsInDay);
   }
-  function startOfISOWeekYear(date2, options2) {
-    const year = getISOWeekYear(date2, options2);
-    const fourthOfJanuary = constructFrom((options2 == null ? void 0 : options2.in) || date2, 0);
+  function startOfISOWeekYear(date2, options) {
+    const year = getISOWeekYear(date2, options);
+    const fourthOfJanuary = constructFrom((options == null ? void 0 : options.in) || date2, 0);
     fourthOfJanuary.setFullYear(year, 0, 4);
     fourthOfJanuary.setHours(0, 0, 0, 0);
     return startOfISOWeek(fourthOfJanuary);
@@ -32717,8 +30070,8 @@ if (uni.restoreGlobal) {
   function isValid(date2) {
     return !(!isDate$1(date2) && typeof date2 !== "number" || isNaN(+toDate(date2)));
   }
-  function startOfYear(date2, options2) {
-    const date_ = toDate(date2, options2 == null ? void 0 : options2.in);
+  function startOfYear(date2, options) {
+    const date_ = toDate(date2, options == null ? void 0 : options.in);
     date_.setFullYear(date_.getFullYear(), 0, 1);
     date_.setHours(0, 0, 0, 0);
     return date_;
@@ -32786,7 +30139,7 @@ if (uni.restoreGlobal) {
       other: "almost {{count}} years"
     }
   };
-  const formatDistance$1 = (token, count, options2) => {
+  const formatDistance$1 = (token, count, options) => {
     let result;
     const tokenValue = formatDistanceLocale$1[token];
     if (typeof tokenValue === "string") {
@@ -32796,8 +30149,8 @@ if (uni.restoreGlobal) {
     } else {
       result = tokenValue.other.replace("{{count}}", count.toString());
     }
-    if (options2 == null ? void 0 : options2.addSuffix) {
-      if (options2.comparison && options2.comparison > 0) {
+    if (options == null ? void 0 : options.addSuffix) {
+      if (options.comparison && options.comparison > 0) {
         return "in " + result;
       } else {
         return result + " ago";
@@ -32806,8 +30159,8 @@ if (uni.restoreGlobal) {
     return result;
   };
   function buildFormatLongFn(args) {
-    return (options2 = {}) => {
-      const width = options2.width ? String(options2.width) : args.defaultWidth;
+    return (options = {}) => {
+      const width = options.width ? String(options.width) : args.defaultWidth;
       const format2 = args.formats[width] || args.formats[args.defaultWidth];
       return format2;
     };
@@ -32854,16 +30207,16 @@ if (uni.restoreGlobal) {
   };
   const formatRelative$1 = (token, _date, _baseDate, _options) => formatRelativeLocale$1[token];
   function buildLocalizeFn(args) {
-    return (value2, options2) => {
-      const context = (options2 == null ? void 0 : options2.context) ? String(options2.context) : "standalone";
+    return (value2, options) => {
+      const context = (options == null ? void 0 : options.context) ? String(options.context) : "standalone";
       let valuesArray;
       if (context === "formatting" && args.formattingValues) {
         const defaultWidth = args.defaultFormattingWidth || args.defaultWidth;
-        const width = (options2 == null ? void 0 : options2.width) ? String(options2.width) : defaultWidth;
+        const width = (options == null ? void 0 : options.width) ? String(options.width) : defaultWidth;
         valuesArray = args.formattingValues[width] || args.formattingValues[defaultWidth];
       } else {
         const defaultWidth = args.defaultWidth;
-        const width = (options2 == null ? void 0 : options2.width) ? String(options2.width) : args.defaultWidth;
+        const width = (options == null ? void 0 : options.width) ? String(options.width) : args.defaultWidth;
         valuesArray = args.values[width] || args.values[defaultWidth];
       }
       const index2 = args.argumentCallback ? args.argumentCallback(value2) : value2;
@@ -33031,8 +30384,8 @@ if (uni.restoreGlobal) {
     })
   };
   function buildMatchFn(args) {
-    return (string2, options2 = {}) => {
-      const width = options2.width;
+    return (string2, options = {}) => {
+      const width = options.width;
       const matchPattern = width && args.matchPatterns[width] || args.matchPatterns[args.defaultMatchWidth];
       const matchResult = string2.match(matchPattern);
       if (!matchResult) {
@@ -33046,9 +30399,9 @@ if (uni.restoreGlobal) {
       );
       let value2;
       value2 = args.valueCallback ? args.valueCallback(key) : key;
-      value2 = options2.valueCallback ? (
+      value2 = options.valueCallback ? (
         // [TODO] -- I challenge you to fix the type
-        options2.valueCallback(value2)
+        options.valueCallback(value2)
       ) : value2;
       const rest = string2.slice(matchedString.length);
       return { value: value2, rest };
@@ -33071,7 +30424,7 @@ if (uni.restoreGlobal) {
     return void 0;
   }
   function buildMatchPatternFn(args) {
-    return (string2, options2 = {}) => {
+    return (string2, options = {}) => {
       const matchResult = string2.match(args.matchPattern);
       if (!matchResult)
         return null;
@@ -33080,7 +30433,7 @@ if (uni.restoreGlobal) {
       if (!parseResult)
         return null;
       let value2 = args.valueCallback ? args.valueCallback(parseResult[0]) : parseResult[0];
-      value2 = options2.valueCallback ? options2.valueCallback(value2) : value2;
+      value2 = options.valueCallback ? options.valueCallback(value2) : value2;
       const rest = string2.slice(matchedString.length);
       return { value: value2, rest };
     };
@@ -33214,31 +30567,31 @@ if (uni.restoreGlobal) {
       firstWeekContainsDate: 1
     }
   };
-  function getDayOfYear(date2, options2) {
-    const _date = toDate(date2, options2 == null ? void 0 : options2.in);
+  function getDayOfYear(date2, options) {
+    const _date = toDate(date2, options == null ? void 0 : options.in);
     const diff = differenceInCalendarDays(_date, startOfYear(_date));
     const dayOfYear = diff + 1;
     return dayOfYear;
   }
-  function getISOWeek(date2, options2) {
-    const _date = toDate(date2, options2 == null ? void 0 : options2.in);
+  function getISOWeek(date2, options) {
+    const _date = toDate(date2, options == null ? void 0 : options.in);
     const diff = +startOfISOWeek(_date) - +startOfISOWeekYear(_date);
     return Math.round(diff / millisecondsInWeek) + 1;
   }
-  function getWeekYear(date2, options2) {
+  function getWeekYear(date2, options) {
     var _a, _b, _c, _d;
-    const _date = toDate(date2, options2 == null ? void 0 : options2.in);
+    const _date = toDate(date2, options == null ? void 0 : options.in);
     const year = _date.getFullYear();
     const defaultOptions2 = getDefaultOptions();
-    const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b = (_a = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a.options) == null ? void 0 : _b.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d = (_c = defaultOptions2.locale) == null ? void 0 : _c.options) == null ? void 0 : _d.firstWeekContainsDate) ?? 1;
-    const firstWeekOfNextYear = constructFrom((options2 == null ? void 0 : options2.in) || date2, 0);
+    const firstWeekContainsDate = (options == null ? void 0 : options.firstWeekContainsDate) ?? ((_b = (_a = options == null ? void 0 : options.locale) == null ? void 0 : _a.options) == null ? void 0 : _b.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d = (_c = defaultOptions2.locale) == null ? void 0 : _c.options) == null ? void 0 : _d.firstWeekContainsDate) ?? 1;
+    const firstWeekOfNextYear = constructFrom((options == null ? void 0 : options.in) || date2, 0);
     firstWeekOfNextYear.setFullYear(year + 1, 0, firstWeekContainsDate);
     firstWeekOfNextYear.setHours(0, 0, 0, 0);
-    const startOfNextYear = startOfWeek(firstWeekOfNextYear, options2);
-    const firstWeekOfThisYear = constructFrom((options2 == null ? void 0 : options2.in) || date2, 0);
+    const startOfNextYear = startOfWeek(firstWeekOfNextYear, options);
+    const firstWeekOfThisYear = constructFrom((options == null ? void 0 : options.in) || date2, 0);
     firstWeekOfThisYear.setFullYear(year, 0, firstWeekContainsDate);
     firstWeekOfThisYear.setHours(0, 0, 0, 0);
-    const startOfThisYear = startOfWeek(firstWeekOfThisYear, options2);
+    const startOfThisYear = startOfWeek(firstWeekOfThisYear, options);
     if (+_date >= +startOfNextYear) {
       return year + 1;
     } else if (+_date >= +startOfThisYear) {
@@ -33247,20 +30600,20 @@ if (uni.restoreGlobal) {
       return year - 1;
     }
   }
-  function startOfWeekYear(date2, options2) {
+  function startOfWeekYear(date2, options) {
     var _a, _b, _c, _d;
     const defaultOptions2 = getDefaultOptions();
-    const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b = (_a = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a.options) == null ? void 0 : _b.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d = (_c = defaultOptions2.locale) == null ? void 0 : _c.options) == null ? void 0 : _d.firstWeekContainsDate) ?? 1;
-    const year = getWeekYear(date2, options2);
-    const firstWeek = constructFrom((options2 == null ? void 0 : options2.in) || date2, 0);
+    const firstWeekContainsDate = (options == null ? void 0 : options.firstWeekContainsDate) ?? ((_b = (_a = options == null ? void 0 : options.locale) == null ? void 0 : _a.options) == null ? void 0 : _b.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d = (_c = defaultOptions2.locale) == null ? void 0 : _c.options) == null ? void 0 : _d.firstWeekContainsDate) ?? 1;
+    const year = getWeekYear(date2, options);
+    const firstWeek = constructFrom((options == null ? void 0 : options.in) || date2, 0);
     firstWeek.setFullYear(year, 0, firstWeekContainsDate);
     firstWeek.setHours(0, 0, 0, 0);
-    const _date = startOfWeek(firstWeek, options2);
+    const _date = startOfWeek(firstWeek, options);
     return _date;
   }
-  function getWeek(date2, options2) {
-    const _date = toDate(date2, options2 == null ? void 0 : options2.in);
-    const diff = +startOfWeek(_date, options2) - +startOfWeekYear(_date, options2);
+  function getWeek(date2, options) {
+    const _date = toDate(date2, options == null ? void 0 : options.in);
+    const diff = +startOfWeek(_date, options) - +startOfWeekYear(_date, options);
     return Math.round(diff / millisecondsInWeek) + 1;
   }
   function addLeadingZeros(number2, targetLength) {
@@ -33362,8 +30715,8 @@ if (uni.restoreGlobal) {
       return lightFormatters.y(date2, token);
     },
     // Local week-numbering year
-    Y: function(date2, token, localize2, options2) {
-      const signedWeekYear = getWeekYear(date2, options2);
+    Y: function(date2, token, localize2, options) {
+      const signedWeekYear = getWeekYear(date2, options);
       const weekYear = signedWeekYear > 0 ? signedWeekYear : 1 - signedWeekYear;
       if (token === "YY") {
         const twoDigitYear = weekYear % 100;
@@ -33498,8 +30851,8 @@ if (uni.restoreGlobal) {
       }
     },
     // Local week of year
-    w: function(date2, token, localize2, options2) {
-      const week = getWeek(date2, options2);
+    w: function(date2, token, localize2, options) {
+      const week = getWeek(date2, options);
       if (token === "wo") {
         return localize2.ordinalNumber(week, { unit: "week" });
       }
@@ -33558,9 +30911,9 @@ if (uni.restoreGlobal) {
       }
     },
     // Local day of week
-    e: function(date2, token, localize2, options2) {
+    e: function(date2, token, localize2, options) {
       const dayOfWeek = date2.getDay();
-      const localDayOfWeek = (dayOfWeek - options2.weekStartsOn + 8) % 7 || 7;
+      const localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
       switch (token) {
         case "e":
           return String(localDayOfWeek);
@@ -33592,9 +30945,9 @@ if (uni.restoreGlobal) {
       }
     },
     // Stand-alone local day of week
-    c: function(date2, token, localize2, options2) {
+    c: function(date2, token, localize2, options) {
       const dayOfWeek = date2.getDay();
-      const localDayOfWeek = (dayOfWeek - options2.weekStartsOn + 8) % 7 || 7;
+      const localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
       switch (token) {
         case "c":
           return String(localDayOfWeek);
@@ -33983,13 +31336,13 @@ if (uni.restoreGlobal) {
   const escapedStringRegExp = /^'([^]*?)'?$/;
   const doubleQuoteRegExp = /''/g;
   const unescapedLatinCharacterRegExp = /[a-zA-Z]/;
-  function format(date2, formatStr, options2) {
+  function format(date2, formatStr, options) {
     var _a, _b, _c, _d, _e2, _f2, _g2, _h2;
     const defaultOptions2 = getDefaultOptions();
-    const locale = (options2 == null ? void 0 : options2.locale) ?? defaultOptions2.locale ?? enUS;
-    const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b = (_a = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a.options) == null ? void 0 : _b.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d = (_c = defaultOptions2.locale) == null ? void 0 : _c.options) == null ? void 0 : _d.firstWeekContainsDate) ?? 1;
-    const weekStartsOn = (options2 == null ? void 0 : options2.weekStartsOn) ?? ((_f2 = (_e2 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _e2.options) == null ? void 0 : _f2.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_h2 = (_g2 = defaultOptions2.locale) == null ? void 0 : _g2.options) == null ? void 0 : _h2.weekStartsOn) ?? 0;
-    const originalDate = toDate(date2, options2 == null ? void 0 : options2.in);
+    const locale = (options == null ? void 0 : options.locale) ?? defaultOptions2.locale ?? enUS;
+    const firstWeekContainsDate = (options == null ? void 0 : options.firstWeekContainsDate) ?? ((_b = (_a = options == null ? void 0 : options.locale) == null ? void 0 : _a.options) == null ? void 0 : _b.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d = (_c = defaultOptions2.locale) == null ? void 0 : _c.options) == null ? void 0 : _d.firstWeekContainsDate) ?? 1;
+    const weekStartsOn = (options == null ? void 0 : options.weekStartsOn) ?? ((_f2 = (_e2 = options == null ? void 0 : options.locale) == null ? void 0 : _e2.options) == null ? void 0 : _f2.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_h2 = (_g2 = defaultOptions2.locale) == null ? void 0 : _g2.options) == null ? void 0 : _h2.weekStartsOn) ?? 0;
+    const originalDate = toDate(date2, options == null ? void 0 : options.in);
     if (!isValid(originalDate)) {
       throw new RangeError("Invalid time value");
     }
@@ -34030,7 +31383,7 @@ if (uni.restoreGlobal) {
       if (!part.isToken)
         return part.value;
       const token = part.value;
-      if (!(options2 == null ? void 0 : options2.useAdditionalWeekYearTokens) && isProtectedWeekYearToken(token) || !(options2 == null ? void 0 : options2.useAdditionalDayOfYearTokens) && isProtectedDayOfYearToken(token)) {
+      if (!(options == null ? void 0 : options.useAdditionalWeekYearTokens) && isProtectedWeekYearToken(token) || !(options == null ? void 0 : options.useAdditionalDayOfYearTokens) && isProtectedDayOfYearToken(token)) {
         warnOrThrowProtectedError(token, formatStr, String(date2));
       }
       const formatter = formatters[token[0]];
@@ -34044,13 +31397,13 @@ if (uni.restoreGlobal) {
     }
     return matched[1].replace(doubleQuoteRegExp, "'");
   }
-  function isSameWeek(laterDate, earlierDate, options2) {
+  function isSameWeek(laterDate, earlierDate, options) {
     const [laterDate_, earlierDate_] = normalizeDates(
-      options2 == null ? void 0 : options2.in,
+      options == null ? void 0 : options.in,
       laterDate,
       earlierDate
     );
-    return +startOfWeek(laterDate_, options2) === +startOfWeek(earlierDate_, options2);
+    return +startOfWeek(laterDate_, options) === +startOfWeek(earlierDate_, options);
   }
   const formatDistanceLocale = {
     lessThanXSeconds: {
@@ -34115,7 +31468,7 @@ if (uni.restoreGlobal) {
       other: "将近 {{count}} 年"
     }
   };
-  const formatDistance = (token, count, options2) => {
+  const formatDistance = (token, count, options) => {
     let result;
     const tokenValue = formatDistanceLocale[token];
     if (typeof tokenValue === "string") {
@@ -34125,8 +31478,8 @@ if (uni.restoreGlobal) {
     } else {
       result = tokenValue.other.replace("{{count}}", String(count));
     }
-    if (options2 == null ? void 0 : options2.addSuffix) {
-      if (options2.comparison && options2.comparison > 0) {
+    if (options == null ? void 0 : options.addSuffix) {
+      if (options.comparison && options.comparison > 0) {
         return result + "内";
       } else {
         return result + "前";
@@ -34166,9 +31519,9 @@ if (uni.restoreGlobal) {
       defaultWidth: "full"
     })
   };
-  function checkWeek(date2, baseDate, options2) {
+  function checkWeek(date2, baseDate, options) {
     const baseFormat = "eeee p";
-    if (isSameWeek(date2, baseDate, options2)) {
+    if (isSameWeek(date2, baseDate, options)) {
       return baseFormat;
     } else if (date2.getTime() > baseDate.getTime()) {
       return "'下个'" + baseFormat;
@@ -34185,10 +31538,10 @@ if (uni.restoreGlobal) {
     // days after tomorrow, maybe in this week or next week
     other: "PP p"
   };
-  const formatRelative = (token, date2, baseDate, options2) => {
+  const formatRelative = (token, date2, baseDate, options) => {
     const format2 = formatRelativeLocale[token];
     if (typeof format2 === "function") {
-      return format2(date2, baseDate, options2);
+      return format2(date2, baseDate, options);
     }
     return format2;
   };
@@ -34316,9 +31669,9 @@ if (uni.restoreGlobal) {
       night: "夜间"
     }
   };
-  const ordinalNumber = (dirtyNumber, options2) => {
+  const ordinalNumber = (dirtyNumber, options) => {
     const number2 = Number(dirtyNumber);
-    switch (options2 == null ? void 0 : options2.unit) {
+    switch (options == null ? void 0 : options.unit) {
       case "date":
         return number2.toString() + "日";
       case "hour":
@@ -34484,7 +31837,7 @@ if (uni.restoreGlobal) {
       firstWeekContainsDate: 4
     }
   };
-  const _sfc_main$b = {
+  const _sfc_main$c = {
     __name: "doctor-details",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -34647,12 +32000,12 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_dateformat = resolveEasycom(vue.resolveDynamicComponent("uni-dateformat"), __easycom_1$1);
     const _component_wd_button = resolveEasycom(vue.resolveDynamicComponent("wd-button"), __easycom_1$9);
-    const _component_up_avatar = resolveEasycom(vue.resolveDynamicComponent("up-avatar"), __easycom_2$3);
+    const _component_up_avatar = resolveEasycom(vue.resolveDynamicComponent("up-avatar"), __easycom_2$4);
     const _component_up_button = resolveEasycom(vue.resolveDynamicComponent("up-button"), __easycom_0);
-    const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_2);
+    const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_2$1);
     const _component_health_card = resolveEasycom(vue.resolveDynamicComponent("health-card"), __easycom_1$5);
     return vue.openBlock(), vue.createElementBlock("view", { class: "doctorDetailLayout pageBg2" }, [
       vue.createElementVNode("view", { class: "logoBackground" }, [
@@ -34938,8 +32291,8 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const PagesDoctorDetailsDoctorDetails = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-08a0b3fc"], ["__file", "E:/mine/webfrom/Hospital/pages/doctor-details/doctor-details.vue"]]);
-  const _sfc_main$a = {
+  const PagesDoctorDetailsDoctorDetails = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-08a0b3fc"], ["__file", "D:/develop/code/uniapp/Hospital/pages/doctor-details/doctor-details.vue"]]);
+  const _sfc_main$b = {
     __name: "health-cards",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -34960,7 +32313,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
     const _component_health_card = resolveEasycom(vue.resolveDynamicComponent("health-card"), __easycom_1$5);
     return vue.openBlock(), vue.createElementBlock("view", { class: "cardLayout pageBg2" }, [
@@ -35003,8 +32356,8 @@ if (uni.restoreGlobal) {
       ))
     ]);
   }
-  const PagesHealthCardsHealthCards = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-6838644f"], ["__file", "E:/mine/webfrom/Hospital/pages/health-cards/health-cards.vue"]]);
-  const _sfc_main$9 = {
+  const PagesHealthCardsHealthCards = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-6838644f"], ["__file", "D:/develop/code/uniapp/Hospital/pages/health-cards/health-cards.vue"]]);
+  const _sfc_main$a = {
     __name: "notice",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -35029,7 +32382,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
     return vue.openBlock(), vue.createElementBlock("view", { class: "noticeLayout pageBg2" }, [
       vue.createElementVNode("view", { class: "box" }, [
@@ -35068,8 +32421,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesNoticeNotice = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-1c2e4c1e"], ["__file", "E:/mine/webfrom/Hospital/pages/notice/notice.vue"]]);
-  const _sfc_main$8 = {
+  const PagesNoticeNotice = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-1c2e4c1e"], ["__file", "D:/develop/code/uniapp/Hospital/pages/notice/notice.vue"]]);
+  const _sfc_main$9 = {
     name: "UniTag",
     emits: ["click"],
     props: {
@@ -35149,7 +32502,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     return $props.text ? (vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -35163,13 +32516,13 @@ if (uni.restoreGlobal) {
       /* TEXT, CLASS, STYLE */
     )) : vue.createCommentVNode("v-if", true);
   }
-  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-1f94d070"], ["__file", "E:/mine/webfrom/Hospital/uni_modules/uni-tag/components/uni-tag/uni-tag.vue"]]);
-  const _sfc_main$7 = {
+  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-1f94d070"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/uni-tag/components/uni-tag/uni-tag.vue"]]);
+  const _sfc_main$8 = {
     __name: "detail",
     setup(__props, { expose: __expose }) {
       __expose();
-      onLoad((options2) => {
-        pos.value = parseInt(options2.id, 10) - 1;
+      onLoad((options) => {
+        pos.value = parseInt(options.id, 10) - 1;
       });
       const pos = vue.ref(0);
       const noticeList = vue.ref([
@@ -35224,7 +32577,7 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0$7);
     const _component_uni_tag = resolveEasycom(vue.resolveDynamicComponent("uni-tag"), __easycom_1);
     const _component_uni_dateformat = resolveEasycom(vue.resolveDynamicComponent("uni-dateformat"), __easycom_1$1);
@@ -35295,7 +32648,7 @@ if (uni.restoreGlobal) {
       )
     ]);
   }
-  const PagesNoticeDetail = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-0f737f11"], ["__file", "E:/mine/webfrom/Hospital/pages/notice/detail.vue"]]);
+  const PagesNoticeDetail = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-0f737f11"], ["__file", "D:/develop/code/uniapp/Hospital/pages/notice/detail.vue"]]);
   const publicKeyPem = `-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDWMohPHMTSNqInq18yZcw3r91g
 qmZ57lE53pxpEBPcSNaA2vZa2LM2ccmULgFgX2t3b4bdu6Ur+RPFVGiQdxd2pqAt
@@ -35346,7 +32699,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
     );
     return window.btoa(String.fromCharCode(...new Uint8Array(encrypted)));
   }
-  const _sfc_main$6 = {
+  const _sfc_main$7 = {
     __name: "health-card-form",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -35415,7 +32768,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
       return __returned__;
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_up_input = resolveEasycom(vue.resolveDynamicComponent("up-input"), __easycom_0$8);
     const _component_wd_button = resolveEasycom(vue.resolveDynamicComponent("wd-button"), __easycom_1$9);
     return vue.openBlock(), vue.createElementBlock("view", { class: "formLayout pageBg2" }, [
@@ -35471,7 +32824,230 @@ KLdCLa8OUtJCfpMrywIDAQAB
       ])
     ]);
   }
-  const PagesHealthCardFormHealthCardForm = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-0102ebb0"], ["__file", "E:/mine/webfrom/Hospital/pages/health-card-form/health-card-form.vue"]]);
+  const PagesHealthCardFormHealthCardForm = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-0102ebb0"], ["__file", "D:/develop/code/uniapp/Hospital/pages/health-card-form/health-card-form.vue"]]);
+  const CHECKBOX_GROUP_KEY = Symbol("wd-checkbox-group");
+  const checkboxProps = {
+    ...baseProps,
+    customLabelClass: makeStringProp(""),
+    customShapeClass: makeStringProp(""),
+    /**
+     * 单选框选中时的值
+     */
+    modelValue: {
+      type: [String, Number, Boolean],
+      required: true,
+      default: false
+    },
+    /**
+     * 单选框形状，可选值：circle / square / button
+     */
+    shape: {
+      type: String
+    },
+    /**
+     * 选中的颜色
+     */
+    checkedColor: String,
+    /**
+     * 禁用
+     */
+    disabled: {
+      type: [Boolean, null],
+      default: null
+    },
+    /**
+     * 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用
+     */
+    trueValue: {
+      type: [String, Number, Boolean],
+      default: true
+    },
+    /**
+     * 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用
+     */
+    falseValue: {
+      type: [String, Number, Boolean],
+      default: false
+    },
+    /**
+     * 设置大小，可选值：large
+     */
+    size: String,
+    /**
+     * 文字位置最大宽度
+     */
+    maxWidth: String
+  };
+  const __default__ = {
+    name: "wd-checkbox",
+    options: {
+      addGlobalClass: true,
+      virtualHost: true,
+      styleIsolation: "shared"
+    }
+  };
+  const _sfc_main$6 = /* @__PURE__ */ vue.defineComponent({
+    ...__default__,
+    props: checkboxProps,
+    emits: ["change", "update:modelValue"],
+    setup(__props, { expose: __expose, emit: __emit }) {
+      const props2 = __props;
+      const emit = __emit;
+      __expose({
+        toggle
+      });
+      const { parent: checkboxGroup, index: index2 } = useParent(CHECKBOX_GROUP_KEY);
+      const isChecked = vue.computed(() => {
+        if (checkboxGroup) {
+          return checkboxGroup.props.modelValue.indexOf(props2.modelValue) > -1;
+        } else {
+          return props2.modelValue === props2.trueValue;
+        }
+      });
+      const isFirst = vue.computed(() => {
+        return index2.value === 0;
+      });
+      const isLast = vue.computed(() => {
+        const children = isDef(checkboxGroup) ? checkboxGroup.children : [];
+        return index2.value === children.length - 1;
+      });
+      const { proxy } = vue.getCurrentInstance();
+      vue.watch(
+        () => props2.modelValue,
+        () => {
+          if (checkboxGroup) {
+            checkName();
+          }
+        }
+      );
+      vue.watch(
+        () => props2.shape,
+        (newValue) => {
+          const type = ["circle", "square", "button"];
+          if (isDef(newValue) && type.indexOf(newValue) === -1)
+            formatAppLog("error", "at uni_modules/wot-design-uni/components/wd-checkbox/wd-checkbox.vue:94", `shape must be one of ${type.toString()}`);
+        }
+      );
+      const innerShape = vue.computed(() => {
+        return props2.shape || getPropByPath(checkboxGroup, "props.shape") || "circle";
+      });
+      const innerCheckedColor = vue.computed(() => {
+        return props2.checkedColor || getPropByPath(checkboxGroup, "props.checkedColor");
+      });
+      const innerDisabled = vue.computed(() => {
+        if (!checkboxGroup) {
+          return props2.disabled;
+        }
+        const { max, min, modelValue, disabled } = checkboxGroup.props;
+        if (max && modelValue.length >= max && !isChecked.value || min && modelValue.length <= min && isChecked.value || props2.disabled === true || disabled && props2.disabled === null) {
+          return true;
+        }
+        return props2.disabled;
+      });
+      const innerInline = vue.computed(() => {
+        return getPropByPath(checkboxGroup, "props.inline") || false;
+      });
+      const innerCell = vue.computed(() => {
+        return getPropByPath(checkboxGroup, "props.cell") || false;
+      });
+      const innerSize = vue.computed(() => {
+        return props2.size || getPropByPath(checkboxGroup, "props.size");
+      });
+      vue.onBeforeMount(() => {
+        if (props2.modelValue === null)
+          formatAppLog("error", "at uni_modules/wot-design-uni/components/wd-checkbox/wd-checkbox.vue:137", "checkbox's value must be set");
+      });
+      function checkName() {
+        checkboxGroup && checkboxGroup.children && checkboxGroup.children.forEach((child) => {
+          if (child.$.uid !== proxy.$.uid && child.modelValue === props2.modelValue) {
+            formatAppLog("error", "at uni_modules/wot-design-uni/components/wd-checkbox/wd-checkbox.vue:150", `The checkbox's bound value: ${props2.modelValue} has been used`);
+          }
+        });
+      }
+      function toggle() {
+        if (innerDisabled.value)
+          return;
+        if (checkboxGroup) {
+          emit("change", {
+            value: !isChecked.value
+          });
+          checkboxGroup.changeSelectState(props2.modelValue);
+        } else {
+          const newVal = props2.modelValue === props2.trueValue ? props2.falseValue : props2.trueValue;
+          emit("update:modelValue", newVal);
+          emit("change", {
+            value: newVal
+          });
+        }
+      }
+      const __returned__ = { props: props2, emit, checkboxGroup, index: index2, isChecked, isFirst, isLast, proxy, innerShape, innerCheckedColor, innerDisabled, innerInline, innerCell, innerSize, checkName, toggle, wdIcon };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  });
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        class: vue.normalizeClass(`wd-checkbox ${$setup.innerCell ? "is-cell-box" : ""} ${$setup.innerShape === "button" ? "is-button-box" : ""} ${$setup.isChecked ? "is-checked" : ""} ${$setup.isFirst ? "is-first-child" : ""} ${$setup.isLast ? "is-last-child" : ""} ${$setup.innerInline ? "is-inline" : ""} ${$setup.innerShape === "button" ? "is-button" : ""} ${$setup.innerDisabled ? "is-disabled" : ""} ${$setup.innerSize ? "is-" + $setup.innerSize : ""} ${_ctx.customClass}`),
+        style: vue.normalizeStyle(_ctx.customStyle),
+        onClick: $setup.toggle
+      },
+      [
+        vue.createCommentVNode("shape为button时，移除wd-checkbox__shape，只保留wd-checkbox__label"),
+        $setup.innerShape !== "button" ? (vue.openBlock(), vue.createElementBlock(
+          "view",
+          {
+            key: 0,
+            class: vue.normalizeClass(`wd-checkbox__shape ${$setup.innerShape === "square" ? "is-square" : ""} ${_ctx.customShapeClass}`),
+            style: vue.normalizeStyle($setup.isChecked && !$setup.innerDisabled && $setup.innerCheckedColor ? "color :" + $setup.innerCheckedColor : "")
+          },
+          [
+            vue.createVNode($setup["wdIcon"], {
+              "custom-class": "wd-checkbox__check",
+              name: "check-bold"
+            })
+          ],
+          6
+          /* CLASS, STYLE */
+        )) : vue.createCommentVNode("v-if", true),
+        vue.createCommentVNode("shape为button时只保留wd-checkbox__label"),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(`wd-checkbox__label ${_ctx.customLabelClass}`),
+            style: vue.normalizeStyle($setup.isChecked && $setup.innerShape === "button" && !$setup.innerDisabled && $setup.innerCheckedColor ? "color:" + $setup.innerCheckedColor : "")
+          },
+          [
+            vue.createCommentVNode("button选中时展示的icon"),
+            $setup.innerShape === "button" && $setup.isChecked ? (vue.openBlock(), vue.createBlock($setup["wdIcon"], {
+              key: 0,
+              "custom-class": "wd-checkbox__btn-check",
+              name: "check-bold"
+            })) : vue.createCommentVNode("v-if", true),
+            vue.createCommentVNode("文案"),
+            vue.createElementVNode(
+              "view",
+              {
+                class: "wd-checkbox__txt",
+                style: vue.normalizeStyle(_ctx.maxWidth ? "max-width:" + _ctx.maxWidth : "")
+              },
+              [
+                vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
+              ],
+              4
+              /* STYLE */
+            )
+          ],
+          6
+          /* CLASS, STYLE */
+        )
+      ],
+      6
+      /* CLASS, STYLE */
+    );
+  }
+  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-66fc790e"], ["__file", "D:/develop/code/uniapp/Hospital/uni_modules/wot-design-uni/components/wd-checkbox/wd-checkbox.vue"]]);
   const _sfc_main$5 = {
     __name: "register",
     setup(__props, { expose: __expose }) {
@@ -35591,7 +33167,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
   function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_up_input = resolveEasycom(vue.resolveDynamicComponent("up-input"), __easycom_0$8);
     const _component_up_icon = resolveEasycom(vue.resolveDynamicComponent("up-icon"), __easycom_1$a);
-    const _component_wd_checkbox = resolveEasycom(vue.resolveDynamicComponent("wd-checkbox"), __easycom_2$4);
+    const _component_wd_checkbox = resolveEasycom(vue.resolveDynamicComponent("wd-checkbox"), __easycom_2);
     const _component_wd_button = resolveEasycom(vue.resolveDynamicComponent("wd-button"), __easycom_1$9);
     return vue.openBlock(), vue.createElementBlock("view", { class: "rigLayout pageBg2" }, [
       vue.createElementVNode("view", { class: "title" }, " 注册 "),
@@ -35704,7 +33280,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
       ])
     ]);
   }
-  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-bac4a35d"], ["__file", "E:/mine/webfrom/Hospital/pages/register/register.vue"]]);
+  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-bac4a35d"], ["__file", "D:/develop/code/uniapp/Hospital/pages/register/register.vue"]]);
   const _sfc_main$4 = {
     __name: "reg-info",
     setup(__props, { expose: __expose }) {
@@ -35740,12 +33316,12 @@ KLdCLa8OUtJCfpMrywIDAQAB
         data.value.titleFee = data.value.titleFee.toFixed(2);
         formatAppLog("log", "at pages/reg-info/reg-info.vue:72", data.value);
       }
-      onLoad((options2) => {
-        const decodedInfo = decodeURIComponent(options2.info);
+      onLoad((options) => {
+        const decodedInfo = decodeURIComponent(options.info);
         data.value = JSON.parse(decodedInfo);
         data.value.date = new Date(data.value.date);
         registrationTime.value = timehash[data.value.time] || "8:30-9:30";
-        isPaid.value = options2.isPaid === "true" || false;
+        isPaid.value = options.isPaid === "true" || false;
         isisPaid.value = isPaid.value;
         getDoctor(data.value.doctorId);
       });
@@ -35877,7 +33453,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
       })) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesRegInfoRegInfo = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-c35845c5"], ["__file", "E:/mine/webfrom/Hospital/pages/reg-info/reg-info.vue"]]);
+  const PagesRegInfoRegInfo = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-c35845c5"], ["__file", "D:/develop/code/uniapp/Hospital/pages/reg-info/reg-info.vue"]]);
   const inputAreaHeight = 50;
   const _sfc_main$3 = {
     __name: "chatwindow",
@@ -35953,7 +33529,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
       ])
     ]);
   }
-  const PagesChatwindowChatwindow = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__scopeId", "data-v-6a5ef0ea"], ["__file", "E:/mine/webfrom/Hospital/pages/chatwindow/chatwindow.vue"]]);
+  const PagesChatwindowChatwindow = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__scopeId", "data-v-6a5ef0ea"], ["__file", "D:/develop/code/uniapp/Hospital/pages/chatwindow/chatwindow.vue"]]);
   function addAppointment(data) {
     return instance({
       url: "/appointments",
@@ -36050,8 +33626,8 @@ KLdCLa8OUtJCfpMrywIDAQAB
           formatAppLog("error", "at pages/payment-confirmation/payment-confirmation.vue:166", e);
         }
       }
-      onLoad((options2) => {
-        const decodedInfo = decodeURIComponent(options2.info);
+      onLoad((options) => {
+        const decodedInfo = decodeURIComponent(options.info);
         let data = JSON.parse(decodedInfo);
         const nowtime = /* @__PURE__ */ new Date();
         const chinaTime = new Date(nowtime.getTime() + 8 * 60 * 60 * 1e3);
@@ -36115,7 +33691,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
   function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_up_button = resolveEasycom(vue.resolveDynamicComponent("up-button"), __easycom_0);
     const _component_uni_dateformat = resolveEasycom(vue.resolveDynamicComponent("uni-dateformat"), __easycom_1$1);
-    const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_2);
+    const _component_uni_popup = resolveEasycom(vue.resolveDynamicComponent("uni-popup"), __easycom_2$1);
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -36289,7 +33865,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
       /* STABLE_FRAGMENT */
     );
   }
-  const PagesPaymentConfirmationPaymentConfirmation = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-eaae19d0"], ["__file", "E:/mine/webfrom/Hospital/pages/payment-confirmation/payment-confirmation.vue"]]);
+  const PagesPaymentConfirmationPaymentConfirmation = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-eaae19d0"], ["__file", "D:/develop/code/uniapp/Hospital/pages/payment-confirmation/payment-confirmation.vue"]]);
   const _sfc_main$1 = {
     __name: "reg-record",
     setup(__props, { expose: __expose }) {
@@ -36506,7 +34082,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
       ))
     ]);
   }
-  const PagesRegRecordRegRecord = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__scopeId", "data-v-32f65fe5"], ["__file", "E:/mine/webfrom/Hospital/pages/reg-record/reg-record.vue"]]);
+  const PagesRegRecordRegRecord = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__scopeId", "data-v-32f65fe5"], ["__file", "D:/develop/code/uniapp/Hospital/pages/reg-record/reg-record.vue"]]);
   __definePage("pages/login/login", PagesLoginLogin);
   __definePage("pages/index/index", PagesIndexIndex);
   __definePage("pages/registration/registration", PagesRegistrationRegistration);
@@ -36536,7 +34112,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
       formatAppLog("log", "at App.vue:10", "App Hide");
     }
   };
-  const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "E:/mine/webfrom/Hospital/App.vue"]]);
+  const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:/develop/code/uniapp/Hospital/App.vue"]]);
   const { toString } = Object.prototype;
   function isArray(val) {
     return toString.call(val) === "[object Array]";
@@ -37066,43 +34642,43 @@ KLdCLa8OUtJCfpMrywIDAQAB
     request(config2 = {}) {
       return this.middleware(config2);
     }
-    get(url2, options2 = {}) {
+    get(url2, options = {}) {
       return this.middleware({
         url: url2,
         method: "GET",
-        ...options2
+        ...options
       });
     }
-    post(url2, data, options2 = {}) {
+    post(url2, data, options = {}) {
       return this.middleware({
         url: url2,
         data,
         method: "POST",
-        ...options2
+        ...options
       });
     }
-    put(url2, data, options2 = {}) {
+    put(url2, data, options = {}) {
       return this.middleware({
         url: url2,
         data,
         method: "PUT",
-        ...options2
+        ...options
       });
     }
-    delete(url2, data, options2 = {}) {
+    delete(url2, data, options = {}) {
       return this.middleware({
         url: url2,
         data,
         method: "DELETE",
-        ...options2
+        ...options
       });
     }
-    options(url2, data, options2 = {}) {
+    options(url2, data, options = {}) {
       return this.middleware({
         url: url2,
         data,
         method: "OPTIONS",
-        ...options2
+        ...options
       });
     }
     upload(url2, config2 = {}) {
@@ -37135,7 +34711,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
   let themeType = ["primary", "success", "error", "warning", "info"];
   function setConfig(configs) {
     index$2.shallowMerge(config, configs.config || {});
-    index$2.shallowMerge(props$a, configs.props || {});
+    index$2.shallowMerge(props$9, configs.props || {});
     index$2.shallowMerge(color, configs.color || {});
     index$2.shallowMerge(zIndex, configs.zIndex || {});
   }
@@ -37158,7 +34734,7 @@ KLdCLa8OUtJCfpMrywIDAQAB
     throttle,
     mixin: mixin$1,
     mpMixin: mpMixin$1,
-    props: props$a,
+    props: props$9,
     ...index$2,
     color,
     platform: platform$1

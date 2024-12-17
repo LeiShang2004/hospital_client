@@ -1,6 +1,6 @@
 import "./chunk-4337NVKS.js";
 
-// ../../../../mine/webfrom/Hospital/node_modules/jwt-decode/build/esm/index.js
+// ../../../../develop/code/uniapp/Hospital/node_modules/jwt-decode/build/esm/index.js
 var InvalidTokenError = class extends Error {
 };
 InvalidTokenError.prototype.name = "InvalidTokenError";

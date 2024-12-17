@@ -1,25 +1,23 @@
 <template>
 	<view class="homeLayout pageBg">
-		<custom-nav-bar title="推荐"></custom-nav-bar>
+		<custom-nav-bar title="纽约市人民医院"></custom-nav-bar>
 		<view class="banner">
 			<view class="card-swiper">
-			  <wd-swiper
-			    autoplay
-			    v-model:current="current"
-			    custom-indicator-class="custom-indicator-class"
-			    custom-image-class="custom-image"
-			    custom-next-image-class="custom-image-prev"
-			    custom-prev-image-class="custom-image-prev"
-			    :indicator="{ type: 'dots' }"
-			    :list="swiperList"
-			    previousMargin="24px"
-			    nextMargin="24px"
-
-			  >
-			  </wd-swiper>
+				<wd-swiper autoplay v-model:current="current" custom-indicator-class="custom-indicator-class"
+					custom-image-class="custom-image" custom-next-image-class="custom-image-prev"
+					custom-prev-image-class="custom-image-prev" :indicator="{ type: 'dots' }" :list="swiperList"
+					previousMargin="24px" nextMargin="24px">
+				</wd-swiper>
 			</view>
 		</view>
-		
+
+
+		<view class="bigBox">
+			<view class="function">
+				<small-icon v-for="item in myFunction" :item="item"></small-icon>
+			</view>
+		</view>
+
 		<z-swiper v-model="list" :options="options">
 			<z-swiper-item :custom-style="slideCustomStyle" v-for="(item,index) in list" :key="index">
 				<health-card :cardinfo="item"></health-card>
@@ -28,13 +26,20 @@
 				<health-card :cardinfo="plus"></health-card>
 			</z-swiper-item> -->
 		</z-swiper>
-		
-		<view class="bigBox">
-			<view class="function">
-				<small-icon v-for="item in myFunction" :item="item"></small-icon>
+
+
+		<view class="textBox">
+			<view class="text">
+				纽约市人民医院自 2028 年建成以来，在医疗领域的影响力与日俱增。其独特的建筑风格不仅成为城市的一道亮丽风景线，更巧妙地融合了自然采光与舒适的就医环境设计理念。内部设施从先进的诊断设备到温馨的康复病房，每一处细节都彰显着对患者的关怀。
+				医院的各科专家团队，汇聚了全球顶尖的医学人才，他们在心血管科、肿瘤科、神经科等多个领域都有着卓越的建树。
+				除了精湛的医疗技术，医院还注重患者的就医体验。多语言服务团队确保来自世界各地的患者都能顺畅地与医护人员沟通交流；人性化的就医流程设计，减少了患者排队等候的时间。
+				纽约市人民医院始终坚守 “救死扶伤，关爱生命” 的使命，不断追求卓越，向着成为全球医疗行业标杆的目标奋勇前行，持续为全人类的健康福祉贡献着自己的力量，在世界医学的舞台上绽放着耀眼的光芒，让每一位踏入这里的患者都能重燃对健康生活的希望与信心。
 			</view>
+			 	
+			
 		</view>
-		
+
+		<!-- 		
 		<view class="notice">
 			<view class="left">
 				<uni-icons type="sound-filled" size="20"></uni-icons>
@@ -53,9 +58,9 @@
 			<view class="right">				
 				<uni-icons type="right" size="20"></uni-icons>
 			</view>
-		</view>
-		
-		<view class="guide">
+		</view> -->
+
+		<!-- 		<view class="guide">
 		    <y-tabs 
 			:wrap-style="{ 'border-radius': '30rpx 30rpx 0 0' }"
 
@@ -90,213 +95,227 @@
 					共{{newsLists.length}}条资讯
 				</view>	
 			</view>
-		</view>
-		
+		</view>-->
+
 		<myTabBar :item="itemTab"></myTabBar>
 		<view class="safe-area-inset-bottom"></view>
 	</view>
-	
+
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import store from '../../store/index.js';
-import { tabBarList } from '../../common/data/data.js'
-import { getpatients } from '@/api/patient.js'
-import { onShow } from '@dcloudio/uni-app';
-//滚动
-const current = ref(0)
+	import {
+		ref,
+		onMounted
+	} from 'vue';
+	import store from '../../store/index.js';
+	import {
+		tabBarList
+	} from '../../common/data/data.js'
+	import {
+		getpatients
+	} from '@/api/patient.js'
+	import {
+		onShow
+	} from '@dcloudio/uni-app';
+	//滚动
+	const current = ref(0)
 
-const swiperList = ref([
-  
-  '../../static/shen.jpg',
-  '../../static/gan.jpg',
-  '../../static/xin.jpg',
-  '../../static/fei.jpg'
-])
+	const swiperList = ref([
+		'../../static/hospital.png',
+		'../../static/hospital1.png',
+		'../../static/hospital2.png',
+	])
 
-//健康卡
-const slideCustomStyle= ref( {
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'center',
-	borderRadius: '36rpx'
-})
-const options= ref( {
-	effect: 'cards',
-	cardsEffect: {
-	        rotate: false,
-	}
-})
-const list= ref([])
+	//健康卡
+	const slideCustomStyle = ref({
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderRadius: '36rpx'
+	})
+	const options = ref({
+		effect: 'cards',
+		cardsEffect: {
+			rotate: false,
+		}
+	})
+	const list = ref([])
 
-const plus=ref({
-		isExist:false,
-		name:"原神",
-		id:"114514191981011451"
+	const plus = ref({
+		isExist: false,
+		name: "原神",
+		id: "114514191981011451"
 	})
 
-//公告
-const noticeList = ref( [
-        {
-          _id: '1',
-          title: '欢迎使用我们的新应用'
-        },
-        {
-          _id: '2',
-          title: '重要更新：版本1.0现已上线'
-        },
-        {
-          _id: '3',
-          title: '本周特别活动预告'
-        },
-        {
-          _id: '4',
-          title: '用户反馈收集进行中'
-        },
-      ])
+	//公告
+	const noticeList = ref([{
+			_id: '1',
+			title: '欢迎使用我们的新应用'
+		},
+		{
+			_id: '2',
+			title: '重要更新：版本1.0现已上线'
+		},
+		{
+			_id: '3',
+			title: '本周特别活动预告'
+		},
+		{
+			_id: '4',
+			title: '用户反馈收集进行中'
+		},
+	])
 
-//导航栏
-const myFunction = ref([
-	{
-		name:"挂号",
-		url:"/pages/registration/registration",
-		picurl:"../../static/zxj/yisheng.png",
-	},
-	{
-		name:"问诊",
-		picurl:"../../static/zxj/xiaoxi.png",
-	},
-	{
-		name:"缴费",
-		picurl:"../../static/zxj/fukuan.png",
-	},
-])
+	//导航栏
+	const myFunction = ref([{
+			name: "预约挂号",
+			url: "/pages/registration/registration",
+			picurl: "../../static/icon/doctor.svg",
+		},
+		{
+			name: "智能问诊",
+			picurl: "../../static/icon/chat.svg",
+		},
+		{
+			name: "挂号记录",
+			picurl: "../../static/icon/history.svg",
+		},
+	])
 
-//底部导航栏使用
-const itemTab=ref({myTabbar:0})
+	//底部导航栏使用
+	const itemTab = ref({
+		myTabbar: 0
+	})
 
-//滑动标签使用
-const Tabs = ref([
-	{
-		title:"常用",
-		list:[
-			{
-				name:"挂号",
-				url:"/pages/registration/registration",
-				picurl:"../../static/zxj/yisheng.png",
-			},
-			{
-				name:"本地门诊",
-				picurl:"../../static/zxj/yiyuan.png",
-			},
-			{
-				name:"海外门诊",
-				picurl:"../../static/zxj/youjian.png",
-			},
-			{
-				name:"多学科综合",
-				picurl:"../../static/zxj/yuyue.png",
-			},
-			{
-				name:"特色药物",
-				picurl:"../../static/zxj/yaowan.png",
-			},
-			{
-				name:"自助缴费",
-				picurl:"../../static/zxj/zixun.png",
-			},
-			{
-				name:"云报告",
-				picurl:"../../static/zxj/yibao.png",
-			},
-			{
-				name:"挂号记录",
-				url:"/pages/reg-record/reg-record",
-				picurl:"../../static/zxj/binglidan.png",
-			}
-		]
-		
-	},
-	{
-		title:"住院",
-		list:[
-			{
-				name:"住院预约",
-				picurl:"../../static/zxj/bingfang.png",
-			},
-			{
-				name:"住院缴费",
-				picurl:"../../static/zxj/baoxianxiang.png",
-			},
-			{
-				name:"出院结算",
-				picurl:"../../static/zxj/guahao.png",
-			},
-			{
-				name:"住院病历",
-				picurl:"../../static/zxj/yidian.png",
-			},
-			{
-				name:"出院带药",
-				picurl:"../../static/zxj/yaopian.png",
-			},
-			{
-				name:"手术进度",
-				picurl:"../../static/zxj/yisheng.png",
-			},
-			{
-				name:"电子陪护",
-				picurl:"../../static/zxj/zhongping.png",
-			},
-			{
-				name:"检查预约",
-				picurl:"../../static/zxj/zhongyi.png",
-			}
-		]
-	},
-	{
-		title:"服务",
-		list:[
-			{
-				name:"来院导航",
-				picurl:"../../static/zxj/biaoqian.png",
-			},
-			{
-				name:"轮椅租赁",
-				picurl:"../../static/zxj/canjiren.png",
-			},
-			{
-				name:"孕妇服务",
-				picurl:"../../static/zxj/yunfu.png",
-			},
-			{
-				name:"满意调查",
-				picurl:"../../static/zxj/yuyue.png",
-			},
-			{
-				name:"疫苗咨询",
-				picurl:"../../static/zxj/zhusheqi.png",
-			},
-			{
-				name:"物价查询",
-				picurl:"../../static/zxj/fukuan.png",
-			}
-		]
-	}
-])
-const activeIndex = ref(0)
-const tabs = ref([])
+	//滑动标签使用
+	const Tabs = ref([{
+			title: "常用",
+			list: [{
+					name: "挂号",
+					url: "/pages/registration/registration",
+					picurl: "../../static/zxj/yisheng.png",
+				},
+				{
+					name: "本地门诊",
+					picurl: "../../static/zxj/yiyuan.png",
+				},
+				{
+					name: "海外门诊",
+					picurl: "../../static/zxj/youjian.png",
+				},
+				{
+					name: "多学科综合",
+					picurl: "../../static/zxj/yuyue.png",
+				},
+				{
+					name: "特色药物",
+					picurl: "../../static/zxj/yaowan.png",
+				},
+				{
+					name: "自助缴费",
+					picurl: "../../static/zxj/zixun.png",
+				},
+				{
+					name: "云报告",
+					picurl: "../../static/zxj/yibao.png",
+				},
+				{
+					name: "挂号记录",
+					url: "/pages/reg-record/reg-record",
+					picurl: "../../static/zxj/binglidan.png",
+				}
+			]
 
-//这是资讯用的
-const newsLists = ref([
-	{id:111,title:"这是资讯1"},
-	{id:222,title:"这是资讯2"},
-	{id:333,title:"这是资讯3"},
-	{id:444,title:"这是资讯4"}
-])
+		},
+		{
+			title: "住院",
+			list: [{
+					name: "住院预约",
+					picurl: "../../static/zxj/bingfang.png",
+				},
+				{
+					name: "住院缴费",
+					picurl: "../../static/zxj/baoxianxiang.png",
+				},
+				{
+					name: "出院结算",
+					picurl: "../../static/zxj/guahao.png",
+				},
+				{
+					name: "住院病历",
+					picurl: "../../static/zxj/yidian.png",
+				},
+				{
+					name: "出院带药",
+					picurl: "../../static/zxj/yaopian.png",
+				},
+				{
+					name: "手术进度",
+					picurl: "../../static/zxj/yisheng.png",
+				},
+				{
+					name: "电子陪护",
+					picurl: "../../static/zxj/zhongping.png",
+				},
+				{
+					name: "检查预约",
+					picurl: "../../static/zxj/zhongyi.png",
+				}
+			]
+		},
+		{
+			title: "服务",
+			list: [{
+					name: "来院导航",
+					picurl: "../../static/zxj/biaoqian.png",
+				},
+				{
+					name: "轮椅租赁",
+					picurl: "../../static/zxj/canjiren.png",
+				},
+				{
+					name: "孕妇服务",
+					picurl: "../../static/zxj/yunfu.png",
+				},
+				{
+					name: "满意调查",
+					picurl: "../../static/zxj/yuyue.png",
+				},
+				{
+					name: "疫苗咨询",
+					picurl: "../../static/zxj/zhusheqi.png",
+				},
+				{
+					name: "物价查询",
+					picurl: "../../static/zxj/fukuan.png",
+				}
+			]
+		}
+	])
+	const activeIndex = ref(0)
+	const tabs = ref([])
 
-async function getHealthCard(){
+	//这是资讯用的
+	const newsLists = ref([{
+			id: 111,
+			title: "这是资讯1"
+		},
+		{
+			id: 222,
+			title: "这是资讯2"
+		},
+		{
+			id: 333,
+			title: "这是资讯3"
+		},
+		{
+			id: 444,
+			title: "这是资讯4"
+		}
+	])
+
+	async function getHealthCard() {
 		console.log(store.state.user)
 		let res = await getpatients(store.state.user)
 		console.log(res)
@@ -305,276 +324,313 @@ async function getHealthCard(){
 		for (let index = 0; index < res.length; index++) {
 			const element = res[index];
 			list.value.push({
-				isExist:true,
-				name:element.name,
-				id:element.cleartextId
+				isExist: true,
+				name: element.name,
+				id: element.cleartextId
 			})
 		}
 		list.value.push({
-			isExist:false,
-			name:"原神",
-			id:"114514191981011451"
+			isExist: false,
+			name: "原神",
+			id: "114514191981011451"
 		})
 		console.log(list)
 	}
 
-//导航栏
-onMounted(()=>{
-	getHealthCard()
-})
-
-// onShow(async () =>{
-// 	console.log(store.state.user)
-// 	let res = await getpatients(store.state.user)
-// 	console.log(res)
-// 	res = res.data
-// 	list.value = []
-// 	for (let index = 0; index < res.length; index++) {
-// 		const element = res[index];
-// 		list.value.push({
-// 			isExist:true,
-// 			name:element.name,
-// 			id:element.cleartextId
-// 		})
-// 	}
-// 	list.value.push({
-// 		isExist:false,
-// 		name:"原神",
-// 		id:"114514191981011451"
-// 	})
-// 	console.log("onShow")
-// 	console.log(list)
-// })
-
-//滚动
-const onClick =(item)=>{
-	// console.log(index);
-	console.log(item.index===0);
-	uni.navigateTo({
-		url:(item.index===0)?'/pages/payment/payment':'/pages/User/User'
+	//导航栏
+	onMounted(() => {
+		getHealthCard()
 	})
-}
-function handleClick(e) {
-  console.log(e)
-}
-function onChange(e) {
-  console.log(e)
-}
 
-//以下皆为标签栏
-//swiper滑动中
-const onTransition = (e) => {
-    if (Tabs.value) {
-        tabs.value.setDx(e.detail.dx);
-    }
-};
-//swiper滑动结束
-function onAnimationfinish(e) {
-    activeIndex.value = e.detail.current;
-    // 通过setTimeout解决解锁时机问题
-    tabs.value.unlockDx()//通知y-tabs解除对setDx()的锁定
-    console.log(activeIndex)
-}
+	// onShow(async () =>{
+	// 	console.log(store.state.user)
+	// 	let res = await getpatients(store.state.user)
+	// 	console.log(res)
+	// 	res = res.data
+	// 	list.value = []
+	// 	for (let index = 0; index < res.length; index++) {
+	// 		const element = res[index];
+	// 		list.value.push({
+	// 			isExist:true,
+	// 			name:element.name,
+	// 			id:element.cleartextId
+	// 		})
+	// 	}
+	// 	list.value.push({
+	// 		isExist:false,
+	// 		name:"原神",
+	// 		id:"114514191981011451"
+	// 	})
+	// 	console.log("onShow")
+	// 	console.log(list)
+	// })
 
-//公告
-// const navToNotice = ()=>{
-// 	uni.navigateTo({
-// 		url:"/pages/notice/notice"
-// 	})
-// }
+	//滚动
+	const onClick = (item) => {
+		// console.log(index);
+		console.log(item.index === 0);
+		uni.navigateTo({
+			url: (item.index === 0) ? '/pages/payment/payment' : '/pages/User/User'
+		})
+	}
 
+	function handleClick(e) {
+		console.log(e)
+	}
 
+	function onChange(e) {
+		console.log(e)
+	}
+
+	//以下皆为标签栏
+	//swiper滑动中
+	const onTransition = (e) => {
+		if (Tabs.value) {
+			tabs.value.setDx(e.detail.dx);
+		}
+	};
+	//swiper滑动结束
+	function onAnimationfinish(e) {
+		activeIndex.value = e.detail.current;
+		// 通过setTimeout解决解锁时机问题
+		tabs.value.unlockDx() //通知y-tabs解除对setDx()的锁定
+		console.log(activeIndex)
+	}
+
+	//公告
+	// const navToNotice = ()=>{
+	// 	uni.navigateTo({
+	// 		url:"/pages/notice/notice"
+	// 	})
+	// }
 </script>
 
 <style lang="scss" scoped>
-	
-
-.homeLayout{
-	padding: 20rpx 0 0 0;
-	width: 750rpx;
-	
-	.banner{
+	.homeLayout {
+		padding: 20rpx 0 0 0;
 		width: 750rpx;
-		padding: 30rpx 0;
-		border-radius: 30rpx;
-		margin:0 auto;
-		// background: red;
-		.card-swiper {
-		  --wot-swiper-radius: 0;
-		  --wot-swiper-item-padding: 0 24rpx;
-		  --wot-swiper-nav-dot-color: #e7e7e7;
-		  --wot-swiper-nav-dot-active-color: #4d80f0;
-		  padding-bottom: 24rpx;
-		  :deep(.custom-indicator-class) {
-		    bottom: -16px;
-		  }
-		  :deep(.custom-image) {
-		    border-radius: 12rpx;
-		  }
-		  :deep(.custom-image-prev) {
-		    height: 168px !important;
-		  }
-		}
-	}
-	.healthCard{
-		width: 690rpx;
-		height: 200rpx;
-		border-radius: 30rpx;
-		box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-		margin: 20rpx auto;
-	}
-	.bigBox{
-		height: 200rpx;
-		width: 690rpx;
-		border-radius: 30rpx;
-		// background: skyblue;
-		box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-		margin: 20rpx auto;
-		.function{
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 200rpx;
-			padding: 0 50rpx;
-			display: grid;
-			grid-template-columns: repeat(3,1fr);
-			gap: 115rpx;
-		}
-	}
-	.notice{
-		width: 690rpx;
-		height: 80rpx;
-		line-height: 80rpx;
-		background: #f9f9f9;
-		margin: 40rpx auto;
-		border-radius: 80rpx;
-		display: flex;
-		.left{
-			width: 140rpx;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			:deep(){//穿透子组件
-				.uni-icons{
-					color: $brand-theme-color   !important;
-				}
-			}
-			.text{
-				color: $brand-theme-color;
-				font-weight: 600;
-				font-size: 28rpx;
-				
-			}
-		}
-		.center{
-			flex: 1;
-			swiper{
-				height: 100%;
-				&-item{
-					height: 100%;
-					font-size: 30rpx;
-					color: #666;
-					overflow: hidden;
-					white-space: nowrap;
-					text-overflow: ellipsis;
-				}
-			}
-		}
-		.right{
-			width: 70rpx;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-	}
-	.guide{
-		width: 690rpx;
-		height: 470rpx;
-		// background: red;
-		border-radius:30rpx;
-		box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-		margin:0 auto;
-		
-		.tab{
-			// border-radius:30rpx 30rpx 0 0;
-			
-		}
-		
-		.swiper {
-		    height: 400rpx;
-			border-radius:0 0 30rpx 30rpx;
+
+		.banner {
+			width: 800rpx;
+			padding: 30rpx 0;
+			border-radius: 30rpx;
+			margin: 0 auto;
+
 			// background: red;
-			
-			.swiper-item-view {
-			   height: 400rpx;
-			   
-			   text-align: center;
-			   padding: 0rpx 40rpx;
-			   display: grid;
-			   grid-template-columns: repeat(4,1fr);
-			   column-gap: 50rpx;
-			   row-gap: 10rpx;
+			.card-swiper {
+				--wot-swiper-radius: 0;
+				--wot-swiper-item-padding: 0 24rpx;
+				--wot-swiper-nav-dot-color: #e7e7e7;
+				--wot-swiper-nav-dot-active-color: #fda085;
+				padding-bottom: 24rpx;
+
+				:deep(.custom-indicator-class) {
+					bottom: -16px;
+				}
+
+				:deep(.custom-image) {
+					border-radius: 12rpx;
+				}
+
+				:deep(.custom-image-prev) {
+					height: 168px !important;
+				}
 			}
 		}
 
-
-	}
-	.news{
-		.title{
-		  font-size: 26px;
-		  text-align: center;
-		  color:#3c3c3c;
-		  padding:60px 0 10px 0;
-		}
-		.out{
+		.healthCard {
 			width: 690rpx;
-			margin:30px auto;
-			box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
-			border-radius: 5px;
-			padding:15rpx;
-			box-sizing: border-box;
-			.list{
-				height: 200rpx;
+			height: 200rpx;
+			border-radius: 30rpx;
+			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			margin: 20rpx auto;
+		}
+
+		.textBox {
+			height: 630rpx;
+			width: 690rpx;
+			border-radius: 30rpx;
+			// background: skyblue;
+			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			margin: 20rpx auto;
+
+			.text{
+				margin: 20rpx 30rpx;
+			}
+		}
+
+		.bigBox {
+			height: 200rpx;
+			width: 690rpx;
+			border-radius: 30rpx;
+			// background: skyblue;
+			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			margin: 20rpx auto;
+
+			.function {
 				display: flex;
-				flex-direction: row;
-				.image{
-					width: 160rpx;
-					box-sizing: border-box;
-					height: 160rpx;
-					image{
-						// padding:20rpx ;
-						width: 160rpx;
-						height: 160rpx;
-						border-radius: 50%;
+				align-items: center;
+				justify-content: center;
+				height: 200rpx;
+				padding: 0 50rpx;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 115rpx;
+			}
+		}
+
+		.notice {
+			width: 690rpx;
+			height: 80rpx;
+			line-height: 80rpx;
+			background: #f9f9f9;
+			margin: 40rpx auto;
+			border-radius: 80rpx;
+			display: flex;
+
+			.left {
+				width: 140rpx;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				:deep() {
+
+					//穿透子组件
+					.uni-icons {
+						color: $brand-theme-color !important;
 					}
 				}
-				.row{
-					padding:20rpx 20rpx;
-					border-bottom:1px solid #e8e8e8;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-					align-items: center;
-					font-size: 18px;
-					color:#333;
-					.text{
-						padding:0 5px;
-					}
-					.smallText{
-						padding-right:0 5px;
-						margin-bottom: 180rpx;
-						font-size: 25rpx;
+
+				.text {
+					color: $brand-theme-color;
+					font-weight: 600;
+					font-size: 28rpx;
+
+				}
+			}
+
+			.center {
+				flex: 1;
+
+				swiper {
+					height: 100%;
+
+					&-item {
+						height: 100%;
+						font-size: 30rpx;
+						color: #666;
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
 					}
 				}
 			}
-			.count{
-				padding:10px 0;
-				font-size: 15px;
-				color:#888;
-				text-align:center;
+
+			.right {
+				width: 70rpx;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		.guide {
+			width: 690rpx;
+			height: 470rpx;
+			// background: red;
+			border-radius: 30rpx;
+			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			margin: 0 auto;
+
+			.tab {
+				// border-radius:30rpx 30rpx 0 0;
+
+			}
+
+			.swiper {
+				height: 400rpx;
+				border-radius: 0 0 30rpx 30rpx;
+				// background: red;
+
+				.swiper-item-view {
+					height: 400rpx;
+
+					text-align: center;
+					padding: 0rpx 40rpx;
+					display: grid;
+					grid-template-columns: repeat(4, 1fr);
+					column-gap: 50rpx;
+					row-gap: 10rpx;
+				}
+			}
+
+
+		}
+
+		.news {
+			.title {
+				font-size: 26px;
+				text-align: center;
+				color: #3c3c3c;
+				padding: 60px 0 10px 0;
+			}
+
+			.out {
+				width: 690rpx;
+				margin: 30px auto;
+				box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+				border-radius: 5px;
+				padding: 15rpx;
+				box-sizing: border-box;
+
+				.list {
+					height: 200rpx;
+					display: flex;
+					flex-direction: row;
+
+					.image {
+						width: 160rpx;
+						box-sizing: border-box;
+						height: 160rpx;
+
+						image {
+							// padding:20rpx ;
+							width: 160rpx;
+							height: 160rpx;
+							border-radius: 50%;
+						}
+					}
+
+					.row {
+						padding: 20rpx 20rpx;
+						border-bottom: 1px solid #e8e8e8;
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						align-items: center;
+						font-size: 18px;
+						color: #333;
+
+						.text {
+							padding: 0 5px;
+						}
+
+						.smallText {
+							padding-right: 0 5px;
+							margin-bottom: 180rpx;
+							font-size: 25rpx;
+						}
+					}
+				}
+
+				.count {
+					padding: 10px 0;
+					font-size: 15px;
+					color: #888;
+					text-align: center;
+				}
 			}
 		}
 	}
-}
-
 </style>

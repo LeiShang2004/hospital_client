@@ -181,7 +181,7 @@
 				padding: 30rpx 0;
 				background:
 					linear-gradient(to bottom, transparent 0%, #fff 400rpx),
-					linear-gradient(to left, #beecd8 20%, #b2e0fa);
+					linear-gradient(to left, #f6d365 20%, #fda085);
 				display: flex;
 				flex-direction: row; //设置布局方向为水平
 

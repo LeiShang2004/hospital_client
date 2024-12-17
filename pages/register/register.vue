@@ -1,68 +1,73 @@
 <template>
 	<view class="rigLayout pageBg2">
-		<view class="title">
-			注册
-		</view>
-		<view class="input">
-			<view class="small-input">
-				<view class="text-box">
-					手机号
+		<view class="box">
+			<view class="title1">
+				<h2>纽约市人民医院</h2>
+			</view>
+			<view class="title">
+				注册
+			</view>
+			<view class="input">
+				<view class="small-input">
+					<view class="text-box">
+						手机号
+					</view>
+					<up-input border="bottom" v-model="phone" clearable></up-input>
 				</view>
-				<up-input border="bottom" v-model="phone" clearable></up-input>
-			</view>
-			<view class="small-input">
-				<view class="text-box">
-					用户名
+				<view class="small-input">
+					<view class="text-box">
+						用户名
+					</view>
+					<up-input border="bottom" v-model="username" clearable></up-input>
 				</view>
-				<up-input border="bottom" v-model="username" clearable></up-input>
-			</view>
-			<view class="small-input">
-				<view class="text-box">
-					密码
+				<view class="small-input">
+					<view class="text-box">
+						密码
+					</view>
+					<up-input placeholder="6-20位,须含字母 符号 数字至少2种" border="bottom" v-model="password" clearable maxlength="20"
+						:password="!eye">
+			
+			
+						<template #suffix>
+							<view class="eye" @click="eye=!eye">
+								<up-icon name="eye-fill" v-if="!eye"></up-icon>
+								<up-icon name="eye-off" v-if="eye"></up-icon>
+							</view>
+			
+						</template>
+			
+					</up-input>
 				</view>
-				<up-input placeholder="6-20位,须含字母 符号 数字至少2种" border="bottom" v-model="password" clearable maxlength="20"
-					:password="!eye">
-
-
-					<template #suffix>
-						<view class="eye" @click="eye=!eye">
-							<up-icon name="eye-fill" v-if="!eye"></up-icon>
-							<up-icon name="eye-off" v-if="eye"></up-icon>
-						</view>
-
-					</template>
-
-				</up-input>
-			</view>
-			<view class="small-input">
-				<view class="text-box">
-					确认密码
+				<view class="small-input">
+					<view class="text-box">
+						确认密码
+					</view>
+					<up-input placeholder="重新输入密码" border="bottom" v-model="rePassword" clearable maxlength="20"
+						:password="!eye"></up-input>
 				</view>
-				<up-input placeholder="重新输入密码" border="bottom" v-model="rePassword" clearable maxlength="20"
-					:password="!eye"></up-input>
+			
+			
+			
+			
 			</view>
-
-
-
-
-		</view>
-		<view class="negotiate">
-			<view class="choice">
-				<wd-checkbox class="line" v-model="value" @change="handleChange" shape="square">
-					本人已阅读并同意
-
-				</wd-checkbox>
-				<view class="a">
-					吧唧吧唧隐私政策
+			<!-- 		<view class="negotiate">
+				<view class="choice">
+					<wd-checkbox class="line" v-model="value" @change="handleChange" shape="square">
+						本人已阅读并同意
+			
+					</wd-checkbox>
+					<view class="a">
+						吧唧吧唧隐私政策
+					</view>
 				</view>
+				<view class="rig" @click="navToRig">
+			
+				</view>
+			</view> -->
+			<view class="button">
+				<wd-button block plain @click="confirm">注册</wd-button>
+				<wd-button block  plain type="info" @click="navToRig">返回登录</wd-button>
 			</view>
-			<view class="rig" @click="navToRig">
-
-			</view>
-		</view>
-		<view class="button">
-			<wd-button block @click="confirm">注册</wd-button>
-			<wd-button block type="success" @click="navToRig">返回登录</wd-button>
 		</view>
 	</view>
 </template>
@@ -138,7 +143,7 @@
 			})
 			return false
 		}
-		if (!phonePattern.test(phone.value)){
+		if (!phonePattern.test(phone.value)) {
 			uni.showToast({
 				title: '手机号格式错误',
 				icon: 'none',
@@ -187,16 +192,40 @@
 </script>
 
 <style lang="scss" scoped>
+	
+	
 	.rigLayout {
 		display: flex;
 		flex-direction: column;
 
+		.box {
+			height: 900rpx;
+			width: 690rpx;
+			border-radius: 30rpx;
+			// background: skyblue;
+			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			margin: 300rpx auto;
+		
+			.text{
+				margin: 20rpx 30rpx;
+			}
+		}
+		
+		.title1 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 20px;
+			margin: 50rpx 0;
+
+		}
+		
 		.title {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			font-size: 20px;
-			margin: 100rpx 0;
+			margin: 50rpx 0;
 
 		}
 

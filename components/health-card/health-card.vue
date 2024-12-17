@@ -3,11 +3,12 @@
 		<view v-if="cardExist" class="exist" @click="cardinfo.isChoose?navToCards:changePos">
 			<view class="box2">
 				<view class="image">
-					<up-avatar :text="cardinfo.name" fontSize="18" randomBgColor size="80"></up-avatar>
+					<img src="../../static/QRcard.png" style="width: 200rpx;height: 200rpx;" />
+					<!-- <up-avatar :text="cardinfo.name" fontSize="18" randomBgColor size="80"></up-avatar> -->
 				</view>
 				<view class="row">
-					<view class="text">姓名：{{cardinfo.name}}</view>
-					<view class="smallText">身份证号：{{cardinfo.id}}</view>
+					<view class="text">{{cardinfo.name}}</view>
+					<view class="smallText">{{cardinfo.id}}</view>
 				</view>
 			</view>
 		</view>
@@ -76,6 +77,8 @@ const extractColorByName= (name) => {
 		.box2{
 			display: flex;
 			flex-direction: row;
+			// background-color: #f3f5f6;
+			
 			.image{
 				width: 200rpx;
 				box-sizing: border-box;
@@ -89,6 +92,7 @@ const extractColorByName= (name) => {
 				width: 440rpx;
 				height: 200rpx;
 				// margin: 25rpx;
+				margin: 0 10rpx;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -99,12 +103,12 @@ const extractColorByName= (name) => {
 				gap: 30rpx;
 				.text{
 					// padding:0rpx;
-					font-size: 30rpx;
+					font-size: 40rpx;
 				}
 				.smallText{
 					// padding-right:0 5px;
 					// margin-bottom: 180rpx;
-					font-size: 20rpx;
+					font-size: 30rpx;
 				}
 			}
 		}
