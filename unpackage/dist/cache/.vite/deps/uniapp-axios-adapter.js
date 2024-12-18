@@ -1,6 +1,6 @@
 import {
   __export
-} from "./chunk-34Z2WVG2.js";
+} from "./chunk-4337NVKS.js";
 
 // ../../../文本/真带学/应用实践二/hospital_client/node_modules/axios/lib/helpers/bind.js
 function bind(fn, thisArg) {

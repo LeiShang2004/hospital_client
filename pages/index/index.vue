@@ -176,10 +176,12 @@
 		{
 			name: "智能问诊",
 			picurl: "../../static/icon/chat.svg",
+			url: "/pages/chatwindow/chatwindow",
 		},
 		{
 			name: "挂号记录",
 			picurl: "../../static/icon/history.svg",
+			url: "/pages/reg-record/reg-record",
 		},
 	])
 

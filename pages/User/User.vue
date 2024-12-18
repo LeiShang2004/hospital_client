@@ -20,6 +20,16 @@
 						<uni-icons type="right" size="15" color="#aaa"></uni-icons>
 					</view>
 				</view>
+				<view class="row" @click="navToB">
+					<view class="left">
+						<uni-icons type="calendar-filled" size="20"></uni-icons>
+						<view class="text">智能客服</view>
+					</view>
+					<view class="right">
+						<!-- <view class="text">{{recordNum}}</view> -->
+						<uni-icons type="right" size="15" color="#aaa"></uni-icons>
+					</view>
+				</view>
 
 <!-- 				<view class="row" @click="navToB">
 					<view class="left">
@@ -114,7 +124,7 @@
 
 	const navToB = () => {
 		uni.navigateTo({
-			url: "/pages/catalogs/catalogs"
+			url: "/pages/chatwindow/chatwindow"
 		})
 	}
 
