@@ -201,9 +201,11 @@
 		.box {
 			height: 900rpx;
 			width: 690rpx;
-			border-radius: 30rpx;
+			// border-radius: 30rpx;
 			// background: skyblue;
-			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			border: 1rpx solid #000;
+			background: #fff;
 			margin: 300rpx auto;
 		
 			.text{
