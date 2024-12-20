@@ -135,10 +135,13 @@
 		borderRadius: '36rpx'
 	})
 	const options = ref({
-		effect: 'cards',
-		cardsEffect: {
-			rotate: false,
-		}
+		effect: 'cube',
+			cubeEffect: {
+				shadow: true,
+				slideShadows: true,
+				shadowOffset: 20,
+				shadowScale: 0.94,
+			},
 	})
 	const list = ref([])
 
