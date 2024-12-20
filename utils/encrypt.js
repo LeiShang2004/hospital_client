@@ -54,3 +54,16 @@ export async function encryptWithPublicKey(cleartext) {
 	// 将加密后的数据转换为 Base64 字符串并返回
 	return window.btoa(String.fromCharCode(...new Uint8Array(encrypted)));
 }
+
+import JSEncrypt from 'jsencrypt';
+const publicKey =
+	'-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDWMohPHMTSNqInq18yZcw3r91g\nqmZ57lE53pxpEBPcSNaA2vZa2LM2ccmULgFgX2t3b4bdu6Ur+RPFVGiQdxd2pqAt\n yEGyToCITKStNFJtwpQ9PWEVES+3+tC1IWT+TnqLYiTYBkY2+RTVQZg1Wa9iktTj\nKLdCLa8OUtJCfpMrywIDAQAB\n-----END PUBLIC KEY-----';
+const encryptData = (data) => {
+	const encrypt = new JSEncrypt();
+	encrypt.setPublicKey(publicKey);
+	return encrypt.encrypt(data);
+};
+
+export const EncryptionService = {
+	encrypt: (data) => encryptData(data),
+};
