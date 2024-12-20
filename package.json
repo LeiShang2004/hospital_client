@@ -8,6 +8,7 @@
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "dayjs": "^1.11.13",
+    "jsencrypt": "^3.3.2",
     "jwt-decode": "^4.0.0",
     "uniapp-axios-adapter": "^0.3.2",
     "vuex": "^4.0.2"
