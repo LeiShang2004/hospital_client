@@ -18,35 +18,36 @@
 				<view class="morning" v-if="f1">
 					<view class="text">上午 （08：30-11：30） 有号 </view>
 					<view class="button">
-						<wd-button size="small" @click="timeSelect1">预约</wd-button>
+						<wd-button size="small" @click="timeSelect1" type="warning" color="#fda085">预约</wd-button>
 					</view>
 				</view>
 				<view class="morning" v-else>
 					<view class="text">上午 （08：30-11：30） 无号 </view>
 					<view class="button">
-						<wd-button size="small" @click="timeSelect1" disabled>预约</wd-button>
+						<wd-button size="small" @click="timeSelect1" type="warning" color="#fda085" disabled>预约</wd-button>
 					</view>
 				</view>
 				<view class="afternoon" v-if="f2">
 					<view class="text">下午 （14：30-17：30） 有号</view>
 					<view class="button">
-						<wd-button size="small" @click="timeSelect2">预约</wd-button>
+						<wd-button size="small" @click="timeSelect2" type="warning" color="#fda085">预约</wd-button>
 					</view>
 				</view>
 				<view class="afternoon" v-else>
 					<view class="text">下午 （14：30-17：30） 无号</view>
 					<view class="button">
-						<wd-button size="small" @click="timeSelect2" disabled>预约</wd-button>
+						<wd-button size="small" @click="timeSelect2" type="warning" color="#fda085" disabled>预约</wd-button>
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="patient">
 			<view class="title">
-				<view class="text">当前就诊人</view>
 				<view class="button">
-					<wd-button size="small" type="info" @click="cardSelect">健康卡管理</wd-button>
+					<wd-button size="small"  type="warning" @click="cardSelect">切换病人</wd-button>
 				</view>
+				<view class="text">当前就诊人</view>
+				
 			</view>
 <!-- 			<view class="logo">
 				<up-avatar :text="healthcard.name" fontSize="12" randomBgColor size="50"></up-avatar>
@@ -64,7 +65,7 @@
 		</view>
 
 		<view class="w-button">
-			<wd-button block @click="navBack">返回上一页</wd-button>
+			<wd-button block type="warning" @click="navBack">返回上一页</wd-button>
 		</view>
 
 
@@ -74,14 +75,14 @@
 					请选择时间段
 				</view>
 				<view class="grid">
-					<!-- <up-button @click="navToInfo(1)" color="rgb(66, 83, 216)" shape="circle">
+					<!-- <up-button @click="navToInfo(1)" color="rgb(66, 83, 216)" >
 						8:30-9:30</up-button>
-					<up-button @click="navToInfo(2)" color="rgb(66, 83, 216)" shape="circle">
+					<up-button @click="navToInfo(2)" color="rgb(66, 83, 216)" >
 						9:30-10:30</up-button>
-					<up-button @click="navToInfo(3)" color="rgb(66, 83, 216)" shape="circle">
+					<up-button @click="navToInfo(3)" color="rgb(66, 83, 216)" >
 						10:30-11:30 {{uu}}</up-button> -->
-					<up-button v-for="item,index in data.morning" @click="navToInfo(index)" color="rgb(66, 83, 216)"
-						shape="circle" :disabled="item<=0">
+					<up-button v-for="item,index in data.morning" @click="navToInfo(index)" color="#fda085"
+						 :disabled="item<=0">
 						{{timehash[index]}} 剩余号量:{{item}}
 					</up-button>
 				</view>
@@ -94,14 +95,14 @@
 					请选择时间段
 				</view>
 				<view class="grid">
-					<!-- <up-button @click="navToInfo(4)" color="rgb(66, 83, 216)" shape="circle">
+					<!-- <up-button @click="navToInfo(4)" color="rgb(66, 83, 216)" >
 						14:30-15:30</up-button>
-					<up-button @click="navToInfo(5)" color="rgb(66, 83, 216)" shape="circle">
+					<up-button @click="navToInfo(5)" color="rgb(66, 83, 216)" >
 						15:30-16:30</up-button>
-					<up-button @click="navToInfo(6)" color="rgb(66, 83, 216)" shape="circle">
+					<up-button @click="navToInfo(6)" color="rgb(66, 83, 216)" >
 						16:30-17:30</up-button> -->
-					<up-button v-for="item,index in data.afternoon" @click="navToInfo(index)" color="rgb(66, 83, 216)"
-						shape="circle" :disabled="item<=0">
+					<up-button v-for="item,index in data.afternoon" @click="navToInfo(index)" color="#fda085"
+						 :disabled="item<=0">
 						{{timehash[index]}} 剩余号量:{{item}}
 					</up-button>
 				</view>
@@ -262,7 +263,7 @@
 	}
 
 	const cardSelect = () => {
-		infoPopup.value.open();
+		infoPopup.value.open("top");
 	}
 	const navToCards = () => {
 		uni.navigateTo({
@@ -335,8 +336,9 @@
 				overflow: hidden;
 				/* 隐藏溢出的部分，如果需要的话 */
 				background: white;
-				border-radius: 20rpx;
-				box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+				// border-radius: 20rpx;
+				// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+				border: 1rpx solid #000;
 				padding-top: 70rpx;
 				display: flex;
 				// justify-content: center;
@@ -360,8 +362,9 @@
 			overflow: hidden;
 			/* 隐藏溢出的部分，如果需要的话 */
 			// background: skyblue;
-			border-radius: 20rpx;
-			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// border-radius: 20rpx;
+			// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			border: 1rpx solid #000;
 			background: white;
 			// display: flex;
 			// justify-content: center;
@@ -422,8 +425,9 @@
 			overflow: hidden;
 			/* 隐藏溢出的部分，如果需要的话 */
 			// background: skyblue;
-			border-radius: 20rpx;
-			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// border-radius: 20rpx;
+			// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			border: 1rpx solid #000;
 			background: white;
 			display: flex;
 			justify-content: center;
@@ -440,7 +444,8 @@
 				flex-direction: row;
 
 				.text {
-					width: 450rpx;
+					margin-left: 300rpx;
+					width: 150rpx;
 				}
 			}
 			
@@ -498,7 +503,7 @@
 		.infoPopup {
 			background: #fff;
 			padding: 30rpx;
-			border-radius: 30rpx 30rpx 0 0;
+			border-radius: 0 0 30rpx 30rpx ;
 			overflow: hidden;
 			padding-bottom: 100rpx;
 

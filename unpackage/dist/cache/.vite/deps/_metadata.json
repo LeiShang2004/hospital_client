@@ -1,55 +1,49 @@
 {
-  "hash": "51135428",
-  "configHash": "0caefea3",
+  "hash": "e1b24eab",
+  "configHash": "ead95833",
   "lockfileHash": "99095cf7",
-  "browserHash": "9ea9a5e1",
+  "browserHash": "310920ab",
   "optimized": {
     "jwt-decode": {
       "src": "../../../../../node_modules/jwt-decode/build/esm/index.js",
       "file": "jwt-decode.js",
-      "fileHash": "fa4691c2",
+      "fileHash": "ef3afb64",
       "needsInterop": false
     },
     "dayjs/esm/index": {
       "src": "../../../../../node_modules/dayjs/esm/index.js",
       "file": "dayjs_esm_index.js",
-      "fileHash": "112b53eb",
+      "fileHash": "0d52d4af",
+      "needsInterop": false
+    },
+    "uniapp-axios-adapter": {
+      "src": "../../../../../node_modules/uniapp-axios-adapter/lib/index.esm.js",
+      "file": "uniapp-axios-adapter.js",
+      "fileHash": "1308c4b0",
       "needsInterop": false
     },
     "crypto-js": {
       "src": "../../../../../node_modules/crypto-js/index.js",
       "file": "crypto-js.js",
-      "fileHash": "7dac6579",
+      "fileHash": "422b1c49",
       "needsInterop": true
-    },
-    "uniapp-axios-adapter": {
-      "src": "../../../../../node_modules/uniapp-axios-adapter/lib/index.esm.js",
-      "file": "uniapp-axios-adapter.js",
-      "fileHash": "64cf8f10",
-      "needsInterop": false
-    },
-    "jsencrypt": {
-      "src": "../../../../../node_modules/jsencrypt/lib/index.js",
-      "file": "jsencrypt.js",
-      "fileHash": "573e7e77",
-      "needsInterop": false
     },
     "date-fns": {
       "src": "../../../../../node_modules/date-fns/index.js",
       "file": "date-fns.js",
-      "fileHash": "d1259aa4",
+      "fileHash": "993fd608",
       "needsInterop": false
     },
     "date-fns/locale": {
       "src": "../../../../../node_modules/date-fns/locale.js",
       "file": "date-fns_locale.js",
-      "fileHash": "73044a61",
+      "fileHash": "c09e1c88",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-KOF34POV": {
-      "file": "chunk-KOF34POV.js"
+    "chunk-NP7VS5WV": {
+      "file": "chunk-NP7VS5WV.js"
     },
     "chunk-4337NVKS": {
       "file": "chunk-4337NVKS.js"

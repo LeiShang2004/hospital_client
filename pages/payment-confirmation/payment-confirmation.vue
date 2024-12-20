@@ -13,14 +13,6 @@
 				<span>{{ doctorName }}</span>
 			</view>
 			<view class="info-item">
-				<label>科室:</label>
-				<span>{{ department }}</span>
-			</view>
-			<view class="info-item">
-				<label>金额:</label>
-				<span>{{ amount }} 元</span>
-			</view>
-			<view class="info-item">
 				<label>患者姓名:</label>
 				<span>{{ patientName }}</span>
 			</view>
@@ -28,14 +20,22 @@
 				<label>挂号时间段:</label>
 				<span>{{ time }}</span>
 			</view>
+			<view class="info-item">
+				<label>科室:</label>
+				<span>{{ department }}</span>
+			</view>
+			<view class="info-item">
+				<label>金额:</label>
+				<span>{{ amount }} 元</span>
+			</view>
 		</view>
 		<view class="button">
-			<up-button :disabled="isPaid" @click="handlePayment" color="rgb(66, 83, 216)"
-				shape="circle">确认支付</up-button>
+			<up-button :disabled="isPaid" @click="handlePayment" color="#fda085"
+				shape="circle">我选择支付</up-button>
 		</view>
 		<view class="button">
-			<up-button @click="abandonPayment" color="rgb(66, 83, 216)"
-				shape="circle">{{!isPaid?'放弃挂号':'返回首页'}}</up-button>
+			<up-button @click="abandonPayment" color="#fda085"
+				shape="circle">{{!isPaid?'结束挂号':'返回主页'}}</up-button>
 		</view>
 	</view>
 
@@ -43,7 +43,7 @@
 		<view class="paymentLayout">
 			<view class="layout">
 				<view v-if="isSuccess" class="icon">
-					<image src="../../common/image/zhifu-zhifuchenggong.svg" mode="aspectFill"></image>
+					<image src="../../static/fukuan.png" mode="aspectFill"></image>
 				</view>
 				<view v-else class="icon">
 					<image src="../../common/image/zhifu-zhifushibai.svg" mode="aspectFill"></image>
@@ -52,21 +52,21 @@
 					付款{{isSuccess?"成功":"失败"}}
 				</view>
 				<view v-if="isSuccess" class="money">
-					{{ amount }} 元
+					￥{{ amount }}
 				</view>
 				<view class="detail">
 					<view class="time">
-						<label>付款时间</label>
+						<label>付款时期</label>
 						<span>
 							<uni-dateformat :date="Date.now() + 8 * 60 * 60 * 1000" format="yyyy-MM-dd hh:mm:ss"></uni-dateformat>
 						</span>
 					</view>
-					<view class="method">
+					<!-- <view class="method">
 						<label>付款方式</label>
 						<span>
 							直接支付
 						</span>
-					</view>
+					</view> -->
 				</view>
 			</view>
 		</view>
@@ -231,8 +231,9 @@
 		.box {
 			width: 690rpx;
 			// height: 200rpx;
-			border-radius: 30rpx;
-			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// border-radius: 30rpx;
+			// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			border: 1rpx solid #000;
 			margin: 30rpx auto;
 			background: #fff;
 
@@ -244,7 +245,7 @@
 				margin: 30rpx 30rpx;
 
 				label {
-					font-weight: bold;
+					// font-weight: bold;
 				}
 
 				span {

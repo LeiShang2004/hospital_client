@@ -30,7 +30,16 @@
 						<uni-icons type="right" size="15" color="#aaa"></uni-icons>
 					</view>
 				</view>
-
+				<view class="row" @click="loginOut">
+					<view class="left">
+						<uni-icons type="minus-filled" size="20"></uni-icons>
+						<view class="text">退出登录</view>
+					</view>
+					<view class="right">
+						<view class="text"></view>
+						<uni-icons type="right" size="15" color="#aaa"></uni-icons>
+					</view>
+				</view>
 <!-- 				<view class="row" @click="navToB">
 					<view class="left">
 						<uni-icons type="star-filled" size="20"></uni-icons>
@@ -69,16 +78,7 @@
 				</view>
 			</view> -->
 
-			<view class="row" @click="loginOut">
-				<view class="left">
-					<uni-icons type="minus-filled" size="20"></uni-icons>
-					<view class="text">退出登录</view>
-				</view>
-				<view class="right">
-					<view class="text"></view>
-					<uni-icons type="right" size="15" color="#aaa"></uni-icons>
-				</view>
-			</view>
+			
 		</view>
 	</view>
 	<myTabBar :item="itemTab"></myTabBar>
@@ -183,9 +183,9 @@
 		.section {
 			width: 690rpx;
 			margin: 50rpx auto;
-			border: 1px solid #eee;
-			border-radius: 10rpx;
-			box-shadow: 0 0 30rpx rgba(0, 0, 0, 0.05);
+			// border: 1px solid #eee;
+			// border-radius: 10rpx;
+			// box-shadow: 0 0 30rpx rgba(0, 0, 0, 0.05);
 
 			.list {
 				.row {
@@ -194,9 +194,9 @@
 					align-items: center;
 					padding: 0 30rpx;
 					height: 100rpx;
-					border-bottom: 1px solid #eee;
+					// border-bottom: 1px solid #eee;
 					position: relative;
-					background: #fff;
+					// background: #fff;
 
 					&:last-child {
 						border-bottom: 0

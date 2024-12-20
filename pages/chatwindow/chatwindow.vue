@@ -6,7 +6,7 @@
 			<uni-icons type="back" color="#000" size="20"></uni-icons>
 		</view>
 		<view class="text">
-			我的健康卡
+			智能客服
 		</view>
 		<view class="goBack">
 			<!-- <uni-icons type="back" color="#fff" size="20"></uni-icons> -->

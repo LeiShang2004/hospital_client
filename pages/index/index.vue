@@ -98,6 +98,7 @@
 		</view>-->
 
 		<myTabBar :item="itemTab"></myTabBar>
+		<myEmpty height="50rpx"></myEmpty>
 		<view class="safe-area-inset-bottom"></view>
 	</view>
 
@@ -418,7 +419,7 @@
 		.banner {
 			width: 800rpx;
 			padding: 30rpx 0;
-			border-radius: 30rpx;
+			// border-radius: 30rpx;
 			margin: 0 auto;
 
 			// background: red;
@@ -446,19 +447,20 @@
 		.healthCard {
 			width: 690rpx;
 			height: 200rpx;
-			border-radius: 30rpx;
-			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// border-radius: 30rpx;
+			// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			border-bottom: 1rpx solid #000;
 			margin: 20rpx auto;
 		}
 
 		.textBox {
-			height: 630rpx;
+			// height: 630rpx;
 			width: 690rpx;
-			border-radius: 30rpx;
+			// border-radius: 30rpx;
 			// background: skyblue;
-			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 			margin: 20rpx auto;
-
+			border: 1rpx solid #fff;
 			.text{
 				margin: 20rpx 30rpx;
 			}
@@ -467,9 +469,10 @@
 		.bigBox {
 			height: 200rpx;
 			width: 690rpx;
-			border-radius: 30rpx;
+			// border-radius: 30rpx;
 			// background: skyblue;
-			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// border: 1rpx solid #ccc;
 			margin: 20rpx auto;
 
 			.function {

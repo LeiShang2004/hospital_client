@@ -17,9 +17,6 @@
 
 		</view>
 		<view class="box" v-for="(item,index) in recordList">
-			<view class="info-title" v-if="!item.isPaid">
-				<label>订单已失效</label>
-			</view>
 			<view class="info-item">
 				<label>订单生成时间:</label>
 				<span>{{ item.orderTime }}</span>
@@ -33,10 +30,6 @@
 				<span>{{ item.department }}</span>
 			</view>
 			<view class="info-item">
-				<label>金额:</label>
-				<span>{{ item.amount }} 元</span>
-			</view>
-			<view class="info-item">
 				<label>患者姓名:</label>
 				<span>{{ item.patientName }}</span>
 			</view>
@@ -44,8 +37,17 @@
 				<label>挂号时间段:</label>
 				<span>{{ item.time }}</span>
 			</view>
+			<view class="info-item">
+				<label>金额:</label>
+				<span>{{ item.amount }} 元</span>
+			</view>
+			
+			
 			<view class="button">
 				<wd-button type="warning" @click="nogate(item.appointmentId)" :disabled="!item.isPaid">取消挂号</wd-button>
+			</view>
+			<view class="info-title" v-if="!item.isPaid">
+				<label>订单已失效</label>
 			</view>
 		</view>
 	</view>
@@ -213,22 +215,22 @@
 		.box {
 			width: 690rpx;
 			// height: 200rpx;
-			border-radius: 30rpx;
-			box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+			// border-radius: 30rpx;
+			// box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 			margin: 30rpx auto;
 			background: #fff;
 			padding: 30rpx 0;
-
+			border: 1rpx solid #000;
 			.info-title {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				margin-bottom: 30rpx;
-
+				margin-top: 30rpx;
+				
 				label {
 					font-size: 15px;
 					font-weight: bold;
-					color: #f00;
+					color: #fda085;
 				}
 			}
 
@@ -237,14 +239,17 @@
 				justify-content: space-between;
 				align-items: center;
 
-				margin: 30rpx 30rpx;
-
+				margin: 0 30rpx;
+				padding: 30rpx 0;
+				border-bottom: 1rpx solid #ccc;
 				label {
-					font-weight: bold;
+					// font-weight: bold;
+					color: #777;
 				}
 
 				span {
 					font-size: 16px;
+					color: #888;
 				}
 			}
 
